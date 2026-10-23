@@ -1,0 +1,395 @@
+{
+  "sourceFile": "Delegaciones_Franciscanas_NSP_2026.docx",
+  "sourceSha256": "8b75153965d3980b825beb791ee2e48cca3b94d67fa3b016727bcebc842853ec",
+  "illustrationCredit": "Ilustración editorial del documento aportado. No es una fotografía documental.",
+  "delegations": [
+    {
+      "id": "3-anos",
+      "sourceOrdinal": 1,
+      "placeName": "Saint-Chinian",
+      "sourceGrade": "3 AÑOS",
+      "sourceColor": "TURQUESA",
+      "suggestedColor": "#22B8AB",
+      "category": "RAÍCES DE LA CONGREGACIÓN",
+      "title": "El comienzo de una misión educativa",
+      "summary": "Aquí comenzó la historia de las Franciscanas del Espíritu Santo.",
+      "history": "En Saint-Chinian, Francia, Carolina Barón (Madre Francisca del Espíritu Santo) fundó en 1861 la Congregación de Hermanas Franciscanas del Espíritu Santo, conocidas como Franciscanas de Montpellier. Su primera comunidad se dedicó especialmente a la acogida y educación de niñas y jóvenes.",
+      "location": "Francia · Hérault",
+      "country": "Francia",
+      "reference": "1861",
+      "sources": [
+        "https://www.fesfranciscanas.com/carolina-baron/"
+      ],
+      "tags": [
+        "origen",
+        "educación",
+        "fraternidad"
+      ],
+      "illustration": "delegations/01.webp",
+      "photoReference": "https://www.sites-cites.fr/app/uploads/2024/04/saint-chinian_vue-1024x768.jpeg",
+      "pending": false
+    },
+    {
+      "id": "4-anos",
+      "sourceOrdinal": 2,
+      "placeName": "Rivotorto",
+      "sourceGrade": "4 AÑOS",
+      "sourceColor": "ROSADO",
+      "suggestedColor": "#EB8DB0",
+      "category": "HUELLA DE SAN FRANCISCO",
+      "title": "La sencillez de los primeros hermanos",
+      "summary": "Un refugio humilde donde comenzó la vida fraterna.",
+      "history": "En Rivotorto, cerca de Asís, Francisco y sus primeros compañeros compartieron una etapa de vida sencilla en una pequeña choza o refugio, recordada hoy por el santuario que protege el Sacro Tugurio. Es un símbolo de pobreza voluntaria, comunidad y fraternidad.",
+      "location": "Italia · Umbría",
+      "country": "Italia",
+      "reference": "1208–1209",
+      "sources": [
+        "https://ofm.org/es/san-francisco.html"
+      ],
+      "tags": [
+        "sencillez",
+        "comunidad",
+        "fraternidad"
+      ],
+      "illustration": "delegations/02.webp",
+      "photoReference": "https://cdn-processed.tmatic.travel/db675706-2b3f-41bf-a364-866e1b5bf167.jpg",
+      "pending": false
+    },
+    {
+      "id": "5-anos",
+      "sourceOrdinal": 3,
+      "placeName": "Montpellier",
+      "sourceGrade": "5 AÑOS",
+      "sourceColor": "VIOLETA",
+      "suggestedColor": "#8C61C8",
+      "category": "RAÍCES DE LA CONGREGACIÓN",
+      "title": "Ciudad ligada a las Franciscanas del Espíritu Santo",
+      "summary": "La ciudad que da nombre a las Franciscanas de Montpellier.",
+      "history": "Montpellier es la ciudad episcopal vinculada a la fundación y desarrollo de las Hermanas Franciscanas del Espíritu Santo. La congregación también es conocida como Franciscanas de Montpellier; la documentación diocesana registra allí la Casa Madre.",
+      "location": "Francia · Hérault",
+      "country": "Francia",
+      "reference": "Siglo XIX",
+      "sources": [
+        "https://www.fesfranciscanas.com/presencia/"
+      ],
+      "tags": [
+        "identidad",
+        "educación",
+        "legado"
+      ],
+      "illustration": "delegations/03.webp",
+      "photoReference": "https://woody.cloudly.space/app/uploads/montpelliertourisme/2024/06/thumbs/PlacedelaComedie-2-OT3M-VanessaC-1920x960-crop-1719582525.webp",
+      "pending": false
+    },
+    {
+      "id": "primero-primaria",
+      "sourceOrdinal": 4,
+      "placeName": "Espoleto",
+      "sourceGrade": "1.º DE PRIMARIA",
+      "sourceColor": "AMARILLO",
+      "suggestedColor": "#F2C94C",
+      "category": "HUELLA DE SAN FRANCISCO",
+      "title": "Un cambio de rumbo",
+      "summary": "En Espoleto, Francisco reconsideró el rumbo de su vida.",
+      "history": "Según la tradición biográfica franciscana, en Espoleto (Spoleto) Francisco tuvo un sueño o experiencia espiritual durante su viaje hacia una campaña militar. Ese episodio lo llevó a regresar a Asís y marcó un giro importante en su proceso de conversión.",
+      "location": "Italia · Umbría",
+      "country": "Italia",
+      "reference": "1205",
+      "sources": [
+        "https://www.franciscanos.org/sfa/crono.html"
+      ],
+      "tags": [
+        "vocación",
+        "decisión",
+        "transformación"
+      ],
+      "illustration": "delegations/04.webp",
+      "photoReference": "https://upload.wikimedia.org/wikipedia/commons/1/13/Spoleto_Ponte_delle_Torri.jpg",
+      "pending": false
+    },
+    {
+      "id": "segundo-primaria",
+      "sourceOrdinal": 5,
+      "placeName": "Greccio",
+      "sourceGrade": "2.º DE PRIMARIA",
+      "sourceColor": "ORO",
+      "suggestedColor": "#C79D31",
+      "category": "HUELLA DE SAN FRANCISCO",
+      "title": "La Navidad hecha cercana",
+      "summary": "En Greccio se recuerda la primera representación del pesebre.",
+      "history": "Greccio está vinculado a la celebración de la Navidad de 1223, cuando San Francisco preparó una representación del nacimiento de Jesús con un pesebre. Su santuario, situado entre rocas y bosques, es uno de los grandes lugares de memoria franciscana.",
+      "location": "Italia · Lacio",
+      "country": "Italia",
+      "reference": "1223",
+      "sources": [
+        "https://ofm.org/es/san-francisco.html"
+      ],
+      "tags": [
+        "navidad",
+        "creatividad",
+        "cercanía"
+      ],
+      "illustration": "delegations/05.webp",
+      "photoReference": "https://www.viaggiamo.it/wp-content/uploads/2020/08/greccio-santuario-francescano.jpg",
+      "pending": false
+    },
+    {
+      "id": "tercero-primaria",
+      "sourceOrdinal": 6,
+      "placeName": "Gubbio",
+      "sourceGrade": "3.º DE PRIMARIA",
+      "sourceColor": "ROJO",
+      "suggestedColor": "#D64550",
+      "category": "HUELLA DE SAN FRANCISCO",
+      "title": "El lobo y la paz",
+      "summary": "La leyenda del lobo recuerda el poder del diálogo y la paz.",
+      "history": "Gubbio es célebre por el relato de las Florecillas de San Francisco sobre el encuentro con un lobo que atemorizaba a la población. La narración religiosa destaca la reconciliación, la compasión y la convivencia con la creación; debe presentarse como tradición, no como hecho zoológico comprobado.",
+      "location": "Italia · Umbría",
+      "country": "Italia",
+      "reference": "Tradición medieval",
+      "sources": [
+        "https://www.franciscanos.org/sfa/gubbio.html"
+      ],
+      "tags": [
+        "paz",
+        "respeto",
+        "naturaleza"
+      ],
+      "illustration": "delegations/06.webp",
+      "photoReference": "https://admin-istituzionale.touringclub.it/uploads/shutterstock_1015001419.jpg",
+      "pending": false
+    },
+    {
+      "id": "cuarto-primaria",
+      "sourceOrdinal": 7,
+      "placeName": "Fonte Colombo",
+      "sourceGrade": "4.º DE PRIMARIA",
+      "sourceColor": "CORAL",
+      "suggestedColor": "#F47D6E",
+      "category": "HUELLA DE SAN FRANCISCO",
+      "title": "Un lugar de reflexión y compromiso",
+      "summary": "En Fonte Colombo se vinculó la redacción de la Regla franciscana.",
+      "history": "Fonte Colombo es un santuario del valle de Rieti, asociado a la redacción en 1223 de la Regla definitiva de los Hermanos Menores. Es un símbolo de discernimiento, oración, vida en comunidad y compromiso con una manera de vivir.",
+      "location": "Italia · Lacio",
+      "country": "Italia",
+      "reference": "1223",
+      "sources": [
+        "https://comune.greccio.ri.it/luoghi/2715698/itinerari-turistici"
+      ],
+      "tags": [
+        "reflexión",
+        "compromiso",
+        "reglas"
+      ],
+      "illustration": "delegations/07.webp",
+      "photoReference": "https://www.clarissevallesanta.it/wp-content/uploads/2023/01/santuario-fonte-colombo.jpg",
+      "pending": false
+    },
+    {
+      "id": "sexto-primaria",
+      "sourceOrdinal": 8,
+      "placeName": "La Porciúncula",
+      "sourceGrade": "5.º DE PRIMARIA",
+      "sourceColor": "LILA",
+      "suggestedColor": "#AD83DA",
+      "category": "HUELLA DE SAN FRANCISCO",
+      "title": "Un pequeño lugar, una gran historia",
+      "summary": "Capilla que fue centro de la primera fraternidad franciscana.",
+      "history": "La Porciúncula es una pequeña capilla conservada dentro de la basílica de Santa María de los Ángeles, cerca de Asís. San Francisco la restauró y la convirtió en centro espiritual de sus primeros compañeros. También está asociada a Santa Clara y al fallecimiento del santo en 1226.",
+      "location": "Italia · Umbría",
+      "country": "Italia",
+      "reference": "Siglo XIII",
+      "sources": [
+        "https://www.visit-assisi.it/en/monuments/religious-buildings/papal-basilica-of-santa-maria-degli-angeli-in-porziuncola/"
+      ],
+      "tags": [
+        "comunidad",
+        "humildad",
+        "comienzo"
+      ],
+      "illustration": "delegations/08.webp",
+      "photoReference": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Assisi%20-%20Porziuncola%20-%20002.JPG",
+      "pending": false
+    },
+    {
+      "id": "quinto-primaria",
+      "sourceOrdinal": 9,
+      "placeName": "Damieta (Egipto)",
+      "sourceGrade": "6.º DE PRIMARIA",
+      "sourceColor": "CELESTE",
+      "suggestedColor": "#68BDE6",
+      "category": "HUELLA DE SAN FRANCISCO",
+      "title": "Un encuentro entre culturas",
+      "summary": "En Damieta se recuerda el diálogo de Francisco con el sultán.",
+      "history": "Durante la quinta cruzada, en 1219, San Francisco se encontró con el sultán al-Malik al-Kamil cerca de Damieta. Este episodio es recordado hoy como un signo de encuentro entre personas de distintas religiones y una invitación a la paz y al diálogo.",
+      "location": "Egipto · Delta del Nilo",
+      "country": "Egipto",
+      "reference": "1219",
+      "sources": [
+        "https://ofm.org/en/egypt-the-eight-hundredth-anniversary-of-the-meeting-between-st-francis-and-the-sultan.html"
+      ],
+      "tags": [
+        "diálogo",
+        "paz",
+        "interculturalidad"
+      ],
+      "illustration": "delegations/09.webp",
+      "photoReference": "https://www.uil.unesco.org/sites/default/files/structured_data/lc0001/2477224_SRStudio_Shutterstock.com_Damietta.jpg",
+      "pending": false
+    },
+    {
+      "id": "segundo-secundaria",
+      "sourceOrdinal": 10,
+      "placeName": "Monte Alvernia",
+      "sourceGrade": "1.º DE SECUNDARIA",
+      "sourceColor": "NARANJA",
+      "suggestedColor": "#EA873C",
+      "category": "HUELLA DE SAN FRANCISCO",
+      "title": "Contemplación en la montaña",
+      "summary": "La Verna es el monte del retiro y de los estigmas de Francisco.",
+      "history": "Monte Alvernia, también llamado La Verna, es un santuario situado en una montaña boscosa de Toscana. Según la tradición franciscana, allí Francisco recibió los estigmas durante un retiro espiritual en 1224.",
+      "location": "Italia · Toscana",
+      "country": "Italia",
+      "reference": "1224",
+      "sources": [
+        "https://ofm.org/es/san-francisco.html"
+      ],
+      "tags": [
+        "contemplación",
+        "naturaleza",
+        "fortaleza"
+      ],
+      "illustration": "delegations/10.webp",
+      "photoReference": "https://static.wixstatic.com/media/bf515d_8b4df163417345f08c248ffbe1733024~mv2.jpg/v1/fit/w_1000%2Ch_1000%2Cal_c%2Cq_80/file.jpg",
+      "pending": false
+    },
+    {
+      "id": "primero-secundaria",
+      "sourceOrdinal": 11,
+      "placeName": "Iglesia de San Damián",
+      "sourceGrade": "2.º DE SECUNDARIA",
+      "sourceColor": "AZUL",
+      "suggestedColor": "#3577C9",
+      "category": "HUELLA DE SAN FRANCISCO",
+      "title": "Reconstruir y servir",
+      "summary": "Una iglesia pequeña vinculada a la conversión de Francisco.",
+      "history": "En la iglesia de San Damián, cerca de Asís, se sitúa la experiencia del crucifijo que inspiró a Francisco a reparar la iglesia. Más adelante el lugar estuvo estrechamente unido a Santa Clara y las primeras clarisas.",
+      "location": "Italia · Umbría",
+      "country": "Italia",
+      "reference": "1205–1206",
+      "sources": [
+        "https://centenarifrancescani.org/index.php/es/lugares"
+      ],
+      "tags": [
+        "servicio",
+        "renovación",
+        "fe"
+      ],
+      "illustration": "delegations/11.webp",
+      "photoReference": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/San-Damiano-exterior.jpg/1280px-San-Damiano-exterior.jpg",
+      "pending": false
+    },
+    {
+      "id": "tercero-secundaria",
+      "sourceOrdinal": 12,
+      "placeName": "Mailhac",
+      "sourceGrade": "3.º DE SECUNDARIA",
+      "sourceColor": "LIMA",
+      "suggestedColor": "#A1C952",
+      "category": "RAÍCES DE LA CONGREGACIÓN",
+      "title": "El origen de Carolina Barón",
+      "summary": "En Mailhac nació la fundadora de las Franciscanas de Montpellier.",
+      "history": "Mailhac es una localidad francesa próxima a Narbona. Allí nació Carolina Barón el 12 de diciembre de 1820. Con el tiempo se convirtió en Madre Francisca del Espíritu Santo y fundó la congregación de las Franciscanas del Espíritu Santo.",
+      "location": "Francia · Aude",
+      "country": "Francia",
+      "reference": "1820",
+      "sources": [
+        "https://www.fesfranciscanas.com/carolina-baron/"
+      ],
+      "tags": [
+        "raíces",
+        "vocación",
+        "legado"
+      ],
+      "illustration": "delegations/12.webp",
+      "photoReference": "https://www.mailhac.fr/fileadmin/mediatheque_mailhac/Pages_editoriales/Accueil/Rue-Mailhac.jpg",
+      "pending": false
+    },
+    {
+      "id": "cuarto-secundaria",
+      "sourceOrdinal": 13,
+      "placeName": "Montpeyroux",
+      "sourceGrade": "4.º DE SECUNDARIA",
+      "sourceColor": "AZUL MARINO",
+      "suggestedColor": "#223F78",
+      "category": "LOCALIDAD DE FRANCIA",
+      "title": "Patrimonio del sur de Francia",
+      "summary": "Pueblo de Occitania incluido en la identidad de las olimpiadas.",
+      "history": "Montpeyroux es una localidad de Hérault, cercana a Montpellier, conocida por su patrimonio rural, el entorno del monte Saint-Baudille y la tradición vitivinícola. No se encontró una fuente suficiente para atribuirle un acontecimiento particular de San Francisco o de Carolina Barón; conviene tratarlo como localidad del repertorio escolar hasta confirmar el motivo.",
+      "location": "Francia · Hérault",
+      "country": "Francia",
+      "reference": "Sin fecha verificada",
+      "sources": [
+        "https://www.cc-vallee-herault.fr/annuaire/montpeyroux/"
+      ],
+      "tags": [
+        "patrimonio",
+        "región",
+        "identidad"
+      ],
+      "illustration": "delegations/13.webp",
+      "photoReference": "https://legrandmontpellier.fr/wp-content/uploads/2020/03/le-castellas-de-montpeyroux-7.jpg",
+      "pending": true
+    },
+    {
+      "id": "quinto-secundaria",
+      "sourceOrdinal": 14,
+      "placeName": "Béziers",
+      "sourceGrade": "5.º DE SECUNDARIA",
+      "sourceColor": "FUCSIA",
+      "suggestedColor": "#D94C9C",
+      "category": "PRESENCIA FRANCISCANA EN FRANCIA",
+      "title": "Una ciudad con presencia franciscana",
+      "summary": "Béziers forma parte del paisaje franciscano del sur de Francia.",
+      "history": "Béziers es una ciudad histórica de Hérault, conocida por su catedral y el puente antiguo sobre el río Orb. La diócesis de Montpellier registra en la ciudad una comunidad de Franciscanas del Espíritu Santo y espacios vinculados a los franciscanos. No debe confundirse con un lugar de vida documentada de San Francisco de Asís.",
+      "location": "Francia · Hérault",
+      "country": "Francia",
+      "reference": "Referencia diocesana",
+      "sources": [
+        "https://montpellier.catholique.fr/etapes-de-la-vie/vie-consacree/"
+      ],
+      "tags": [
+        "presencia",
+        "ciudad",
+        "comunidad"
+      ],
+      "illustration": "delegations/14.webp",
+      "photoReference": "https://ik.imgkit.net/3vlqs5axxjf/TW/uploadedImages/Art/2024/0520/T0520BeziersCathBridge11_C_HR.jpg?n=4580&tr=w-1200%2Cfo-auto",
+      "pending": false
+    },
+    {
+      "id": "ex-alumnas",
+      "sourceOrdinal": 15,
+      "placeName": "Exalumnas",
+      "sourceGrade": "EXALUMNAS",
+      "sourceColor": "ROSADO",
+      "suggestedColor": "#D971A1",
+      "category": "/  15          DELEGACIÓN ESCOLAR",
+      "title": "Una historia que continúa",
+      "summary": "La comunidad de exalumnas mantiene viva la identidad escolar.",
+      "history": "El listado compartido identifica a las exalumnas y su color rosado, pero no asigna un lugar franciscano a esta delegación. Se mantiene “Exalumnas” como nombre visible y el lugar se deja pendiente, sin adjudicarle Béziers ni otro destino.",
+      "location": null,
+      "country": null,
+      "reference": "Por confirmar",
+      "sources": [],
+      "tags": [
+        "pertenencia",
+        "memoria",
+        "comunidad"
+      ],
+      "illustration": "delegations/15.webp",
+      "photoReference": null,
+      "pending": true
+    }
+  ]
+}

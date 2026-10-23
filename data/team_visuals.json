@@ -1,0 +1,152 @@
+{
+  "3-anos": {
+    "image": "teams/saint-chinian.jpg",
+    "place": "Claustro de la antigua abadía",
+    "country": "Saint-Chinian · Francia",
+    "source": "https://commons.wikimedia.org/wiki/File:Saint-Chinian_cloitre.JPG",
+    "author": "Fagairolles 34",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "reference": "Referencia visual del lugar o patrimonio religioso. No es un emblema oficial del equipo."
+  },
+  "4-anos": {
+    "image": "teams/rivotorto.jpg",
+    "place": "Santuario de Rivotorto",
+    "country": "Asís · Italia",
+    "source": "https://commons.wikimedia.org/wiki/File:Santuaro_Rivotorto_front_Perugia_Italy_Sep19_D72_11985.jpg",
+    "author": "Timothy A. Gonsalves",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "reference": "Referencia visual del lugar o patrimonio religioso. No es un emblema oficial del equipo."
+  },
+  "5-anos": {
+    "image": "teams/mont-peller.jpg",
+    "place": "Catedral de Saint-Pierre",
+    "country": "Montpellier · Francia",
+    "source": "https://commons.wikimedia.org/wiki/File:Montpellier_-_Cath%C3%A9drale_Saint-Pierre_-_Facade.jpg",
+    "author": "Ecelan",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "reference": "Referencia visual del lugar o patrimonio religioso. No es un emblema oficial del equipo."
+  },
+  "primero-primaria": {
+    "image": "teams/espoleto.jpg",
+    "place": "Ermita franciscana de Monteluco",
+    "country": "Spoleto · Italia",
+    "source": "https://commons.wikimedia.org/wiki/File:Eremo_francescano._Monteluco_di_Spoleto.jpg",
+    "author": "Manuelarosi",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "reference": "Referencia visual del lugar o patrimonio religioso. No es un emblema oficial del equipo."
+  },
+  "segundo-primaria": {
+    "image": "teams/greccio.jpg",
+    "place": "Santuario de Greccio",
+    "country": "Greccio · Italia",
+    "source": "https://commons.wikimedia.org/wiki/File:Greccio_PanoramaSantuario.jpg",
+    "author": "Roberto_Barone_ph",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "reference": "Referencia visual del lugar o patrimonio religioso. No es un emblema oficial del equipo."
+  },
+  "tercero-primaria": {
+    "image": "teams/gubbio.jpg",
+    "place": "Iglesia de San Francisco",
+    "country": "Gubbio · Italia",
+    "source": "https://commons.wikimedia.org/wiki/File:Chiesa_di_San_Francesco_-_esterno.jpg",
+    "author": "Labicanense",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "reference": "Referencia visual del lugar o patrimonio religioso. No es un emblema oficial del equipo."
+  },
+  "cuarto-primaria": {
+    "image": "teams/fonte-colombo.jpg",
+    "place": "Santuario de Fonte Colombo",
+    "country": "Rieti · Italia",
+    "source": "https://commons.wikimedia.org/wiki/File:Fonte_Colombo_1.jpg",
+    "author": "DarioMar19",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "reference": "Referencia visual del lugar o patrimonio religioso. No es un emblema oficial del equipo."
+  },
+  "quinto-primaria": {
+    "image": "teams/damieta.jpg",
+    "place": "San Francisco ante el sultán · Giotto",
+    "country": "Damieta · Egipto",
+    "source": "https://commons.wikimedia.org/wiki/File:Giotto-St_Francis_before_the_Sultan_small.jpg",
+    "author": "Parzi",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Giotto-St_Francis_before_the_Sultan_small.jpg",
+    "reference": "Referencia visual del lugar o patrimonio religioso. No es un emblema oficial del equipo."
+  },
+  "sexto-primaria": {
+    "image": "teams/porciuncula.jpg",
+    "place": "Capilla de la Porciúncula",
+    "country": "Asís · Italia",
+    "source": "https://commons.wikimedia.org/wiki/File:Portiuncula_on_the_Feast_of_the_Pardon.jpg",
+    "author": "Alekjds",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "reference": "Referencia visual del lugar o patrimonio religioso. No es un emblema oficial del equipo."
+  },
+  "primero-secundaria": {
+    "image": "teams/san-damian.jpg",
+    "place": "Claustro de San Damiano",
+    "country": "Asís · Italia",
+    "source": "https://commons.wikimedia.org/wiki/File:San_Damiano_(Assisi)_-_Cloisters(4).jpg",
+    "author": "Cruz.croce",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "reference": "Referencia visual del lugar o patrimonio religioso. No es un emblema oficial del equipo."
+  },
+  "segundo-secundaria": {
+    "image": "teams/monte-alvernia.jpg",
+    "place": "Santuario de La Verna",
+    "country": "Toscana · Italia",
+    "source": "https://commons.wikimedia.org/wiki/File:Santuario_della_Verna_-_L%27ingresso.jpg",
+    "author": "Anna.Massini",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "reference": "Referencia visual del lugar o patrimonio religioso. No es un emblema oficial del equipo."
+  },
+  "tercero-secundaria": {
+    "image": "teams/mailhac.jpg",
+    "place": "Paisaje histórico de Mailhac",
+    "country": "Mailhac · Francia",
+    "source": "https://commons.wikimedia.org/wiki/File:Pano_Mailhac.jpg",
+    "author": "Juanes852",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "reference": "Referencia visual del lugar o patrimonio religioso. No es un emblema oficial del equipo."
+  },
+  "cuarto-secundaria": {
+    "image": "teams/mont-peyroux.jpg",
+    "place": "Imagen de San Roque en Montpeyroux",
+    "country": "Hérault · Francia",
+    "source": "https://commons.wikimedia.org/wiki/File:Montpeyroux_(H%C3%A9rault,_Fr)_statue_Saint_Roch.JPG",
+    "author": "Havang(nl)",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "reference": "Referencia visual del lugar o patrimonio religioso. No es un emblema oficial del equipo."
+  },
+  "quinto-secundaria": {
+    "image": "teams/beziers.jpg",
+    "place": "Catedral de Saint-Nazaire",
+    "country": "Béziers · Francia",
+    "source": "https://commons.wikimedia.org/wiki/File:Pont_Vieux_et_Cath%C3%A9drale_Saint-Nazaire.jpg",
+    "author": "Christian Ferrer",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "reference": "Referencia visual del lugar o patrimonio religioso. No es un emblema oficial del equipo."
+  },
+  "ex-alumnas": {
+    "image": "teams/rivotorto.jpg",
+    "place": "Santuario de Rivotorto",
+    "country": "Asís · Italia",
+    "source": "https://commons.wikimedia.org/wiki/File:Santuaro_Rivotorto_front_Perugia_Italy_Sep19_D72_11985.jpg",
+    "author": "Timothy A. Gonsalves",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "reference": "Referencia visual del lugar o patrimonio religioso. No es un emblema oficial del equipo."
+  }
+}

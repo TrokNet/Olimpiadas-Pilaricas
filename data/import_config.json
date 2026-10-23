@@ -1,0 +1,11 @@
+{
+  "teams_sheet": "Equipos web",
+  "matches_sheet": "Fixture web",
+  "header_row": 5,
+  "columns": {
+    "sport": "Disciplina", "number": "ID equipo", "grade": "Grado / sección", "name": "Nombre del equipo", "color": "Color",
+    "date": "Fecha", "court": "Cancha física", "start": "Inicio", "end": "Fin", "phase": "Fase",
+    "home": "Equipo local (PDF)", "away": "Equipo visita (PDF)", "kind": "Tipo", "referee": "Árbitro asignado",
+    "home_score": "Marcador local", "away_score": "Marcador visita"
+  }
+}

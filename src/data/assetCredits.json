@@ -1,0 +1,35 @@
+[
+  {
+    "title": "Trofeo",
+    "author": "Casey Tumbers",
+    "source": "https://poly.pizza/m/6Xu7mttjodo",
+    "download": "https://threeasy.org/examples/models/trophy.glb",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "changes": "Orientación, pivote, refinamiento de superficie, materiales metálicos y base oscura; optimización GLB."
+  },
+  {
+    "title": "Balones de fútbol, vóley y básquet",
+    "author": "dLeom",
+    "source": "https://dleom.itch.io/sports-balls3d",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "changes": "Pivotes, escala, materiales y normal fotográfica; optimización GLB."
+  },
+  {
+    "title": "Studio Small 09 · HDRI",
+    "author": "Sergej Majboroda / Poly Haven",
+    "source": "https://polyhaven.com/a/studio_small_09",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "changes": "Versión HDR de 1K."
+  },
+  {
+    "title": "Leather White · Normal de superficie",
+    "author": "Rob Tuytel / Poly Haven",
+    "source": "https://polyhaven.com/a/leather_white",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "changes": "Normal GL reducida a 512 px, WebP y aplicada con intensidad moderada."
+  }
+]
