@@ -754,6 +754,7 @@ export default function App() {
           </span>
         </a>
         <nav
+          id="main-navigation"
           className={mobileMenu ? "open" : ""}
           aria-label="Navegación principal"
         >
@@ -809,6 +810,7 @@ export default function App() {
             className="icon-button mobile-nav"
             onClick={() => setMobileMenu((v) => !v)}
             aria-label="Abrir navegación"
+            aria-controls="main-navigation"
             aria-expanded={mobileMenu}
           >
             {mobileMenu ? <X /> : <Menu />}
