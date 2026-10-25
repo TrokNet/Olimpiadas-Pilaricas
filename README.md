@@ -179,3 +179,17 @@ API: `GET /api/fans` (team_id/cursor/limit), `POST /api/fans` y `DELETE /api/fan
 La vista provisional pública ahora se sirve con `uvicorn backend.public_preview:app --host 127.0.0.1 --port 5174`. Sirve dist, consulta del torneo y API Fans; no expone los endpoints de edición de reglas/resultados oficiales. El túnel existente conserva su URL. Fans requiere ese servidor: un despliegue exclusivamente estático no comparte ni guarda mensajes. El acceso local en 5173 usa la API habitual de 8000, que también incluye Fans.
 
 Pruebas: mensajes compartidos, filtros/paginación, publicación, claves incorrectas, borrado autenticado, contenido como texto, reintentos de conexión, persistencia al reimportar, migración portable y cierre de endpoints oficiales en el acceso público. Las pruebas de escritura usan bases temporales; el historial real comienza vacío.
+
+## Acceso protegido para resultados
+
+La aplicación de servidor (`backend.public_preview:app`) permite iniciar sesión en `#resultados/registrar`. Cada cuenta de salón se vincula al ID estable del grado; sus códigos TEAM se resuelven por disciplina. Puede registrar ambos marcadores únicamente cuando participa ese grado. El administrador puede registrar cualquier partido y configurar reglas. Si el reglamento de una disciplina sigue pendiente, debe confirmarlo el administrador antes de registrar resultados.
+
+Crear una sola vez las 15 cuentas de equipo y el administrador:
+
+```sh
+.venv/bin/python scripts/provision_accounts.py
+```
+
+Las contraseñas aleatorias se entregan una sola vez en `.local/credenciales-equipos.csv`, con permisos privados. No agregar este archivo a Git ni publicarlo en `dist`. La BD conserva únicamente hashes scrypt con sal individual. Las sesiones duran 12 horas, usan cookies HttpOnly/SameSite Strict (Secure bajo el dominio público), y se revocan al cerrar sesión. Cada guardado autenticado queda registrado en `result_audit` con usuario, partido y marcador. El script de creación rechaza reemplazar cuentas existentes.
+
+El acceso anónimo conserva calendarios, resultados y Fans; las rutas públicas de escritura exigen autenticación y verifican permisos en el servidor. Las reglas solo pueden modificarse con la cuenta administradora. GitHub Pages por sí solo no ejecuta estas funciones: requieren el servidor Python y su BD persistente.

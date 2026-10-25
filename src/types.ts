@@ -45,7 +45,12 @@ export interface ScoringRule {
   tiebreakers: ("points" | "wins" | "difference" | "for")[];
 }
 export interface Tournament {
-  capabilities?: { result_write: boolean };
+  capabilities?: { result_write: boolean; auth_required?: boolean };
+  auth_user?: {
+    username: string;
+    role: "admin" | "team";
+    grade_id: string | null;
+  } | null;
   art?: Record<string, TeamArt>;
   schemaVersion: number;
   timezone: string;

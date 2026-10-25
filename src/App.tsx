@@ -456,8 +456,7 @@ export default function App() {
         if (
           Array.isArray(live.matches) &&
           Array.isArray(live.entries) &&
-          Array.isArray(live.grades) &&
-          live.capabilities?.result_write === true
+          Array.isArray(live.grades)
         )
           setData(live);
       })

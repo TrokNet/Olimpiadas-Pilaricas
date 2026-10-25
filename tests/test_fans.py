@@ -73,7 +73,7 @@ class FansApiTests(unittest.TestCase):
         self.assertFalse(self.call('/api/tournament')['capabilities']['result_write'])
         for path,method,body in [('/.local/fans_admin.json','GET',None),('/api/rules/futbol-masculino','PUT',{}),('/api/results/anything','PUT',{})]:
             with self.assertRaises(urllib.error.HTTPError) as failure:self.call(path,body,method)
-            self.assertIn(failure.exception.code,[404,405])
+            self.assertEqual(failure.exception.code,404 if path.startswith('/.local/') else 401)
 
     def test_fans_survive_reimport_and_portable_migration(self):
         item=self.post('ex-alumnas','¡Nuestra Señora del Pilar!')

@@ -3,6 +3,7 @@ import type { Match, RecordedResult, ScoringRule, Tournament } from "./types";
 import { SPORTS } from "./types";
 import { dayLabel, download, gradeFor, participantLabel } from "./lib";
 import Standings from "./Standings";
+import ResultLogin from "./ResultLogin";
 import { getTeamArt } from "./teamArt";
 import { Users, CheckCircle2, ArrowRight } from "lucide-react";
 import TournamentBoard from "./TournamentBoard";
@@ -343,7 +344,28 @@ export default function ResultManager({
       data.matches.find((m) => m.id === initialMatchId)?.sport || SPORTS[0].id,
   );
   const [selected, setSelected] = useState(initialMatchId);
-  const [team, setTeam] = useState("");
+  const account = data.auth_user;
+  const scopedGrade =
+    mode === "register" && account?.role === "team" ? account.grade_id : null;
+  const canConfigure =
+    !data.capabilities?.auth_required || account?.role === "admin";
+  const [chosenTeamId, setTeam] = useState("");
+  const team = scopedGrade || chosenTeamId;
+  useEffect(() => {
+    if (scopedGrade) {
+      setSelected("");
+      const available = SPORTS.filter((s) =>
+        data.entries.some(
+          (e) => e.grade_id === scopedGrade && e.sport === s.id,
+        ),
+      );
+      setSport((previous) =>
+        available.some((s) => s.id === previous)
+          ? previous
+          : available[0]?.id || previous,
+      );
+    }
+  }, [scopedGrade, data.entries]);
   const chosenTeam = data.grades.find((g) => g.id === team);
   const chosenArt = chosenTeam ? getTeamArt(chosenTeam.id) : undefined;
   const availableSports = SPORTS.filter(
@@ -401,6 +423,11 @@ export default function ResultManager({
       : data;
   const matches = effective.matches.filter(
     (m) =>
+      (!scopedGrade ||
+        [m.home_id, m.away_id].some(
+          (id) =>
+            data.entries.find((e) => e.id === id)?.grade_id === scopedGrade,
+        )) &&
       m.sport === sport &&
       m.kind === "OFICIAL" &&
       m.home_id &&
@@ -458,6 +485,9 @@ export default function ResultManager({
       setSaving(false);
     }
   };
+  if (mode === "register" && data.capabilities?.auth_required && !account) {
+    return <ResultLogin onUpdate={onUpdate} />;
+  }
   return (
     <section
       className={
@@ -466,6 +496,38 @@ export default function ResultManager({
           : "page-content result-management"
       }
     >
+      {mode === "register" && account && (
+        <div className="result-session">
+          <span>
+            <strong>
+              {account.role === "admin"
+                ? "Administrador"
+                : data.grades.find((g) => g.id === account.grade_id)?.name}
+            </strong>{" "}
+            · {account.username}
+          </span>
+          <button
+            className="text-button"
+            onClick={async () => {
+              try {
+                const response = await fetch("/api/auth/logout", {
+                  method: "POST",
+                  credentials: "same-origin",
+                });
+                if (!response.ok)
+                  throw new Error("No se pudo cerrar la sesión.");
+                onUpdate(await response.json());
+                setTeam("");
+                setSelected("");
+              } catch {
+                setNotice("No se pudo cerrar la sesión. Inténtalo de nuevo.");
+              }
+            }}
+          >
+            Cerrar sesión
+          </button>
+        </div>
+      )}
       {!embedded && (
         <>
           <span className="eyebrow coral-text">RESULTADOS POR DISCIPLINA</span>
@@ -518,8 +580,10 @@ export default function ResultManager({
                   ¿De qué equipo quieres registrar un resultado?
                 </label>
                 <select
+                  key={scopedGrade || "all-teams"}
                   id="registration-team"
                   value={team}
+                  disabled={!!scopedGrade}
                   onChange={(e) => {
                     const next = e.target.value;
                     setTeam(next);
@@ -536,11 +600,13 @@ export default function ResultManager({
                   }}
                 >
                   <option value="">Selecciona un equipo</option>
-                  {data.grades.map((g) => (
-                    <option value={g.id} key={g.id}>
-                      {g.name} — {g.label}
-                    </option>
-                  ))}
+                  {data.grades
+                    .filter((g) => !scopedGrade || g.id === scopedGrade)
+                    .map((g) => (
+                      <option value={g.id} key={g.id}>
+                        {g.name} — {g.label}
+                      </option>
+                    ))}
                 </select>
                 <div className="registration-team-preview">
                   {chosenArt ? (
@@ -739,21 +805,25 @@ export default function ResultManager({
             <>
               {mode === "register" && !data.rules?.[sport] && (
                 <p className="registration-rule-status">
-                  Reglamento pendiente.{" "}
-                  <button
-                    type="button"
-                    onClick={() => {
-                      const panel = document.querySelector<HTMLDetailsElement>(
-                        ".result-management .result-rules",
-                      );
-                      if (panel) {
-                        panel.open = true;
-                        panel.scrollIntoView({ block: "nearest" });
-                      }
-                    }}
-                  >
-                    Configurar
-                  </button>
+                  El administrador debe confirmar el reglamento de esta
+                  disciplina.{" "}
+                  {canConfigure && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const panel =
+                          document.querySelector<HTMLDetailsElement>(
+                            ".result-management .result-rules",
+                          );
+                        if (panel) {
+                          panel.open = true;
+                          panel.scrollIntoView({ block: "nearest" });
+                        }
+                      }}
+                    >
+                      Configurar
+                    </button>
+                  )}
                 </p>
               )}
               {notice && (
@@ -833,88 +903,90 @@ export default function ResultManager({
                     : "No hay partidos con ambos equipos definidos en esta disciplina."}
                 </p>
               )}
-              <details className="result-rules">
-                <summary>Configurar puntuación y walkover</summary>
-                <p>
-                  Los valores iniciales de victoria, empate y derrota son
-                  propuestas editables. Confirma y guarda el reglamento de cada
-                  disciplina antes de registrar. El W.O. usa los marcadores y 3
-                  puntos indicados por la organización.
-                </p>
-                <div className="rule-grid">
-                  {(
-                    [
-                      ["win", "Puntos por victoria"],
-                      ["draw", "Puntos por empate"],
-                      ["loss", "Puntos por derrota"],
-                      ["wo_win", "Puntos por ganar W.O."],
-                      ["wo_loss", "Puntos por perder W.O."],
-                      ["wo_score_for", "Marcador W.O. a favor"],
-                      ["wo_score_against", "Marcador W.O. en contra"],
-                    ] as const
-                  ).map(([key, label]) => (
-                    <Numeric
-                      key={key}
-                      label={label}
-                      value={rule[key] ?? 0}
-                      onChange={(n) => setRule((r) => ({ ...r, [key]: n }))}
-                    />
-                  ))}
-                  {sport.startsWith("voley") && (
-                    <Numeric
-                      label="Tantos por set de W.O."
-                      value={rule.wo_set_points ?? 25}
-                      onChange={(n) =>
-                        setRule((r) => ({ ...r, wo_set_points: n }))
+              {(mode === "simulation" || canConfigure) && (
+                <details className="result-rules">
+                  <summary>Configurar puntuación y walkover</summary>
+                  <p>
+                    Los valores iniciales de victoria, empate y derrota son
+                    propuestas editables. Confirma y guarda el reglamento de
+                    cada disciplina antes de registrar. El W.O. usa los
+                    marcadores y 3 puntos indicados por la organización.
+                  </p>
+                  <div className="rule-grid">
+                    {(
+                      [
+                        ["win", "Puntos por victoria"],
+                        ["draw", "Puntos por empate"],
+                        ["loss", "Puntos por derrota"],
+                        ["wo_win", "Puntos por ganar W.O."],
+                        ["wo_loss", "Puntos por perder W.O."],
+                        ["wo_score_for", "Marcador W.O. a favor"],
+                        ["wo_score_against", "Marcador W.O. en contra"],
+                      ] as const
+                    ).map(([key, label]) => (
+                      <Numeric
+                        key={key}
+                        label={label}
+                        value={rule[key] ?? 0}
+                        onChange={(n) => setRule((r) => ({ ...r, [key]: n }))}
+                      />
+                    ))}
+                    {sport.startsWith("voley") && (
+                      <Numeric
+                        label="Tantos por set de W.O."
+                        value={rule.wo_set_points ?? 25}
+                        onChange={(n) =>
+                          setRule((r) => ({ ...r, wo_set_points: n }))
+                        }
+                      />
+                    )}
+                  </div>
+                  <label className="result-check">
+                    <input
+                      type="checkbox"
+                      checked={rule.allow_draw}
+                      disabled={sport.startsWith("voley")}
+                      onChange={(e) =>
+                        setRule((r) => ({ ...r, allow_draw: e.target.checked }))
                       }
                     />
-                  )}
-                </div>
-                <label className="result-check">
-                  <input
-                    type="checkbox"
-                    checked={rule.allow_draw}
-                    disabled={sport.startsWith("voley")}
-                    onChange={(e) =>
-                      setRule((r) => ({ ...r, allow_draw: e.target.checked }))
-                    }
-                  />
-                  Permitir empate en fase de grupos
-                </label>
-                <label className="result-select">
-                  Criterios de desempate
-                  <select
-                    value={rule.tiebreakers.join(",")}
-                    onChange={(e) =>
-                      setRule((r) => ({
-                        ...r,
-                        tiebreakers: e.target.value.split(
-                          ",",
-                        ) as ScoringRule["tiebreakers"],
-                      }))
-                    }
+                    Permitir empate en fase de grupos
+                  </label>
+                  <label className="result-select">
+                    Criterios de desempate
+                    <select
+                      value={rule.tiebreakers.join(",")}
+                      onChange={(e) =>
+                        setRule((r) => ({
+                          ...r,
+                          tiebreakers: e.target.value.split(
+                            ",",
+                          ) as ScoringRule["tiebreakers"],
+                        }))
+                      }
+                    >
+                      <option value="points,difference,for">
+                        Puntos, diferencia, tantos/goles a favor
+                      </option>
+                      <option value="points,wins,difference,for">
+                        Puntos, victorias, diferencia, tantos/goles a favor
+                      </option>
+                      <option value="points">
+                        Solo puntos (empates de posición)
+                      </option>
+                    </select>
+                  </label>
+                  <button
+                    className="button outline"
+                    disabled={saving || (mode === "register" && !connected)}
+                    onClick={writeRule}
                   >
-                    <option value="points,difference,for">
-                      Puntos, diferencia, tantos/goles a favor
-                    </option>
-                    <option value="points,wins,difference,for">
-                      Puntos, victorias, diferencia, tantos/goles a favor
-                    </option>
-                    <option value="points">
-                      Solo puntos (empates de posición)
-                    </option>
-                  </select>
-                </label>
-                <button
-                  className="button outline"
-                  disabled={saving || (mode === "register" && !connected)}
-                  onClick={writeRule}
-                >
-                  {mode === "simulation"
-                    ? "Guardar reglas de simulación"
-                    : "Confirmar y guardar reglas"}
-                </button>
-              </details>
+                    {mode === "simulation"
+                      ? "Guardar reglas de simulación"
+                      : "Confirmar y guardar reglas"}
+                  </button>
+                </details>
+              )}
               <div className="simulation-actions">
                 {mode === "simulation" && (
                   <>

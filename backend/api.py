@@ -5,7 +5,7 @@ from fastapi import FastAPI, HTTPException, Request
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 from scripts.export_data import dataset
-from backend.database import engine_for, initialize, Match, Entry, Metadata, MatchResult
+from backend.database import engine_for, initialize, Match, Entry, Metadata, MatchResult, ResultAudit
 from backend.results import ResultInput, RuleInput, normalize_result
 app=FastAPI(title='Olimpiadas Pilaricas 2026',version='1.1.0')
 from backend.fans import router as fans_router
@@ -32,6 +32,9 @@ def local_writer(request):
 @app.put('/api/rules/{sport}')
 def save_rules(sport:str,payload:RuleInput,request:Request):
     local_writer(request)
+    return write_rules(sport,payload)
+
+def write_rules(sport,payload):
     with Session(engine) as s,s.begin():
         if not s.scalar(select(Entry.id).where(Entry.sport==sport)):raise HTTPException(404,'Disciplina inexistente')
         item=s.get(Metadata,'scoring_rules');rules=json.loads(item.value) if item else {}
@@ -51,6 +54,9 @@ def save_rules(sport:str,payload:RuleInput,request:Request):
 @app.put('/api/results/{match_id}')
 def save_result(match_id:str,payload:ResultInput,request:Request):
     local_writer(request)
+    return write_result(match_id,payload)
+
+def write_result(match_id,payload,actor=None):
     with Session(engine) as s,s.begin():
         item=s.get(Match,match_id)
         if not item:raise HTTPException(404,'Partido inexistente')
@@ -58,5 +64,8 @@ def save_result(match_id:str,payload:ResultInput,request:Request):
         if not rule:raise HTTPException(422,'Guarda las reglas de puntuación de esta disciplina antes del resultado.')
         try:result=normalize_result(item,payload.model_dump(),rule)
         except ValueError as e:raise HTTPException(422,str(e)) from e
+        if actor:
+            from uuid import uuid4
+            s.add(ResultAudit(id=str(uuid4()),match_id=item.id,username=actor,payload=json.dumps(result),created_at=datetime.now(timezone.utc).isoformat()))
         s.merge(MatchResult(match_id=item.id,sport=item.sport,payload=json.dumps(result),updated_at=datetime.now(timezone.utc).isoformat()))
     return current()

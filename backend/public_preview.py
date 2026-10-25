@@ -1,16 +1,24 @@
-"""Public preview: static web, read-only tournament and fan messages only."""
+"""Public web with authenticated, team-scoped result registration."""
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from backend.database import ROOT
-from backend.fans import router, fans_engine
-from scripts.export_data import dataset
+from backend.fans import router
 
 app=FastAPI(title='Olimpiadas NSP · Vista pública',docs_url=None,redoc_url=None,openapi_url=None)
 app.include_router(router)
+from backend.auth import router as auth_router, tournament_for
+from fastapi import Request, Response
+app.include_router(auth_router)
+@app.middleware('http')
+async def no_cache_sessions(request,call_next):
+    response=await call_next(request)
+    if request.url.path.startswith('/api/'):
+        response.headers['Cache-Control']='no-store'
+    return response
 
 @app.get('/api/tournament')
-def tournament():
-    data=dataset(fans_engine());data['capabilities']={'result_write':False}
-    return data
+def tournament(request:Request,response:Response):
+    response.headers['Cache-Control']='no-store'
+    return tournament_for(request)
 
 app.mount('/',StaticFiles(directory=ROOT/'dist',html=True),name='web')

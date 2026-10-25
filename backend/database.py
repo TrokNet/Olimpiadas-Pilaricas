@@ -67,6 +67,28 @@ class FanMessage(Base):
     message = Column(String(500), nullable=False)
     created_at = Column(String(40), nullable=False, index=True)
 
+class Account(Base):
+    __tablename__ = 'accounts'
+    username = Column(String(80), primary_key=True)
+    password_hash = Column(Text, nullable=False)
+    salt = Column(String(64), nullable=False)
+    role = Column(String(20), nullable=False)
+    grade_id = Column(String(80), nullable=True)
+
+class LoginSession(Base):
+    __tablename__ = 'login_sessions'
+    token_hash = Column(String(64), primary_key=True)
+    username = Column(String(80), ForeignKey('accounts.username'), nullable=False)
+    expires_at = Column(Integer, nullable=False)
+
+class ResultAudit(Base):
+    __tablename__ = 'result_audit'
+    id = Column(String(40), primary_key=True)
+    match_id = Column(String(80), nullable=False, index=True)
+    username = Column(String(80), nullable=False)
+    payload = Column(Text, nullable=False)
+    created_at = Column(String(40), nullable=False)
+
 def engine_for(url=None):
     engine = create_engine(url or os.environ.get('DATABASE_URL', DEFAULT_URL))
     if engine.dialect.name == 'sqlite':
