@@ -16,7 +16,7 @@
   padding: 20px;
 }
 .standings-table h3 {
-  font-size: 12px;
+  font-size: 14px;
   text-transform: capitalize;
   margin-bottom: 15px;
   color: var(--coral);
@@ -27,7 +27,7 @@
 .standings-table table {
   border-collapse: collapse;
   width: 100%;
-  font-size: 11px;
+  font-size: 13px;
   text-align: center;
   min-width: 510px;
 }
@@ -43,7 +43,7 @@
   color: var(--muted);
 }
 .standings-table p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.8;
   color: var(--muted);
 }
@@ -185,7 +185,7 @@ a svg {
   align-items: center;
   gap: 10px;
   font-weight: 800;
-  font-size: 15px;
+  font-size: 17px;
   letter-spacing: 1.2px;
   line-height: 1.15;
 }
@@ -203,7 +203,7 @@ a svg {
   align-items: center;
   gap: 10px;
   color: var(--coral);
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 4px;
   margin-top: 3px;
 }
@@ -219,7 +219,7 @@ a svg {
   margin: auto;
 }
 .site-header nav a {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--muted);
   position: relative;
@@ -240,7 +240,7 @@ a svg {
   right: 0;
 }
 .site-header nav small {
-  font-size: 9px;
+  font-size: 11px;
   background: var(--coral);
   color: #171d20;
   border-radius: 10px;
@@ -273,7 +273,7 @@ a svg {
   display: flex;
   align-items: center;
   gap: 9px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -295,14 +295,14 @@ a svg {
   background: color-mix(in srgb, var(--team-color), transparent 92%);
   font-family: var(--heading);
   font-weight: 800;
-  font-size: 17px;
+  font-size: 19px;
   letter-spacing: -0.02em;
   clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
 }
 .team-badge.small {
   width: 27px;
   height: 30px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .team-badge.huge {
   width: 105px;
@@ -337,7 +337,7 @@ a svg {
   z-index: 2;
 }
 .eyebrow {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 2px;
   font-weight: 700;
   display: flex;
@@ -373,7 +373,7 @@ a svg {
   color: var(--coral);
 }
 .hero-subtitle {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--muted);
   line-height: 1.9;
   max-width: 420px;
@@ -402,7 +402,7 @@ a svg {
   justify-content: center;
   align-items: center;
   gap: 13px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.3;
   padding: 16px 23px;
@@ -440,13 +440,13 @@ a svg {
   gap: 14px;
   align-items: center;
   margin-top: 53px;
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 1.2px;
   color: var(--muted);
   line-height: 1.8;
 }
 .hero-foot strong {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0;
   color: var(--text);
   font-weight: 500;
@@ -472,7 +472,7 @@ a svg {
   position: absolute;
   right: 10px;
   top: 50px;
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: 2.4px;
   color: var(--muted);
   display: flex;
@@ -490,7 +490,7 @@ a svg {
   left: 0;
   right: 0;
   text-align: center;
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 0.5px;
   color: var(--muted);
   pointer-events: none;
@@ -510,7 +510,7 @@ a svg {
   align-items: center;
   gap: 8px;
   background: color-mix(in srgb, var(--panel), transparent 10%);
-  font-size: 10px;
+  font-size: 12px;
   padding: 12px 19px;
   border-radius: 50px;
   transition:
@@ -529,7 +529,7 @@ a svg {
   min-height: 100%;
   width: 100%;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
 }
 .transitioning .hero-scene {
   transform: scale(1.14);
@@ -554,7 +554,7 @@ a svg {
   line-height: 1;
 }
 .scene-fallback p {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 3px;
 }
 .stat-strip {
@@ -583,7 +583,7 @@ a svg {
   font-weight: 700;
 }
 .stat-strip span {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   line-height: 1.6;
 }
@@ -617,11 +617,11 @@ a svg {
 }
 .section-heading p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 7px;
 }
 .countdown {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--coral);
   border: 1px solid color-mix(in srgb, var(--coral) 20.78%, transparent);
   background: color-mix(in srgb, var(--coral) 3.53%, transparent);
@@ -652,7 +652,7 @@ a svg {
   font-weight: 700;
 }
 .next-date > span {
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 1.5px;
   color: var(--coral);
 }
@@ -663,7 +663,7 @@ a svg {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--coral);
   font-weight: 600;
 }
@@ -675,7 +675,7 @@ a svg {
 }
 .next-info h3 em {
   font-style: normal;
-  font-size: 16px;
+  font-size: 18px;
   color: var(--muted);
   padding: 0 8px;
 }
@@ -684,7 +684,7 @@ a svg {
   align-items: center;
   gap: 7px;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 12px;
 }
 .next-info p svg:nth-of-type(2) {
   margin-left: 14px;
@@ -713,10 +713,10 @@ a svg {
   border: 1px solid var(--border);
   border-radius: 3px;
   padding: 9px 11px;
-  font-size: 10px;
+  font-size: 12px;
 }
 .participation-chips small {
-  font-size: 8px;
+  font-size: 10px;
   margin-left: 7px;
   color: var(--coral);
   white-space: nowrap;
@@ -725,7 +725,7 @@ a svg {
   margin-bottom: 33px;
 }
 .match-day > h3 {
-  font-size: 13px;
+  font-size: 15px;
   text-transform: capitalize;
   font-weight: 600;
   display: flex;
@@ -736,7 +736,7 @@ a svg {
   border-bottom: 1px solid var(--border);
 }
 .match-day > h3 > span {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
   font-weight: 400;
   margin-left: auto;
@@ -769,7 +769,7 @@ a svg {
   gap: 10px;
 }
 .phase-label {
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: 1px;
   color: var(--muted);
 }
@@ -787,13 +787,13 @@ a svg {
   border-right: 1px solid var(--border);
 }
 .match-time > strong {
-  font-size: 20px;
+  font-size: 21px;
   letter-spacing: -0.5px;
   line-height: 1;
 }
 .match-time small {
   color: var(--muted);
-  font-size: 9px;
+  font-size: 11px;
 }
 .versus {
   flex: 1;
@@ -813,17 +813,17 @@ a svg {
   gap: 4px;
 }
 .contender strong {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.3;
   font-weight: 600;
 }
 .contender small {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
 }
 .vs {
   font-family: var(--heading);
-  font-size: 15px;
+  font-size: 17px;
   text-align: center;
   color: var(--muted);
   font-style: italic;
@@ -838,7 +838,7 @@ a svg {
   padding-top: 9px;
   border-top: 1px solid var(--border);
   color: var(--muted);
-  font-size: 9px;
+  font-size: 11px;
   gap: 10px;
 }
 .match-bottom > span {
@@ -871,13 +871,13 @@ a svg {
 .compact .team-badge {
   width: 27px;
   height: 30px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .compact .contender strong {
-  font-size: 12px;
+  font-size: 14px;
 }
 .compact .contender small {
-  font-size: 9px;
+  font-size: 11px;
 }
 .page-heading {
   margin-bottom: 35px;
@@ -891,7 +891,7 @@ a svg {
 }
 .page-heading > p {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.8;
 }
 .fixture-toolbar {
@@ -918,7 +918,7 @@ a svg {
   outline: 0;
   color: var(--text);
   width: 100%;
-  font-size: 12px;
+  font-size: 14px;
   padding: 15px 0;
 }
 .search-input input::placeholder {
@@ -941,7 +941,7 @@ a svg {
   gap: 15px;
 }
 .filter-fields label {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--muted);
 }
@@ -955,7 +955,7 @@ a svg {
   border-radius: 3px;
   padding: 11px 12px;
   color: var(--text);
-  font-size: 12px;
+  font-size: 14px;
   min-height: 42px;
 }
 select option {
@@ -968,7 +968,7 @@ select option {
   justify-content: space-between;
 }
 .text-button {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--coral);
   display: inline-flex;
   align-items: center;
@@ -996,12 +996,12 @@ select option {
   padding: 13px 22px;
   min-width: 120px;
   background: var(--panel);
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
 }
 .date-tabs button strong {
   color: var(--text);
-  font-size: 14px;
+  font-size: 16px;
 }
 .date-tabs button.active {
   background: var(--coral);
@@ -1016,7 +1016,7 @@ select option {
   align-items: center;
   gap: 17px;
   margin: 28px 0;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
 }
 .quick-filters {
@@ -1027,7 +1027,7 @@ select option {
 }
 .quick-filters button {
   padding: 9px 0;
-  font-size: 11px;
+  font-size: 13px;
   border-bottom: 2px solid transparent;
 }
 .quick-filters button.active {
@@ -1066,10 +1066,10 @@ select option {
   color: var(--coral);
 }
 .empty-state h3 {
-  font-size: 20px;
+  font-size: 21px;
 }
 .empty-state p {
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.8;
   color: var(--muted);
   max-width: 430px;
@@ -1087,7 +1087,7 @@ select option {
   border: 1px solid var(--border);
   border-radius: 5px;
   padding: 12px 15px;
-  font-size: 11px;
+  font-size: 13px;
   background: var(--panel);
   color: var(--muted);
 }
@@ -1097,7 +1097,7 @@ select option {
   color: var(--coral);
 }
 .sport-tabs small {
-  font-size: 9px;
+  font-size: 11px;
   opacity: 0.8;
   padding-left: 7px;
 }
@@ -1112,7 +1112,7 @@ select option {
   font-size: 26px;
 }
 .favorite-heading > span {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
 }
 .favorite-grid {
@@ -1143,11 +1143,11 @@ select option {
   flex: 1;
 }
 .favorite-team strong {
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.3;
 }
 .favorite-team small {
-  font-size: 9px;
+  font-size: 11px;
   line-height: 1.4;
   color: var(--muted);
 }
@@ -1194,7 +1194,7 @@ select option {
   min-width: 47px;
 }
 .bracket .match-time strong {
-  font-size: 16px;
+  font-size: 18px;
 }
 .bracket .team-badge {
   display: none;
@@ -1204,7 +1204,7 @@ select option {
   grid-template-columns: 1fr 24px 1fr;
 }
 .bracket .contender strong {
-  font-size: 13px;
+  font-size: 15px;
 }
 .bracket .match-card {
   padding: 15px;
@@ -1228,7 +1228,7 @@ select option {
   border-radius: 5px;
   padding: 24px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
 }
 .classification-note svg {
   color: var(--coral);
@@ -1251,7 +1251,7 @@ select option {
   font-size: 36px;
 }
 .back-link {
-  font-size: 11px;
+  font-size: 13px;
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -1270,7 +1270,7 @@ select option {
   font-size: 45px;
 }
 .detail-status {
-  font-size: 10px;
+  font-size: 12px;
   border: 1px solid var(--border);
   border-radius: 30px;
   padding: 8px 13px;
@@ -1296,7 +1296,7 @@ select option {
 }
 .detail-team p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
   margin: 8px 0 16px;
 }
 .detail-vs {
@@ -1329,11 +1329,11 @@ select option {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
 }
 .detail-info strong {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text);
   font-weight: 500;
   text-transform: capitalize;
@@ -1347,7 +1347,7 @@ select option {
 .detail-note {
   margin-top: 30px;
   text-align: center;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
 }
 .exploring-bar {
@@ -1358,7 +1358,7 @@ select option {
   align-items: center;
   justify-content: space-between;
   gap: 15px;
-  font-size: 11px;
+  font-size: 13px;
 }
 .exploring-bar > span,
 .exploring-bar a {
@@ -1405,7 +1405,7 @@ footer {
   padding: 25px 24px;
   margin: auto;
   border-top: 1px solid var(--border);
-  font-size: 9px;
+  font-size: 11px;
   color: var(--muted);
 }
 .footer-bottom > span {
@@ -1417,7 +1417,7 @@ footer {
   padding-left: 4px;
 }
 .footer-bottom button {
-  font-size: 9px;
+  font-size: 11px;
 }
 .modal-overlay {
   position: fixed;
@@ -1451,7 +1451,7 @@ footer {
   margin-top: 35px;
 }
 .modal-description {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
   text-align: center;
   line-height: 1.7;
@@ -1466,7 +1466,7 @@ footer {
   position: absolute;
   left: 30px;
   top: 29px;
-  font-size: 8px;
+  font-size: 10px;
   color: var(--muted);
   letter-spacing: 2px;
   display: flex;
@@ -1507,7 +1507,7 @@ footer {
   color: #111619;
 }
 .ring-number {
-  font-size: 11px;
+  font-size: 13px;
   opacity: 0.6;
   position: absolute;
   left: 10px;
@@ -1531,7 +1531,7 @@ footer {
   line-height: 1.05;
 }
 .ring-card > span:last-child {
-  font-size: 10px;
+  font-size: 12px;
 }
 .picker-navigation {
   display: flex;
@@ -1552,7 +1552,7 @@ footer {
   font-size: 28px;
 }
 .picker-navigation span {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
 }
 .team-list {
@@ -1563,7 +1563,7 @@ footer {
   color: var(--text);
   background: var(--panel);
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .picker-confirm {
   width: 100%;
@@ -1571,7 +1571,7 @@ footer {
 }
 .picker-note {
   text-align: center;
-  font-size: 9px;
+  font-size: 11px;
   color: var(--muted);
   margin: 13px 0 0;
 }
@@ -1589,7 +1589,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 12px;
+  font-size: 14px;
   max-width: calc(100vw - 30px);
   width: max-content;
 }
@@ -1664,7 +1664,7 @@ footer {
     min-width: 70px;
   }
   .contender strong {
-    font-size: 13px;
+    font-size: 15px;
   }
   .favorite-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1678,11 +1678,11 @@ footer {
     gap: 15px;
   }
   .site-header nav a {
-    font-size: 10px;
+    font-size: 12px;
     padding: 28px 0;
   }
   .brand {
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 0.8px;
   }
   .brand-icon {
@@ -1690,7 +1690,7 @@ footer {
     height: 38px;
   }
   .brand-year {
-    font-size: 11px;
+    font-size: 13px;
   }
   .header-actions {
     gap: 8px;
@@ -1712,7 +1712,7 @@ footer {
     margin-left: -85px;
   }
   .hero-subtitle {
-    font-size: 12px;
+    font-size: 14px;
     max-width: 300px;
   }
   .hero-buttons {
@@ -1739,7 +1739,7 @@ footer {
     padding: 10px;
   }
   .scene-hint {
-    font-size: 8px;
+    font-size: 10px;
     bottom: 60px;
     left: 15%;
   }
@@ -1750,7 +1750,7 @@ footer {
     font-size: 37px;
   }
   .stat-strip span {
-    font-size: 9px;
+    font-size: 11px;
   }
   .stat-message svg {
     width: 19px;
@@ -1789,18 +1789,18 @@ footer {
     gap: 9px;
   }
   .contender strong {
-    font-size: 12px;
+    font-size: 14px;
   }
   .team-badge {
     width: 32px;
     height: 37px;
-    font-size: 14px;
+    font-size: 16px;
   }
   .match-time {
     min-width: 65px;
   }
   .match-time > strong {
-    font-size: 18px;
+    font-size: 20px;
   }
   .page-heading h1 {
     font-size: 65px;
@@ -1815,7 +1815,7 @@ footer {
     display: none;
   }
   .bracket .contender strong {
-    font-size: 11px;
+    font-size: 13px;
   }
 }
 @media (max-width: 640px) {
@@ -1843,7 +1843,7 @@ footer {
   }
   .site-header nav a {
     padding: 15px 10px;
-    font-size: 14px;
+    font-size: 16px;
   }
   .site-header nav a.active:after {
     width: 3px;
@@ -1859,7 +1859,7 @@ footer {
   .header-team > span:not(.team-badge) {
     display: block;
     max-width: 90px;
-    font-size: 10px;
+    font-size: 12px;
   }
   .theme-toggle {
     display: none;
@@ -1869,10 +1869,10 @@ footer {
     border: 0;
   }
   .brand {
-    font-size: 13px;
+    font-size: 15px;
   }
   .brand-year {
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 3px;
   }
   .hero {
@@ -1889,7 +1889,7 @@ footer {
     pointer-events: auto;
   }
   .eyebrow {
-    font-size: 8px;
+    font-size: 10px;
     letter-spacing: 1.7px;
   }
   .hero h1 {
@@ -1899,7 +1899,7 @@ footer {
     max-width: 100%;
   }
   .hero-subtitle {
-    font-size: 12px;
+    font-size: 14px;
     gap: 10px;
     max-width: 100%;
     line-height: 1.7;
@@ -1909,7 +1909,7 @@ footer {
     gap: 10px;
   }
   .button {
-    font-size: 11px;
+    font-size: 13px;
     padding: 14px 17px;
     min-height: 46px;
   }
@@ -1936,11 +1936,11 @@ footer {
     gap: 8px;
   }
   .scene-sports button {
-    font-size: 10px;
+    font-size: 12px;
     padding: 9px 17px;
   }
   .scene-hint {
-    font-size: 8px;
+    font-size: 10px;
     bottom: 45px;
     left: 0;
   }
@@ -1961,7 +1961,7 @@ footer {
     line-height: 1.05;
   }
   .stat-strip span {
-    font-size: 8px;
+    font-size: 10px;
     line-height: 1.5;
     padding-top: 3px;
   }
@@ -1985,10 +1985,10 @@ footer {
     font-size: 30px;
   }
   .section-heading p {
-    font-size: 10px;
+    font-size: 12px;
   }
   .countdown {
-    font-size: 9px;
+    font-size: 11px;
     padding: 7px 10px;
     white-space: nowrap;
     align-self: flex-end;
@@ -2005,27 +2005,27 @@ footer {
     font-size: 50px;
   }
   .next-date > span {
-    font-size: 8px;
+    font-size: 10px;
   }
   .next-info {
     min-width: 150px;
   }
   .next-info .sport-label {
-    font-size: 8px;
+    font-size: 10px;
     gap: 5px;
     line-height: 1.5;
   }
   .next-info h3 {
-    font-size: 23px;
+    font-size: 24px;
     margin: 8px 0;
     line-height: 1.05;
   }
   .next-info h3 em {
-    font-size: 14px;
+    font-size: 16px;
     padding: 0 3px;
   }
   .next-info p {
-    font-size: 8px;
+    font-size: 10px;
     gap: 4px;
     line-height: 1.5;
     flex-wrap: wrap;
@@ -2044,7 +2044,7 @@ footer {
     border-radius: 0;
     min-height: 30px;
     justify-content: flex-end;
-    font-size: 10px;
+    font-size: 12px;
   }
   .heading-actions {
     gap: 6px;
@@ -2065,12 +2065,12 @@ footer {
     margin: 20px 0 28px;
   }
   .participation-chips > span {
-    font-size: 8px;
+    font-size: 10px;
     padding: 8px;
     gap: 4px;
   }
   .participation-chips small {
-    font-size: 7px;
+    font-size: 9px;
     margin-left: 3px;
   }
   .participation-chips svg {
@@ -2080,21 +2080,21 @@ footer {
     margin-bottom: 27px;
   }
   .match-day > h3 {
-    font-size: 11px;
+    font-size: 13px;
     gap: 10px;
   }
   .match-day > h3 > span {
-    font-size: 9px;
+    font-size: 11px;
   }
   .match-card {
     padding: 13px 12px;
     margin-bottom: 8px;
   }
   .sport-label {
-    font-size: 9px;
+    font-size: 11px;
   }
   .phase-label {
-    font-size: 7px;
+    font-size: 9px;
     letter-spacing: 0.6px;
   }
   .match-main {
@@ -2107,10 +2107,10 @@ footer {
     padding-right: 8px;
   }
   .match-time > strong {
-    font-size: 17px;
+    font-size: 19px;
   }
   .match-time small {
-    font-size: 8px;
+    font-size: 10px;
   }
   .versus {
     grid-template-columns: 1fr 22px 1fr;
@@ -2126,25 +2126,25 @@ footer {
     display: none;
   }
   .contender strong {
-    font-size: 11px;
+    font-size: 13px;
     line-height: 1.3;
     display: block;
   }
   .contender small {
-    font-size: 8px;
+    font-size: 10px;
     line-height: 1.3;
   }
   .contender > span:last-child {
     gap: 4px;
   }
   .vs {
-    font-size: 12px;
+    font-size: 14px;
   }
   .match-arrow {
     display: none;
   }
   .match-bottom {
-    font-size: 8px;
+    font-size: 10px;
   }
   .match-bottom svg {
     width: 10px;
@@ -2157,7 +2157,7 @@ footer {
     margin: 8px 0 10px;
   }
   .page-heading > p {
-    font-size: 11px;
+    font-size: 13px;
   }
   .fixture-toolbar {
     gap: 8px;
@@ -2168,7 +2168,7 @@ footer {
     min-height: 46px;
   }
   .search-input input {
-    font-size: 10px;
+    font-size: 12px;
     padding: 12px 0;
   }
   .search-input svg {
@@ -2202,7 +2202,7 @@ footer {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 15px;
-    font-size: 17px;
+    font-size: 19px;
   }
   .filter-fields {
     grid-template-columns: 1fr 1fr;
@@ -2210,7 +2210,7 @@ footer {
   }
   .filter-fields select,
   .filter-fields input {
-    font-size: 12px;
+    font-size: 14px;
     padding: 10px 6px;
   }
   .mobile-apply {
@@ -2228,10 +2228,10 @@ footer {
   .date-tabs button {
     min-width: 91px;
     padding: 12px 14px;
-    font-size: 9px;
+    font-size: 11px;
   }
   .date-tabs button strong {
-    font-size: 13px;
+    font-size: 15px;
   }
   .results-toolbar {
     gap: 9px;
@@ -2239,13 +2239,13 @@ footer {
     margin: 20px 0;
   }
   .results-toolbar > span {
-    font-size: 9px;
+    font-size: 11px;
   }
   .quick-filters {
     gap: 16px;
   }
   .quick-filters button {
-    font-size: 10px;
+    font-size: 12px;
     padding: 8px 0;
   }
   .view-switch {
@@ -2268,11 +2268,11 @@ footer {
   }
   .sport-tabs button {
     flex-shrink: 0;
-    font-size: 10px;
+    font-size: 12px;
     padding: 11px 13px;
   }
   .sport-tabs small {
-    font-size: 9px;
+    font-size: 11px;
     padding-left: 3px;
   }
   .favorite-grid {
@@ -2284,15 +2284,15 @@ footer {
     gap: 12px;
   }
   .favorite-team strong {
-    font-size: 13px;
+    font-size: 15px;
   }
   .favorite-team small {
-    font-size: 10px;
+    font-size: 12px;
   }
   .favorite-team .team-badge {
     width: 35px;
     height: 40px;
-    font-size: 17px;
+    font-size: 19px;
   }
   .favorite-heading {
     margin: 25px 0 16px;
@@ -2301,7 +2301,7 @@ footer {
     font-size: 25px;
   }
   .favorite-heading > span {
-    font-size: 9px;
+    font-size: 11px;
   }
   .favorite-calendar-title {
     margin-top: 45px;
@@ -2309,7 +2309,7 @@ footer {
   .favorite-calendar-title .button {
     padding: 10px;
     min-height: 38px;
-    font-size: 9px;
+    font-size: 11px;
     gap: 6px;
   }
   .favorite-calendar-title h2 {
@@ -2336,13 +2336,13 @@ footer {
     padding: 13px;
   }
   .bracket .contender strong {
-    font-size: 12px;
+    font-size: 14px;
   }
   .bracket .eyebrow {
-    font-size: 9px;
+    font-size: 11px;
   }
   .classification-note {
-    font-size: 11px;
+    font-size: 13px;
     padding: 20px;
     gap: 12px;
   }
@@ -2358,10 +2358,10 @@ footer {
     gap: 14px;
   }
   .empty-state h3 {
-    font-size: 17px;
+    font-size: 19px;
   }
   .empty-state p {
-    font-size: 11px;
+    font-size: 13px;
   }
   .detail-heading h1 {
     font-size: 38px;
@@ -2381,10 +2381,10 @@ footer {
     line-height: 1;
   }
   .detail-team p {
-    font-size: 10px;
+    font-size: 12px;
   }
   .detail-team .text-button {
-    font-size: 10px;
+    font-size: 12px;
   }
   .detail-vs {
     top: 35px;
@@ -2401,11 +2401,11 @@ footer {
     gap: 20px;
   }
   .detail-info span {
-    font-size: 9px;
+    font-size: 11px;
     gap: 5px;
   }
   .detail-info strong {
-    font-size: 13px;
+    font-size: 15px;
   }
   .detail-info svg {
     width: 20px;
@@ -2416,14 +2416,14 @@ footer {
     gap: 10px;
   }
   .detail-note {
-    font-size: 9px;
+    font-size: 11px;
     line-height: 1.6;
   }
   .exploring-bar {
     padding: 13px 20px;
     align-items: flex-start;
     flex-direction: column;
-    font-size: 10px;
+    font-size: 12px;
     gap: 10px;
   }
   .footer-cta {
@@ -2445,14 +2445,14 @@ footer {
     padding: 22px 20px;
     flex-wrap: wrap;
     gap: 13px;
-    font-size: 8px;
+    font-size: 10px;
   }
   .footer-bottom p {
-    font-size: 8px;
+    font-size: 10px;
   }
   .footer-bottom button {
     margin-left: auto;
-    font-size: 9px;
+    font-size: 11px;
   }
   .modal {
     width: calc(100vw - 24px);
@@ -2465,7 +2465,7 @@ footer {
     margin-top: 32px;
   }
   .modal-description {
-    font-size: 11px;
+    font-size: 13px;
     line-height: 1.7;
     padding: 0 4px;
   }
@@ -2478,7 +2478,7 @@ footer {
   .picker-eyebrow {
     left: 20px;
     top: 25px;
-    font-size: 7px;
+    font-size: 9px;
     letter-spacing: 1.4px;
   }
   .carousel-stage {
@@ -2496,21 +2496,21 @@ footer {
     font-size: 26px;
   }
   .picker-navigation span {
-    font-size: 9px;
+    font-size: 11px;
   }
   .picker-navigation .icon-button {
     width: 34px;
     height: 34px;
   }
   .picker-note {
-    font-size: 8px;
+    font-size: 10px;
   }
   .ring-card {
     width: 194px;
     height: 240px;
   }
   .toast {
-    font-size: 11px;
+    font-size: 13px;
     line-height: 1.6;
     bottom: 15px;
     padding: 13px 15px;
@@ -2600,19 +2600,19 @@ footer {
 }
 @media (max-width: 640px) {
   .contender strong {
-    font-size: 13px;
+    font-size: 15px;
   }
   .contender small {
-    font-size: 10px;
+    font-size: 12px;
   }
   .sport-label {
-    font-size: 10px;
+    font-size: 12px;
   }
   .match-bottom {
-    font-size: 10px;
+    font-size: 12px;
   }
   .match-day > h3 {
-    font-size: 13px;
+    font-size: 15px;
   }
 }
 /* Visual system: heritage photography, broadcast panels and readable controls. */
@@ -2633,19 +2633,19 @@ footer {
   max-width: 1280px;
 }
 .site-header nav a {
-  font-size: 14px;
+  font-size: 16px;
 }
 .button {
   min-height: 46px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .text-button,
 .back-link {
-  font-size: 13px;
+  font-size: 15px;
 }
 .section-heading p,
 .empty-state p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
 }
 .page-content,
@@ -2665,20 +2665,20 @@ footer {
 }
 .match-bottom,
 .phase-label {
-  font-size: 12px;
+  font-size: 14px;
 }
 .sport-label {
-  font-size: 12px;
+  font-size: 14px;
 }
 .contender strong {
-  font-size: 17px;
+  font-size: 19px;
   line-height: 1.3;
 }
 .contender small {
-  font-size: 12px;
+  font-size: 14px;
 }
 .match-day > h3 {
-  font-size: 16px;
+  font-size: 18px;
 }
 .filter-panel,
 .fixture-toolbar {
@@ -2687,7 +2687,7 @@ footer {
 .filter-panel label,
 .filter-panel select,
 .filter-panel input {
-  font-size: 14px;
+  font-size: 16px;
 }
 .picker-modal {
   width: min(94vw, 900px);
@@ -2706,13 +2706,13 @@ footer {
   line-height: 1.2;
 }
 .picker-modal .modal-description {
-  font-size: 14px;
+  font-size: 16px;
   max-width: 540px;
   margin: 12px auto 0;
   color: #c9c8ce;
 }
 .picker-eyebrow {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 1.7px;
   color: #dedbe0;
 }
@@ -2743,7 +2743,7 @@ footer {
   letter-spacing: -0.7px;
 }
 .picker-navigation span {
-  font-size: 14px;
+  font-size: 16px;
   color: #dad7dc;
 }
 .picker-navigation > div {
@@ -2757,7 +2757,7 @@ footer {
 }
 .team-place-caption {
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
   color: #d1c8c6;
   margin: 0 auto 18px;
   max-width: 540px;
@@ -2769,7 +2769,7 @@ footer {
 .team-list {
   min-height: 48px;
   border-radius: 10px;
-  font-size: 14px;
+  font-size: 16px;
   background: #ffffff0b;
   border-color: #ffffff30;
 }
@@ -2780,10 +2780,10 @@ footer {
 .picker-confirm {
   border-radius: 10px;
   min-height: 50px;
-  font-size: 15px;
+  font-size: 17px;
 }
 .picker-note {
-  font-size: 12px;
+  font-size: 14px;
   color: #c3bec8;
 }
 .match-detail {
@@ -2803,7 +2803,7 @@ footer {
   background: linear-gradient(110deg, color-mix(in srgb, var(--coral) 12.55%, transparent), transparent 65%), #1c1b20;
 }
 .detail-heading .eyebrow {
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 1.4px;
 }
 .detail-heading h1 {
@@ -2811,7 +2811,7 @@ footer {
   line-height: 1;
 }
 .detail-status {
-  font-size: 12px;
+  font-size: 14px;
   color: #e9d7d5;
   border-color: color-mix(in srgb, var(--coral) 31.37%, transparent);
   background: color-mix(in srgb, var(--coral) 6.27%, transparent);
@@ -2866,7 +2866,7 @@ footer {
   padding: 12px 2px 8px;
   background: linear-gradient(transparent, #111);
   color: #fff;
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 1.3px;
   border-radius: 0 0 20px 20px;
 }
@@ -2880,13 +2880,13 @@ footer {
   overflow-wrap: anywhere;
 }
 .detail-team p {
-  font-size: 15px;
+  font-size: 17px;
   color: #ddd6dc;
   line-height: 1.4;
   margin: 10px 0 16px;
 }
 .detail-team .text-button {
-  font-size: 13px;
+  font-size: 15px;
 }
 .detail-vs {
   top: 103px;
@@ -2916,15 +2916,15 @@ footer {
   border-left: 1px solid var(--border);
 }
 .detail-info span {
-  font-size: 13px;
+  font-size: 15px;
 }
 .detail-info strong {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.4;
   font-weight: 650;
 }
 .detail-note {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.8;
   margin-top: 22px;
 }
@@ -2935,7 +2935,7 @@ footer {
   margin: 16px 0;
 }
 .image-credits > p {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.8;
   color: var(--muted);
   max-width: 750px;
@@ -2961,18 +2961,18 @@ footer {
   padding: 20px;
 }
 .credits-grid h2 {
-  font-size: 21px;
+  font-size: 22px;
   font-weight: 700;
 }
 .credits-grid p {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
   line-height: 1.7;
   margin: 8px 0;
   overflow-wrap: anywhere;
 }
 .credits-grid a {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--coral);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -2982,7 +2982,7 @@ footer {
   gap: 20px;
 }
 .footer-bottom p {
-  font-size: 12px;
+  font-size: 14px;
 }
 :root[data-theme="light"] .app-shell {
   background:
@@ -3008,7 +3008,7 @@ footer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .site-header nav a {
-    font-size: 13px;
+    font-size: 15px;
   }
 }
 @media (max-width: 640px) {
@@ -3023,12 +3023,12 @@ footer {
     letter-spacing: -1px;
   }
   .picker-modal .modal-description {
-    font-size: 13px;
+    font-size: 15px;
   }
   .picker-eyebrow {
     left: 20px;
     top: 25px;
-    font-size: 9px;
+    font-size: 11px;
     letter-spacing: 1px;
   }
   .carousel-stage {
@@ -3040,42 +3040,42 @@ footer {
     margin: 0 0 12px;
   }
   .picker-navigation strong {
-    font-size: 23px;
+    font-size: 24px;
   }
   .picker-navigation span {
-    font-size: 13px;
+    font-size: 15px;
   }
   .picker-navigation .icon-button {
     width: 40px;
     height: 40px;
   }
   .team-place-caption {
-    font-size: 11px;
+    font-size: 13px;
     margin-bottom: 14px;
   }
   .picker-note {
-    font-size: 11px;
+    font-size: 13px;
   }
   .team-list {
-    font-size: 13px;
+    font-size: 15px;
   }
   .match-card {
     padding: 17px 14px;
     border-radius: 12px;
   }
   .contender strong {
-    font-size: 14px;
+    font-size: 16px;
   }
   .contender small,
   .sport-label,
   .match-bottom {
-    font-size: 11px;
+    font-size: 13px;
   }
   .phase-label {
-    font-size: 10px;
+    font-size: 12px;
   }
   .match-day > h3 {
-    font-size: 15px;
+    font-size: 17px;
   }
   .match-detail {
     padding: 25px 16px 40px;
@@ -3087,7 +3087,7 @@ footer {
     font-size: 30px;
   }
   .detail-heading .eyebrow {
-    font-size: 12px;
+    font-size: 14px;
   }
   .detail-versus {
     gap: 40px;
@@ -3101,19 +3101,19 @@ footer {
     border-radius: 55px 55px 16px 16px;
   }
   .heritage-emblem span {
-    font-size: 6px;
+    font-size: 8px;
     letter-spacing: 0.5px;
   }
   .detail-team h2 {
-    font-size: 20px;
+    font-size: 21px;
     letter-spacing: -0.6px;
   }
   .detail-team p {
-    font-size: 12px;
+    font-size: 14px;
     margin: 8px 0 12px;
   }
   .detail-team .text-button {
-    font-size: 12px;
+    font-size: 14px;
   }
   .detail-vs {
     top: 65px;
@@ -3137,14 +3137,14 @@ footer {
     border-top: 1px solid var(--border);
   }
   .detail-info span {
-    font-size: 12px;
+    font-size: 14px;
     gap: 4px;
   }
   .detail-info strong {
-    font-size: 15px;
+    font-size: 17px;
   }
   .detail-note {
-    font-size: 11px;
+    font-size: 13px;
   }
   .credits-grid {
     grid-template-columns: 1fr;
@@ -3192,16 +3192,16 @@ footer {
 }
 .sport-tabs button,
 .date-tabs button {
-  font-size: 13px;
+  font-size: 15px;
   border-radius: 9px;
   min-height: 44px;
 }
 .favorite-team strong {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.3;
 }
 .favorite-team small {
-  font-size: 12px;
+  font-size: 14px;
 }
 .model-credits {
   margin: 32px 0;
@@ -3211,11 +3211,11 @@ footer {
   border-radius: 16px;
 }
 .model-credits h2 {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 700;
 }
 .model-credits p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.8;
   color: var(--muted);
   margin: 14px 0;
@@ -3225,17 +3225,17 @@ footer {
   text-decoration: underline;
 }
 .model-credits small {
-  font-size: 12px;
+  font-size: 14px;
 }
 .hero-scene {
   background: radial-gradient(ellipse at 50% 44%, color-mix(in srgb, var(--coral) 6.67%, transparent), transparent 65%);
 }
 .scene-hint {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
 }
 .scene-caption {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 1.5px;
 }
 /* Static sports campaign image: no canvas, parallax, zoom or automatic motion. */
@@ -3271,7 +3271,7 @@ footer {
   flex-wrap: wrap;
 }
 .hero-visual .scene-sports button {
-  font-size: 13px;
+  font-size: 15px;
   padding: 12px 18px;
   min-height: 44px;
 }
@@ -3296,7 +3296,7 @@ footer {
     gap: 7px;
   }
   .hero-visual .scene-sports button {
-    font-size: 12px;
+    font-size: 14px;
     padding: 11px 14px;
   }
 }
@@ -3307,7 +3307,7 @@ footer {
   margin: 12px 0;
 }
 .result-management > p {
-  font-size: 15px;
+  font-size: 17px;
   color: var(--muted);
   line-height: 1.7;
 }
@@ -3323,7 +3323,7 @@ footer {
 .result-mode button {
   padding: 14px 24px;
   border-radius: 8px;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
 }
 .result-mode button[aria-pressed="true"] {
@@ -3342,13 +3342,13 @@ footer {
   border-color: #66bca450;
 }
 .result-banner strong {
-  font-size: 14px;
+  font-size: 16px;
 }
 .result-banner p,
 .result-hint,
 .result-rules > p,
 .standings-legend {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
   line-height: 1.8;
 }
@@ -3356,7 +3356,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 9px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   margin: 20px 0;
 }
@@ -3368,7 +3368,7 @@ footer {
   border: 1px solid var(--border);
   border-radius: 9px;
   color: var(--text);
-  font-size: 15px;
+  font-size: 17px;
   min-height: 46px;
 }
 .result-rules {
@@ -3382,7 +3382,7 @@ footer {
 .discipline-events summary {
   cursor: pointer;
   font-weight: 650;
-  font-size: 16px;
+  font-size: 18px;
 }
 .result-rules > p {
   margin: 18px 0;
@@ -3396,7 +3396,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
 }
 .result-number input:disabled {
@@ -3406,7 +3406,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 14px;
+  font-size: 16px;
   margin: 22px 0;
 }
 .result-check input {
@@ -3433,7 +3433,7 @@ footer {
   border-bottom: 1px solid var(--border);
 }
 .result-match-heading > span {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
 }
 .result-match-heading h2 {
@@ -3444,12 +3444,12 @@ footer {
 }
 .result-match-heading em {
   color: var(--coral);
-  font-size: 18px;
+  font-size: 20px;
   padding: 0 10px;
   font-style: normal;
 }
 .result-match-heading p {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
   line-height: 1.6;
 }
@@ -3483,7 +3483,7 @@ footer {
   margin: 24px 0;
 }
 .set-editor h3 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 650;
   margin-bottom: 20px;
 }
@@ -3495,7 +3495,7 @@ footer {
   margin-bottom: 16px;
 }
 .set-row > b {
-  font-size: 14px;
+  font-size: 16px;
 }
 .result-preview {
   display: flex;
@@ -3513,7 +3513,7 @@ footer {
   white-space: nowrap;
 }
 .result-preview span {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
   line-height: 1.7;
 }
@@ -3521,7 +3521,7 @@ footer {
   color: var(--coral);
 }
 .form-error {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
   color: #ffb7b1;
   padding: 14px 18px;
@@ -3535,7 +3535,7 @@ footer {
   background: var(--panel-alt);
   border: 1px solid var(--border);
   border-radius: 10px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
 }
 .manager-standings .standings-table table {
@@ -3561,7 +3561,7 @@ footer {
     width: 100%;
   }
   .result-mode button {
-    font-size: 13px;
+    font-size: 15px;
     padding: 13px 10px;
     flex: 1;
   }
@@ -3569,7 +3569,7 @@ footer {
     padding: 20px 14px;
   }
   .result-match-heading h2 {
-    font-size: 22px;
+    font-size: 23px;
   }
   .rule-grid {
     gap: 14px;
@@ -3614,7 +3614,7 @@ footer {
 .tournament-view-switch button {
   min-height: 44px;
   padding: 12px 22px;
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 8px;
 }
 .tournament-view-switch button[aria-pressed="true"] {
@@ -3667,7 +3667,7 @@ footer {
   flex: 1;
 }
 .tournament-board-heading > div > span {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 2px;
   color: #c5b9b8;
 }
@@ -3680,13 +3680,13 @@ footer {
   margin: 7px 0 9px;
 }
 .tournament-discipline {
-  font-size: 14px;
+  font-size: 16px;
   color: #e2ddd9;
   font-weight: 500;
 }
 .tournament-board-heading > p {
   max-width: 205px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.6;
   padding: 12px 16px;
   border: 1px solid #ffffff26;
@@ -3723,7 +3723,7 @@ footer {
   font-weight: 650;
 }
 .board-stage-heading > span {
-  font-size: 12px;
+  font-size: 14px;
   color: #bcb7b7;
   line-height: 1.5;
   text-align: right;
@@ -3787,11 +3787,11 @@ footer {
   color: #27272c;
 }
 .knockout-round > b {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 750;
 }
 .knockout-match-state {
-  font-size: 9px;
+  font-size: 11px;
   color: #646267;
   background: #fff8;
   border: 1px solid #d2d0c9;
@@ -3821,14 +3821,14 @@ footer {
 }
 .knockout-team strong {
   display: block;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.35;
   font-weight: 750;
   overflow-wrap: anywhere;
 }
 .knockout-team small {
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.45;
   color: var(--board-muted);
   margin-top: 5px;
@@ -3873,7 +3873,7 @@ footer {
 .knockout-time {
   display: block;
   padding: 13px 15px 10px;
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.7;
   color: #595a61;
 }
@@ -3883,7 +3883,7 @@ footer {
   justify-content: space-between;
   gap: 8px;
   padding: 0 15px 14px;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 650;
   color: #9f3b31;
 }
@@ -3957,7 +3957,7 @@ footer {
   flex-shrink: 0;
 }
 .champion-display > span {
-  font-size: 10px;
+  font-size: 12px;
   color: #d6bd8f;
   letter-spacing: 1px;
 }
@@ -3969,7 +3969,7 @@ footer {
   color: #f4e1bc;
 }
 .champion-display > small {
-  font-size: 12px;
+  font-size: 14px;
   color: #c6bbb0;
 }
 .championship-game {
@@ -4018,7 +4018,7 @@ footer {
   line-height: 1.2;
 }
 .bronze-podium p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
   color: #bdb5b0;
   margin-top: 9px;
@@ -4046,13 +4046,13 @@ footer {
   border-radius: 6px;
 }
 .bronze-podium .knockout-team strong {
-  font-size: 12px;
+  font-size: 14px;
 }
 .bronze-podium .knockout-team small {
-  font-size: 10px;
+  font-size: 12px;
 }
 .bronze-podium .knockout-score {
-  font-size: 23px;
+  font-size: 24px;
   min-height: 31px;
 }
 .bronze-podium .knockout-time {
@@ -4067,14 +4067,14 @@ footer {
   padding: 0 12px 12px;
 }
 .board-qualification-note {
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.8;
   color: #aaa6a4;
   padding: 8px 0;
 }
 .knockout-empty {
   padding: 24px;
-  font-size: 13px;
+  font-size: 15px;
   color: #d5cfc9;
   border: 1px dashed #ffffff35;
   border-radius: 14px;
@@ -4116,7 +4116,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
 }
 .board-group-letter {
@@ -4132,7 +4132,7 @@ footer {
   color: #fff;
 }
 .board-group header > span {
-  font-size: 11px;
+  font-size: 13px;
   color: #66666d;
 }
 .board-group ol {
@@ -4163,19 +4163,19 @@ footer {
 }
 .board-group li strong {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.4;
   font-weight: 700;
 }
 .board-group li small {
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   color: #66666d;
   line-height: 1.6;
   margin-top: 3px;
 }
 .board-group li > b {
-  font-size: 12px;
+  font-size: 14px;
   color: #8b332b;
   white-space: nowrap;
 }
@@ -4187,7 +4187,7 @@ footer {
   padding: 13px 18px;
   border-top: 1px solid #dedbd4;
   color: #9d3b31;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 650;
 }
 .board-group > .text-button:hover {
@@ -4195,14 +4195,14 @@ footer {
 }
 .board-group-note {
   padding: 10px 18px;
-  font-size: 12px;
+  font-size: 14px;
   color: #8b332b;
 }
 .result-tournament-board {
   margin: 30px 0;
 }
 .result-tournament-board > summary {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 650;
   cursor: pointer;
   padding: 18px 0;
@@ -4232,7 +4232,7 @@ footer {
     padding: 14px 12px;
   }
   .knockout-team strong {
-    font-size: 14px;
+    font-size: 16px;
   }
   .knockout-avatar {
     width: 28px;
@@ -4242,7 +4242,7 @@ footer {
     padding: 12px;
   }
   .knockout-match-state {
-    font-size: 8px;
+    font-size: 10px;
     padding: 3px 5px;
   }
   .bronze-podium {
@@ -4272,14 +4272,14 @@ footer {
     max-width: none;
     width: 100%;
     padding: 10px 13px;
-    font-size: 11px;
+    font-size: 13px;
   }
   .tournament-board-heading > div > span {
-    font-size: 9px;
+    font-size: 11px;
     letter-spacing: 1.2px;
   }
   .tournament-discipline {
-    font-size: 13px;
+    font-size: 15px;
   }
   .knockout-panel {
     padding: 24px 16px 16px;
@@ -4292,7 +4292,7 @@ footer {
     font-size: 26px;
   }
   .board-stage-heading > span {
-    font-size: 11px;
+    font-size: 13px;
     max-width: 140px;
   }
   .knockout-layout {
@@ -4340,17 +4340,17 @@ footer {
     display: block;
     text-align: center;
     color: #d5b688;
-    font-size: 11px;
+    font-size: 13px;
     margin-bottom: 8px;
   }
   .knockout-round {
     padding: 13px 16px;
   }
   .knockout-round > b {
-    font-size: 14px;
+    font-size: 16px;
   }
   .knockout-match-state {
-    font-size: 10px;
+    font-size: 12px;
     padding: 4px 7px;
   }
   .knockout-team {
@@ -4360,22 +4360,22 @@ footer {
     gap: 11px;
   }
   .knockout-team strong {
-    font-size: 16px;
+    font-size: 18px;
   }
   .knockout-team small {
-    font-size: 12px;
+    font-size: 14px;
   }
   .knockout-avatar {
     width: 38px;
     height: 43px;
   }
   .knockout-time {
-    font-size: 12px;
+    font-size: 14px;
     padding: 13px 16px 10px;
   }
   .knockout-detail {
     padding: 0 16px 15px;
-    font-size: 12px;
+    font-size: 14px;
   }
   .bronze-podium {
     grid-template-columns: 32px minmax(0, 1fr);
@@ -4388,13 +4388,13 @@ footer {
     margin-top: 6px;
   }
   .bronze-podium .knockout-team strong {
-    font-size: 13px;
+    font-size: 15px;
   }
   .bronze-podium .knockout-team small {
-    font-size: 11px;
+    font-size: 13px;
   }
   .board-qualification-note {
-    font-size: 11px;
+    font-size: 13px;
   }
   .group-panel {
     padding: 25px 16px;
@@ -4407,13 +4407,13 @@ footer {
     padding: 12px 15px;
   }
   .board-group li strong {
-    font-size: 15px;
+    font-size: 17px;
   }
   .board-group li small {
-    font-size: 12px;
+    font-size: 14px;
   }
   .board-group header > span {
-    font-size: 11px;
+    font-size: 13px;
   }
   .tournament-view-switch {
     width: 100%;
@@ -4421,7 +4421,7 @@ footer {
   .tournament-view-switch button {
     flex: 1;
     padding: 12px 8px;
-    font-size: 13px;
+    font-size: 15px;
   }
 }
 @media print {
@@ -4500,11 +4500,11 @@ footer {
 .groups-stage-cover > div > span {
   font-weight: 650;
   color: #6a4540;
-  font-size: 14px;
+  font-size: 16px;
 }
 .groups-stage-cover p {
   color: #535b67;
-  font-size: 15px;
+  font-size: 17px;
 }
 .group-progress {
   min-width: 180px;
@@ -4523,7 +4523,7 @@ footer {
   color: #7a818d;
 }
 .group-progress > span {
-  font-size: 13px;
+  font-size: 15px;
   color: #535b67;
 }
 .group-progress progress {
@@ -4553,7 +4553,7 @@ footer {
   border: 1px solid #ccd1da;
   color: #444b57;
   background: #fff;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
 }
 .group-selector button[aria-pressed="true"] {
@@ -4599,7 +4599,7 @@ footer {
 }
 .group-scorecard header p {
   margin: 0;
-  font-size: 13px;
+  font-size: 15px;
   color: #59616d;
 }
 .group-scorecard header p span {
@@ -4614,7 +4614,7 @@ footer {
   width: 100%;
   min-width: 700px;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 16px;
   font-variant-numeric: tabular-nums;
 }
 .group-score-table th,
@@ -4625,7 +4625,7 @@ footer {
   color: #454c59;
 }
 .group-score-table thead th {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   background: #f5f7f9;
   padding-top: 12px;
@@ -4663,12 +4663,12 @@ footer {
 .group-team-identity strong {
   display: block;
   color: #20252e;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.3;
 }
 .group-team-identity small {
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   color: #68717e;
   margin-top: 5px;
   font-weight: 400;
@@ -4676,20 +4676,20 @@ footer {
 .group-score-table .group-points {
   color: #9c3028;
   background: #fff0ed;
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 800;
   padding-left: 15px;
   padding-right: 15px;
 }
 .group-table-legend {
-  font-size: 11px;
+  font-size: 13px;
   color: #68717e;
   padding: 0 24px;
   margin: 14px 0;
   line-height: 1.7;
 }
 .group-table-alert {
-  font-size: 12px;
+  font-size: 14px;
   color: #715143;
   padding: 10px 16px;
   margin: 12px 24px;
@@ -4708,12 +4708,12 @@ footer {
   padding: 18px 0;
   cursor: pointer;
   font-weight: 650;
-  font-size: 14px;
+  font-size: 16px;
   color: #333b46;
 }
 .group-schedule > summary::after {
   content: "+";
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 400;
   margin-left: auto;
 }
@@ -4725,7 +4725,7 @@ footer {
   color: #555f6e;
   border-radius: 5px;
   padding: 2px 8px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .group-schedule-game {
   display: grid;
@@ -4744,20 +4744,20 @@ footer {
   background: #fff5f3;
 }
 .group-game-date {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
 }
 .group-game-date small {
   display: block;
   margin-top: 7px;
   color: #636d7c;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 400;
 }
 .group-game-teams {
   display: grid;
   gap: 8px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 650;
 }
 .group-game-teams > span {
@@ -4784,12 +4784,12 @@ footer {
   border-top: 1px solid #e1e5eb;
   background: #fff;
   color: #9c3028;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 650;
 }
 .groups-stage-note {
   padding: 0 28px 24px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.8;
   color: #59616d;
 }
@@ -4818,7 +4818,7 @@ footer {
     gap: 10px;
   }
   .stage-other-view {
-    font-size: 14px;
+    font-size: 16px;
   }
   .groups-stage {
     border-radius: 14px;
@@ -4840,7 +4840,7 @@ footer {
     font-size: 34px;
   }
   .group-progress strong span {
-    font-size: 22px;
+    font-size: 23px;
   }
   .group-progress > span {
     padding-bottom: 3px;
@@ -4853,7 +4853,7 @@ footer {
     gap: 6px;
   }
   .group-selector button {
-    font-size: 12px;
+    font-size: 14px;
     padding: 10px 12px;
   }
   .groups-stage-grid {
@@ -4868,7 +4868,7 @@ footer {
     font-size: 64px;
   }
   .group-scorecard header p {
-    font-size: 11px;
+    font-size: 13px;
   }
   .group-score-table {
     min-width: 660px;
@@ -4908,7 +4908,7 @@ footer {
     margin-left: 8px;
   }
   .group-game-teams {
-    font-size: 14px;
+    font-size: 16px;
   }
   .groups-stage-note {
     padding: 0 20px 20px;
@@ -4927,7 +4927,7 @@ footer {
 }
 @media (min-width: 1101px) {
   .site-header nav a {
-    font-size: 13px;
+    font-size: 15px;
   }
 }
 @media (max-width: 1300px) {
@@ -4935,7 +4935,7 @@ footer {
     display: none;
   }
 }
-@media (min-width: 641px) and (max-width: 1450px) {
+@media (min-width: 641px) and (max-width: 1600px) {
   .site-header nav {
     display: none;
     position: absolute;
@@ -4955,7 +4955,7 @@ footer {
   }
   .site-header nav a {
     padding: 14px 12px;
-    font-size: 14px;
+    font-size: 16px;
   }
   .site-header nav a.active:after {
     width: 3px;
@@ -4995,7 +4995,7 @@ footer {
   }
   .group-score-table {
     min-width: 0;
-    font-size: 10px;
+    font-size: 12px;
   }
   .group-score-table tbody th {
     min-width: 0;
@@ -5020,7 +5020,7 @@ footer {
   border-radius: 8px;
   font-weight: 650;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 16px;
 }
 .results-options a[aria-current="page"] {
   background: var(--coral);
@@ -5042,13 +5042,13 @@ footer {
     flex: 1;
     text-align: center;
     padding: 13px 10px;
-    font-size: 13px;
+    font-size: 15px;
   }
 }
 
 .groups-table-help {
   margin: 16px 28px 0;
-  font-size: 12px;
+  font-size: 14px;
   color: #59616d;
 }
 .groups-table-help summary {
@@ -5071,7 +5071,7 @@ footer {
 }
 .group-status-compact {
   display: inline-block;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   color: #746351;
   margin-top: 8px;
@@ -5079,7 +5079,7 @@ footer {
 .group-data-warning {
   margin: 12px 24px;
   color: #824637;
-  font-size: 12px;
+  font-size: 14px;
 }
 .group-data-warning summary {
   cursor: pointer;
@@ -5138,7 +5138,7 @@ footer {
   border: 1px solid #d0ac7033;
   padding: 10px 16px;
   border-radius: 30px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .worldcup-board .knockout-layout {
   padding-top: 0;
@@ -5192,7 +5192,7 @@ footer {
 }
 .worldcup-board .champion-display > span {
   color: #e9ca8e;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.4px;
   margin-top: 0;
 }
@@ -5225,7 +5225,7 @@ footer {
 }
 .cup-route-label {
   color: #b9b3ad;
-  font-size: 11px;
+  font-size: 13px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -5234,12 +5234,12 @@ footer {
 .cup-route-label span {
   font-family: var(--heading);
   color: #e9c689;
-  font-size: 23px;
+  font-size: 24px;
   line-height: 1;
 }
 .cup-final-caption {
   color: #e7c181;
-  font-size: 12px;
+  font-size: 14px;
   text-align: center;
   font-weight: 600;
   margin: 0 0 15px;
@@ -5291,7 +5291,7 @@ footer {
 }
 .worldcup-board .knockout-team strong {
   color: #252b35;
-  font-size: 15px;
+  font-size: 17px;
 }
 .worldcup-board .knockout-avatar {
   border-color: #d9dfe8;
@@ -5306,7 +5306,7 @@ footer {
 }
 .worldcup-board .championship-game .knockout-round > b {
   font-family: var(--heading);
-  font-size: 23px;
+  font-size: 24px;
   line-height: 1;
   font-weight: 700;
 }
@@ -5322,7 +5322,7 @@ footer {
 }
 .worldcup-board .bronze-podium h3 {
   color: #d8bc93;
-  font-size: 24px;
+  font-size: 25px;
 }
 .worldcup-board .board-qualification-note {
   color: #a4a8b1;
@@ -5344,7 +5344,7 @@ footer {
     height: 36px;
   }
   .worldcup-board .knockout-team strong {
-    font-size: 14px;
+    font-size: 16px;
   }
   .worldcup-board .tournament-cup-image {
     width: 240px;
@@ -5407,7 +5407,7 @@ footer {
     display: none;
   }
   .worldcup-board .knockout-team strong {
-    font-size: 16px;
+    font-size: 18px;
   }
   .worldcup-board .bronze-podium {
     grid-template-columns: 30px minmax(0, 1fr);
@@ -5420,7 +5420,7 @@ footer {
     max-width: none;
   }
   .worldcup-board .bronze-podium .knockout-team strong {
-    font-size: 13px;
+    font-size: 15px;
   }
   .worldcup-board .tournament-board-heading {
     padding: 24px 20px;
@@ -5429,7 +5429,7 @@ footer {
     display: block;
     max-width: none;
     padding: 8px 12px;
-    font-size: 11px;
+    font-size: 13px;
   }
 }
 @media print {
@@ -5503,7 +5503,7 @@ footer {
 }
 .registration-welcome p {
   color: var(--muted);
-  font-size: 14px;
+  font-size: 16px;
 }
 .registration-connection {
   display: inline-flex;
@@ -5513,7 +5513,7 @@ footer {
   border: 1px solid var(--border);
   border-radius: 30px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
   white-space: nowrap;
 }
 .registration-connection.connected {
@@ -5535,7 +5535,7 @@ footer {
   display: flex;
   gap: 10px;
   align-items: center;
-  font-size: 13px;
+  font-size: 15px;
   color: var(--muted);
 }
 .registration-steps b {
@@ -5545,7 +5545,7 @@ footer {
   display: grid;
   place-items: center;
   border: 1px solid var(--border);
-  font-size: 12px;
+  font-size: 14px;
 }
 .registration-steps .current,
 .registration-steps .complete {
@@ -5570,7 +5570,7 @@ footer {
 .registration-team > label,
 .registration-sports h3 {
   display: block;
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 650;
   margin: 0 0 16px;
   line-height: 1.4;
@@ -5583,7 +5583,7 @@ footer {
   border-radius: 9px;
   background: var(--bg);
   color: var(--text);
-  font-size: 14px;
+  font-size: 16px;
 }
 .registration-team-preview {
   display: flex;
@@ -5613,7 +5613,7 @@ footer {
 .registration-team-preview span {
   display: block;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 8px;
 }
 .registration-sports {
@@ -5634,7 +5634,7 @@ footer {
   border: 1px solid var(--border);
   border-radius: 9px;
   background: var(--bg);
-  font-size: 13px;
+  font-size: 15px;
   text-align: left;
   min-height: 50px;
 }
@@ -5646,7 +5646,7 @@ footer {
 }
 .registration-sports p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
   margin-top: 14px;
 }
@@ -5668,12 +5668,12 @@ footer {
 }
 .registration-matches header p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 8px;
 }
 .registration-matches header > span {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
 }
 .registration-match-grid {
   display: grid;
@@ -5703,7 +5703,7 @@ footer {
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  font-size: 11px;
+  font-size: 13px;
   color: #626c7b;
   width: 100%;
   padding-bottom: 10px;
@@ -5712,15 +5712,15 @@ footer {
 }
 .registration-match-date b {
   color: #9e3d33;
-  font-size: 14px;
+  font-size: 16px;
 }
 .registration-match-grid strong {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.5;
 }
 .registration-versus {
   color: #989fa9;
-  font-size: 11px;
+  font-size: 13px;
 }
 .registration-match-footer {
   display: flex;
@@ -5730,7 +5730,7 @@ footer {
   margin: 6px -22px 0;
   padding: 13px 20px;
   background: #f5f6f8;
-  font-size: 11px;
+  font-size: 13px;
   color: #606a78;
 }
 .registration-match-footer > span {
@@ -5773,7 +5773,7 @@ footer {
     justify-content: space-between;
   }
   .registration-steps li {
-    font-size: 11px;
+    font-size: 13px;
     gap: 6px;
   }
   .registration-steps b {
@@ -5783,7 +5783,7 @@ footer {
   }
   .registration-sports button {
     padding: 13px 10px;
-    font-size: 12px;
+    font-size: 14px;
   }
   .registration-match-grid {
     grid-template-columns: 1fr;
@@ -5811,19 +5811,19 @@ footer {
   flex-shrink: 0;
 }
 .simulation-safety strong {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 650;
   display: block;
 }
 .simulation-safety small {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
   margin-top: 5px;
   line-height: 1.6;
 }
 .simulation-rule-note {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
   margin: 0 0 18px;
   line-height: 1.7;
@@ -5844,7 +5844,7 @@ footer {
   align-items: center;
   gap: 12px;
   margin-bottom: 12px;
-  font-size: 11px;
+  font-size: 13px;
   color: #626c79;
 }
 .simulation-game-top b {
@@ -5866,7 +5866,7 @@ footer {
   margin-top: 10px;
 }
 .simulation-score-row label {
-  font-size: 14px;
+  font-size: 16px;
   color: #242b36;
   font-weight: 600;
   line-height: 1.4;
@@ -5881,7 +5881,7 @@ footer {
   background: #f9fafc;
   color: #252c39;
   text-align: center;
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 650;
   font-variant-numeric: tabular-nums;
 }
@@ -5897,7 +5897,7 @@ footer {
   margin-top: 15px;
 }
 .simulation-game-actions button {
-  font-size: 12px;
+  font-size: 14px;
   color: #8f392f;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -5925,13 +5925,13 @@ footer {
   }
   .simulation-heading .button {
     width: 100%;
-    font-size: 12px;
+    font-size: 14px;
   }
   .simulation-game-top {
-    font-size: 10px;
+    font-size: 12px;
   }
   .simulation-score-row label {
-    font-size: 13px;
+    font-size: 15px;
   }
 }
 
@@ -5945,13 +5945,13 @@ footer {
 .registration-context > summary {
   padding: 13px 16px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
 }
 .registration-context > summary > span {
   float: right;
   color: var(--coral);
-  font-size: 12px;
+  font-size: 14px;
   margin-left: 16px;
 }
 .registration-context .registration-setup {
@@ -5972,7 +5972,7 @@ footer {
   margin-bottom: 8px;
 }
 .registration-focused .registration-matches h3 {
-  font-size: 24px;
+  font-size: 25px;
 }
 .registration-focused .registration-matches header p {
   display: none;
@@ -5980,7 +5980,7 @@ footer {
 .registration-rule-status {
   margin: 6px 0 12px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
 }
 .registration-rule-status button {
@@ -6004,16 +6004,16 @@ footer {
   border-bottom: 1px solid var(--border);
 }
 .result-management-embedded .result-match-heading > span {
-  font-size: 11px;
+  font-size: 13px;
 }
 .result-management-embedded .result-match-heading h2 {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.35;
   margin: 6px 0 0;
   font-weight: 650;
 }
 .result-management-embedded .result-match-heading p {
-  font-size: 11px;
+  font-size: 13px;
   margin: 5px 0 0;
 }
 .result-management-embedded .result-editor > .result-select {
@@ -6022,7 +6022,7 @@ footer {
   align-items: center;
   gap: 12px;
   margin: 0;
-  font-size: 12px;
+  font-size: 14px;
 }
 .result-management-embedded .result-editor > .result-select select {
   width: auto;
@@ -6030,7 +6030,7 @@ footer {
   min-height: 36px;
   margin: 0;
   padding: 7px 10px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .result-management-embedded .result-score-inputs,
 .result-management-embedded .set-editor,
@@ -6044,15 +6044,15 @@ footer {
   gap: 14px;
 }
 .result-management-embedded .result-editor label {
-  font-size: 12px;
+  font-size: 14px;
 }
 .result-management-embedded .result-editor input[type="number"] {
   min-height: 38px;
   padding: 7px 10px;
-  font-size: 20px;
+  font-size: 21px;
 }
 .result-management-embedded .set-editor h3 {
-  font-size: 14px;
+  font-size: 16px;
   margin: 0 0 8px;
 }
 .result-management-embedded .set-row {
@@ -6061,12 +6061,12 @@ footer {
   padding: 0;
 }
 .result-management-embedded .set-row > b {
-  font-size: 12px;
+  font-size: 14px;
 }
 .result-management-embedded .set-editor > .button {
   min-height: 32px;
   padding: 7px 12px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .result-management-embedded .discipline-events {
   padding: 9px 0;
@@ -6074,7 +6074,7 @@ footer {
   border-bottom: 1px solid var(--border);
 }
 .result-management-embedded .discipline-events summary {
-  font-size: 12px;
+  font-size: 14px;
 }
 .result-management-embedded .result-preview {
   padding: 0;
@@ -6085,16 +6085,16 @@ footer {
   gap: 6px;
 }
 .result-management-embedded .result-preview strong {
-  font-size: 22px;
+  font-size: 23px;
 }
 .result-management-embedded .result-preview span {
-  font-size: 10px;
+  font-size: 12px;
 }
 .result-management-embedded .result-editor > .button {
   align-self: center;
   min-height: 38px;
   padding: 10px 16px;
-  font-size: 13px;
+  font-size: 15px;
 }
 .result-management-embedded .result-rules {
   margin: 8px 0;
@@ -6102,13 +6102,13 @@ footer {
   border-radius: 8px;
 }
 .result-management-embedded .result-rules summary {
-  font-size: 12px;
+  font-size: 14px;
 }
 .result-management-embedded .simulation-actions {
   margin: 8px 0;
 }
 .result-management-embedded .simulation-actions .button {
-  font-size: 11px;
+  font-size: 13px;
   min-height: 30px;
   padding: 6px 12px;
 }
@@ -6116,12 +6116,12 @@ footer {
   margin: 10px 0;
 }
 .result-management-embedded .result-tournament-board > summary {
-  font-size: 12px;
+  font-size: 14px;
   padding: 10px 14px;
 }
 .result-management-embedded .manager-standings > .result-notice {
   padding: 8px 12px;
-  font-size: 11px;
+  font-size: 13px;
   margin: 8px 0;
 }
 @media (max-width: 640px) {
@@ -6130,7 +6130,7 @@ footer {
     gap: 10px;
   }
   .result-management-embedded .result-match-heading h2 {
-    font-size: 15px;
+    font-size: 17px;
   }
   .result-management-embedded .result-editor > .result-select {
     align-items: flex-start;
@@ -6148,7 +6148,7 @@ footer {
     width: 100%;
   }
   .registration-context > summary {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.5;
   }
 }
@@ -6204,7 +6204,7 @@ footer {
 .hero-visual .scene-sports button {
   min-height: 38px;
   padding: 9px 15px;
-  font-size: 12px;
+  font-size: 14px;
 }
 @media (max-width: 640px) {
   .hero {
@@ -6249,12 +6249,12 @@ footer {
   gap: 10px 20px;
 }
 .footer-brand {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 1px;
 }
 .footer-contact {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
   letter-spacing: 0;
   font-weight: 400;

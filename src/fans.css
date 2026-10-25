@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 13px;
+  font-size: 15px;
 }
 .fans-heading h1 {
   font-family: var(--heading);
@@ -20,7 +20,7 @@
   margin: 16px 0;
 }
 .fans-heading p {
-  font-size: 15px;
+  font-size: 17px;
   color: var(--muted);
   line-height: 1.7;
 }
@@ -67,7 +67,7 @@
   margin-bottom: 12px;
 }
 .fans-composer > p {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
   line-height: 1.8;
   margin-bottom: 20px;
@@ -75,12 +75,12 @@
 .fans-composer label,
 .fans-delete-modal label {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   margin-bottom: 17px;
 }
 .fans-composer label small {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 400;
   color: var(--muted);
 }
@@ -97,7 +97,7 @@
   border: 1px solid var(--border);
   border-radius: 7px;
   color: var(--text);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 400;
 }
 .fans-composer textarea {
@@ -110,7 +110,7 @@
   justify-content: space-between;
   gap: 12px;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 12px;
   margin: -5px 0 18px;
 }
 .fans-composer form > button {
@@ -120,7 +120,7 @@
 .fans-notice {
   margin-top: 16px;
   color: var(--coral);
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
 }
 .fans-history > header {
@@ -143,7 +143,7 @@
 }
 .fans-history header > div > span {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
 }
 .fans-history select {
   margin: 0;
@@ -178,7 +178,7 @@
   flex-wrap: wrap;
   gap: 7px;
   color: #424c58;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 650;
 }
 .fan-team i {
@@ -192,7 +192,7 @@
   width: 100%;
   margin-left: 15px;
   font-weight: 400;
-  font-size: 10px;
+  font-size: 12px;
   color: #78818d;
 }
 .fan-delete {
@@ -210,7 +210,7 @@
   border-color: #efbbaf;
 }
 .fan-message > p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.8;
   margin: 22px 0;
   white-space: pre-wrap;
@@ -227,10 +227,10 @@
   margin-top: auto;
   padding-top: 14px;
   color: #76808c;
-  font-size: 10px;
+  font-size: 12px;
 }
 .fan-message footer strong {
-  font-size: 11px;
+  font-size: 13px;
   color: #414d59;
   font-weight: 600;
 }
@@ -255,7 +255,7 @@
 .fans-empty p,
 .fans-loading,
 .fans-feed-error {
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.7;
 }
 .fans-feed-error {
@@ -273,7 +273,7 @@
   margin: 20px 0;
   border-left: 3px solid var(--coral);
   background: var(--panel);
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.7;
   overflow-wrap: anywhere;
   white-space: pre-wrap;
@@ -317,7 +317,7 @@
     margin-bottom: 26px;
   }
   .fans-heading p {
-    font-size: 13px;
+    font-size: 15px;
   }
   .fans-emblem {
     display: none;
@@ -331,7 +331,7 @@
     max-width: none;
   }
   .fan-message > p {
-    font-size: 15px;
+    font-size: 17px;
   }
   .fan-delete {
     width: 40px;
