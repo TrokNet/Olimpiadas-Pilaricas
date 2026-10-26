@@ -33,6 +33,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import rawData from "./data/tournament.json";
+import OpeningCountdown from "./OpeningCountdown";
 import type {
   Entry,
   Filters,
@@ -903,14 +904,7 @@ export default function App() {
                     <ArrowRight size={17} />
                   </button>
                 </div>
-                <div className="hero-foot">
-                  <span className="vertical-mark" />
-                  <span>
-                    OLIMPIADAS PILARICAS
-                    <br />
-                    <strong>Juntos hacemos historia.</strong>
-                  </span>
-                </div>
+                <OpeningCountdown />
               </div>
               <div className="hero-visual">
                 <img

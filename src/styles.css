@@ -6307,3 +6307,27 @@ html[data-house] .favorite-count,html[data-house] .nav-count{color:var(--team-bu
   .site-header nav,.site-header nav.open{grid-column:2;grid-row:1;border-top:0;gap:0 14px}
   .site-header nav a{padding:34px 0}
 }
+
+/* Opening scoreboard: one compact readout, inheriting the selected house palette. */
+.opening-countdown {
+  margin-top: 24px;
+  max-width: 520px;
+  border-top: 2px solid var(--coral);
+  padding-top: 14px;
+}
+.opening-countdown-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 16px; }
+.opening-countdown-heading > span { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; }
+.opening-countdown-heading svg { color: var(--coral); }
+.opening-countdown-heading time { color: var(--muted); font-size: 14px; white-space: nowrap; }
+.opening-countdown-heading small { font-size: inherit; }
+.opening-countdown-clock { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 12px; }
+.opening-countdown-unit { position: relative; text-align: center; padding: 0 8px; }
+.opening-countdown-unit + .opening-countdown-unit::before { content: ':'; position: absolute; left: -3px; top: 7px; font-size: 30px; color: var(--muted); }
+.opening-countdown-unit strong { display: block; font-family: 'Barlow Condensed', sans-serif; font-size: clamp(40px, 4vw, 60px); font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1; letter-spacing: .02em; }
+.opening-countdown-unit:last-child strong { color: var(--coral); }
+.opening-countdown-unit > span { display: block; color: var(--muted); font-size: 13px; margin-top: 5px; }
+@media (max-width: 640px) {
+  .opening-countdown { max-width: none; margin-top: 20px; }
+  .opening-countdown-heading > span { font-size: 14px; }
+  .opening-countdown-unit strong { font-size: 46px; }
+}
