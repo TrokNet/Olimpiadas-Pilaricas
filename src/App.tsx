@@ -2,6 +2,11 @@ import { lazy, Suspense, useEffect, useMemo, useRef, useState, useLayoutEffect }
 import type { CSSProperties, KeyboardEvent } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
+  House,
+  GitBranch,
+  ChartNoAxesColumnIncreasing,
+  Church,
+  MessagesSquare,
   ArrowDown,
   ArrowLeft,
   ArrowRight,
@@ -759,24 +764,25 @@ export default function App() {
           className={mobileMenu ? "open" : ""}
           aria-label="Navegación principal"
         >
-          {[
-            ["inicio", "Mi equipo"],
-            ["fixture", "Calendario de partidos"],
-            ["favoritos", "Favoritos"],
-            ["grupos", "Grupos"],
-            ["eliminatorio", "Eliminatorias"],
-            ["resultados", "Resultados"],
-            ["gestion", "Simulación"],
-            ["delegaciones", "Delegaciones Franciscanas"],
-            ["fans", "Fans"],
-          ].map(([id, label]) => (
+          {([
+            ["inicio", "Mi equipo", House],
+            ["fixture", "Calendario de partidos", CalendarDays],
+            ["favoritos", "Favoritos", Heart],
+            ["grupos", "Grupos", Users],
+            ["eliminatorio", "Eliminatorias", GitBranch],
+            ["resultados", "Resultados", ChartNoAxesColumnIncreasing],
+            ["gestion", "Simulación", SlidersHorizontal],
+            ["delegaciones", "Delegaciones Franciscanas", Church],
+            ["fans", "Fans", MessagesSquare],
+          ] as const).map(([id, label, Icon]) => (
             <a
               key={id}
               className={activeRoute === id ? "active" : ""}
               href={`#${id}`}
               aria-current={activeRoute === id ? "page" : undefined}
             >
-              {label}
+              <Icon className="navigation-icon" size={21} strokeWidth={1.65} aria-hidden="true" />
+              <span>{label}</span>
               {id === "favoritos" && favoriteIds.size > 0 && (
                 <small>{favoriteIds.size}</small>
               )}

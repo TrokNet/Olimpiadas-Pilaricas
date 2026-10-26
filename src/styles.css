@@ -6331,3 +6331,26 @@ html[data-house] .favorite-count,html[data-house] .nav-count{color:var(--team-bu
   .opening-countdown-heading > span { font-size: 14px; }
   .opening-countdown-unit strong { font-size: 46px; }
 }
+
+/* Clear outline symbols, with the house color marking the current destination. */
+.site-header nav a { display: inline-flex; align-items: center; gap: 8px; }
+.site-header nav .navigation-icon { flex-shrink: 0; color: var(--muted); transition: color .18s ease; }
+.site-header nav a:is(:hover,.active) .navigation-icon { color: var(--coral); }
+.site-header nav a:focus-visible { outline: 2px solid var(--coral); outline-offset: 4px; border-radius: 6px; }
+@media (min-width: 768px) {
+  .site-header nav,.site-header nav.open { gap: 0 14px; }
+  .site-header nav a { gap: 7px; }
+}
+@media (min-width: 1601px) {
+  .site-header nav,.site-header nav.open { gap: 0 12px; }
+  .site-header nav a { font-size: 14px; }
+  .site-header nav .navigation-icon { width: 19px; height: 19px; }
+}
+@media (max-width: 767px) {
+  .site-header nav.open { gap: 5px; padding: 12px; }
+  .site-header nav.open a { width: 100%; min-height: 48px; padding: 10px 14px; border-radius: 10px; gap: 14px; }
+  .site-header nav.open .navigation-icon { width: 24px; height: 24px; }
+  .site-header nav.open a.active { background: color-mix(in srgb,var(--coral) 14%,var(--panel)); box-shadow: inset 3px 0 var(--coral); }
+  .site-header nav.open a.active:after { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .site-header nav .navigation-icon { transition: none; } }
