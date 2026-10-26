@@ -193,3 +193,15 @@ Crear una sola vez las 15 cuentas de equipo y el administrador:
 Las contraseñas aleatorias se entregan una sola vez en `.local/credenciales-equipos.csv`, con permisos privados. No agregar este archivo a Git ni publicarlo en `dist`. La BD conserva únicamente hashes scrypt con sal individual. Las sesiones duran 12 horas, usan cookies HttpOnly/SameSite Strict (Secure bajo el dominio público), y se revocan al cerrar sesión. Cada guardado autenticado queda registrado en `result_audit` con usuario, partido y marcador. El script de creación rechaza reemplazar cuentas existentes.
 
 El acceso anónimo conserva calendarios, resultados y Fans; las rutas públicas de escritura exigen autenticación y verifican permisos en el servidor. Las reglas solo pueden modificarse con la cuenta administradora. GitHub Pages por sí solo no ejecuta estas funciones: requieren el servidor Python y su BD persistente.
+
+## Horarios actualizados el 26/10/2026
+
+`data/schedule_updates_20261026.json` conserva las 66 programaciones cotejadas contra los PDF y la captura recibida: 42 de fútbol, 18 de vóley masculino y 6 correcciones de otras disciplinas para Fonte Colombo. La actualización modifica 58 partidos respecto del fixture inicial. Los PDF de fútbol prevalecen sobre la captura cuando difieren; las fuentes y sus huellas se conservan en `docs/fixture-20261026/`.
+
+```sh
+.venv/bin/python scripts/apply_schedule_updates.py
+.venv/bin/python scripts/export_data.py
+```
+
+El proceso es transaccional e idempotente: verifica las identidades de ambos equipos y solo modifica fecha, inicio, fin y cancha. Conserva cuentas, sesiones, resultados, auditoría y Fans. La reimportación explícita del Excel también aplica estas correcciones para no recuperar horarios antiguos. Ex-Alumnas conserva Rosado / Nuestra Señora del Pilar según la instrucción del usuario. Las reservas ocupadas por partidos oficiales se conservan en SQLite y en el JSON con `superseded_by`, pero dejan de aparecer como horarios disponibles en el calendario.
+En Debian, la BD activa se mantiene fuera de Git en `.local/olimpiadas-live.db`; el servicio usa `DATABASE_URL` para apuntar a ella. `data/olimpiadas.db` es únicamente la base inicial distribuida con el código. Ejecutar las herramientas de administración con el mismo `DATABASE_URL` del servicio y conservar respaldos privados antes de actualizar.

@@ -13,6 +13,7 @@ export interface Entry {
   source_row: number;
 }
 export interface Match {
+  superseded_by?: string[];
   result?: RecordedResult;
   id: string;
   date: string;

@@ -62,6 +62,7 @@ export function timestamp(m: Match, end = false) {
 }
 export function status(m: Match, now = Date.now()) {
   if (m.home_score !== null && m.away_score !== null) return "Resultado";
+  if (m.superseded_by?.length) return "Horario ocupado";
   if (m.kind === "RESERVA") return "Reserva";
   return timestamp(m, true) < now ? "Resultado pendiente" : "Programado";
 }
@@ -73,6 +74,7 @@ export function filterMatches(
 ) {
   const today = limaDate(now);
   return matches.filter((m) => {
+    if (m.superseded_by?.length) return false;
     const names = [gradeFor(data, m.home_id), gradeFor(data, m.away_id)];
     const text = [
       ...names.flatMap((g) => (g ? [g.name, g.label] : [])),

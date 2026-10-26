@@ -100,6 +100,10 @@ def import_excel(path, engine, config=None):
         session.add_all(Entry(**e) for e in entries.values()); session.flush()
         session.add_all(Match(**m) for m in matches)
         for key,value in {'schema_version':'1','imported_at':datetime.now(timezone.utc).isoformat(),'source_file':Path(path).name,'source_sha256':hashlib.sha256(Path(path).read_bytes()).hexdigest()}.items(): session.merge(Metadata(key=key,value=value))
+        # Preserve the reviewed October corrections after any explicit Excel reimport.
+        session.flush()
+        from scripts.apply_schedule_updates import apply_in_session
+        apply_in_session(session)
     return {'grades':len(grades),'entries':len(entries),'matches':len(matches)}
 
 if __name__=='__main__':

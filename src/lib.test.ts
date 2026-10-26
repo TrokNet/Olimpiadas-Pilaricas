@@ -130,3 +130,11 @@ describe("Identidad, filtro y preferencias", () => {
     expect(finals.every((m) => !m.home_id && !m.away_id)).toBe(true);
   });
 });
+it("no muestra como libres los bloques de reserva ocupados por la nueva programación", () => {
+  const occupied = data.matches.filter(m => m.superseded_by?.length);
+  expect(occupied.length).toBeGreaterThan(0);
+  expect(occupied.every(m => m.kind === "RESERVA")).toBe(true);
+  const active = filterMatches(data, DEFAULT_FILTERS);
+  expect(active.every(m => !m.superseded_by?.length)).toBe(true);
+  expect(data.matches).toHaveLength(162);
+});

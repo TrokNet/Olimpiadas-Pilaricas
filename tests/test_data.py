@@ -31,7 +31,7 @@ class DataTests(unittest.TestCase):
     def test_fonte_female_volleyball(self):
         with Session(self.engine) as s:
             eid='voley-femenino:TEAM-10';matches=list(s.scalars(select(Match).where((Match.home_id==eid)|(Match.away_id==eid)).order_by(Match.date)))
-            self.assertEqual([(m.date,m.start,m.end) for m in matches],[('2026-10-31','12:30','13:20'),('2026-11-01','17:15','18:05'),('2026-11-07','17:15','18:05')])
+            self.assertEqual([(m.date,m.start,m.end) for m in matches],[('2026-10-31','12:30','13:20'),('2026-11-01','16:20','17:10'),('2026-11-07','15:25','16:15')])
             rivals=[s.get(Entry,m.away_id if m.home_id==eid else m.home_id).grade_id for m in matches]
             self.assertEqual(rivals,['cuarto-secundaria','segundo-secundaria','primero-primaria'])
     def test_basketball_two_fonte_matches(self):

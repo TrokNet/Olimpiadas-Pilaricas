@@ -13,6 +13,11 @@ def dataset(engine):
         metadata={r.key:r.value for r in s.scalars(select(Metadata))}
         results={r.match_id:r for r in s.scalars(select(MatchResult))}
         matches=[convert(r) for r in s.scalars(select(Match).order_by(Match.date,Match.start,Match.court))]
+        official=[m for m in matches if m['kind']=='OFICIAL']
+        for reserve in matches:
+            if reserve['kind']=='RESERVA':
+                occupied=[m['id'] for m in official if m['date']==reserve['date'] and m['court']==reserve['court'] and m['start']<reserve['end'] and reserve['start']<m['end']]
+                if occupied:reserve['superseded_by']=occupied
         for match in matches:
             result=results.get(match['id'])
             if result and result.sport==match['sport']:
