@@ -6104,6 +6104,70 @@ footer {
 .result-management-embedded .result-rules summary {
   font-size: 14px;
 }
+.result-management-embedded .registration-context {
+  margin-bottom: 14px;
+}
+.result-management-embedded .registration-context > summary {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.result-management-embedded .registration-setup {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  padding: 14px;
+  margin-bottom: 0;
+  border-radius: 0 0 10px 10px;
+}
+.result-management-embedded .registration-team-preview {
+  min-height: 0;
+  padding-top: 12px;
+  gap: 12px;
+}
+.result-management-embedded .registration-team-preview > img,
+.result-management-embedded .registration-team-preview > svg {
+  width: 42px;
+  height: 48px;
+}
+.result-management-embedded .registration-team-preview strong {
+  font-size: 21px;
+}
+.result-management-embedded .registration-sports {
+  border: 0;
+  padding: 0;
+  margin: 12px 0 18px;
+}
+.result-management-embedded .registration-sports h3 {
+  font-size: 17px;
+  margin-bottom: 9px;
+}
+.result-management-embedded .registration-sports > div {
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+}
+.result-management-embedded .registration-sports button {
+  min-height: 46px;
+  padding: 10px 13px;
+}
+.result-management-embedded .result-exception {
+  grid-column: 1 / -1;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--panel);
+}
+.result-management-embedded .result-exception > summary {
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 14px;
+}
+.result-management-embedded .result-exception .result-select {
+  margin: 10px 0 0;
+}
 .result-management-embedded .simulation-actions {
   margin: 8px 0;
 }

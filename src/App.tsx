@@ -1548,6 +1548,7 @@ export default function App() {
               <ResultManager
                 data={data}
                 onUpdate={setData}
+                initialTeamId={prefs.primary || ""}
                 initialMode="register"
                 embedded
               />

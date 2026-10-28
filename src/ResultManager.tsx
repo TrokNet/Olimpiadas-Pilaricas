@@ -171,18 +171,21 @@ export function ResultEditor({
               : "Marcador en puntos."}
         </p>
       </div>
-      <label className="result-select">
-        Walkover (inasistencia)
-        <select
-          value={input.walkover}
-          onChange={(e) => change("walkover", e.target.value)}
-        >
-          <option value="none">Partido jugado</option>
-          <option value="home">No se presenta el equipo local</option>
-          <option value="away">No se presenta el equipo visitante</option>
-          <option value="both">No se presentan ambos equipos</option>
-        </select>
-      </label>
+      <details className="result-exception">
+        <summary>Excepción · registrar walkover</summary>
+        <label className="result-select">
+          Walkover (inasistencia)
+          <select
+            value={input.walkover}
+            onChange={(e) => change("walkover", e.target.value)}
+          >
+            <option value="none">Partido jugado</option>
+            <option value="home">No se presenta el equipo local</option>
+            <option value="away">No se presenta el equipo visitante</option>
+            <option value="both">No se presentan ambos equipos</option>
+          </select>
+        </label>
+      </details>
       {input.walkover === "none" && volley ? (
         <div className="set-editor">
           <h3>Puntos por set</h3>
@@ -327,29 +330,39 @@ export function ResultEditor({
 export default function ResultManager({
   data,
   onUpdate,
+  initialTeamId = "",
   initialMatchId = "",
   initialMode = "simulation",
   embedded = false,
 }: {
   data: Tournament;
   onUpdate: (data: Tournament) => void;
+  initialTeamId?: string;
   initialMatchId?: string;
   initialMode?: "simulation" | "register";
   embedded?: boolean;
 }) {
   const [mode, setMode] = useState<"simulation" | "register">(initialMode);
   const [simulation, setSimulation] = useState(loadSimulation);
-  const [sport, setSport] = useState(
-    () =>
-      data.matches.find((m) => m.id === initialMatchId)?.sport || SPORTS[0].id,
-  );
+  const initialSport =
+    data.matches.find((m) => m.id === initialMatchId)?.sport ||
+    (initialTeamId
+      ? SPORTS.find((candidate) =>
+          data.entries.some(
+            (entry) =>
+              entry.grade_id === initialTeamId && entry.sport === candidate.id,
+          ),
+        )?.id
+      : undefined) ||
+    SPORTS[0].id;
+  const [sport, setSport] = useState(() => initialSport);
   const [selected, setSelected] = useState(initialMatchId);
   const account = data.auth_user;
   const scopedGrade =
     mode === "register" && account?.role === "team" ? account.grade_id : null;
   const canConfigure =
     !data.capabilities?.auth_required || account?.role === "admin";
-  const [chosenTeamId, setTeam] = useState("");
+  const [chosenTeamId, setTeam] = useState(initialTeamId);
   const team = scopedGrade || chosenTeamId;
   useEffect(() => {
     if (scopedGrade) {
@@ -564,13 +577,10 @@ export default function ResultManager({
               <b>3</b> Partido y marcador
             </li>
           </ol>
-          <details
-            className="registration-context"
-            open={!selected || undefined}
-          >
+          <details className="registration-context" open={!team || undefined}>
             <summary>
               {chosenTeam
-                ? `${chosenTeam.name} · ${SPORTS.find((s) => s.id === sport)?.label}`
+                ? `${chosenTeam.name} · ${chosenTeam.label} · ${SPORTS.find((s) => s.id === sport)?.label}`
                 : "Equipo y disciplina"}
               <span>Cambiar</span>
             </summary>
@@ -629,40 +639,34 @@ export default function ResultManager({
                   </div>
                 </div>
               </section>
-              <section
-                className="registration-sports"
-                aria-label="Disciplina para registrar"
-              >
-                <h3>¿En qué disciplina?</h3>
-                {team ? (
-                  <>
-                    <div>
-                      {availableSports.map((s) => (
-                        <button
-                          key={s.id}
-                          aria-pressed={sport === s.id}
-                          onClick={() => {
-                            setSport(s.id);
-                            setSelected("");
-                            setNotice("");
-                          }}
-                        >
-                          {s.label}
-                          <ArrowRight size={16} />
-                        </button>
-                      ))}
-                    </div>
-                    <p>
-                      Solo aparecen las disciplinas en las que participa tu
-                      equipo.
-                    </p>
-                  </>
-                ) : (
-                  <p>Primero elige un equipo para ver sus disciplinas.</p>
-                )}
-              </section>
             </div>
           </details>
+          <section
+            className="registration-sports"
+            aria-label="Disciplina para registrar"
+          >
+            <h3>Elige la disciplina</h3>
+            {team ? (
+              <div>
+                {availableSports.map((s) => (
+                  <button
+                    key={s.id}
+                    aria-pressed={sport === s.id}
+                    onClick={() => {
+                      setSport(s.id);
+                      setSelected("");
+                      setNotice("");
+                    }}
+                  >
+                    {s.label}
+                    <ArrowRight size={16} />
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <p>Primero elige tu equipo para ver sus disciplinas.</p>
+            )}
+          </section>
           {!connected && (
             <p className="result-notice">
               El registro necesita conexión con el servidor de la aplicación.
