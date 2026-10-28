@@ -39,7 +39,7 @@ import {
 } from "lucide-react";
 import rawData from "./data/tournament.json";
 import OpeningCountdown from "./OpeningCountdown";
-import useAudience from "./useAudience";
+import useAudience, { audienceVisitorId } from "./useAudience";
 import type {
   Entry,
   Filters,
@@ -505,6 +505,23 @@ export default function App() {
     }
     document.documentElement.dataset.theme = prefs.theme;
   }, [prefs]);
+  useEffect(() => {
+    if (!prefs.primary) return;
+    const controller = new AbortController();
+    void fetch("/api/analytics/team-selection", {
+      method: "POST",
+      credentials: "same-origin",
+      signal: controller.signal,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        visitor_id: audienceVisitorId(),
+        grade_id: prefs.primary,
+      }),
+    }).catch(() => {
+      /* Team popularity tracking never interrupts the sports experience. */
+    });
+    return () => controller.abort();
+  }, [prefs.primary]);
   useEffect(() => {
     if (!toast) return;
     const id = setTimeout(() => setToast(""), 4000);

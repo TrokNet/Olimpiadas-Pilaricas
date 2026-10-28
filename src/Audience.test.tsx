@@ -62,6 +62,12 @@ it("separates recovered accesses from people and preserves historical unknowns",
             tracking_started_at: 1793206800,
             historical_coverage_from: "2026-10-23",
             recovered_accesses: 17,
+            team_selection_started_at: 1793206800,
+            selected_team_visitors: 2,
+            team_selections: [
+              { grade_id: "cuarto-primaria", label: "Cuarto Primaria", name: "Fonte Colombo", color: "Coral", count: 2 },
+              { grade_id: "4-anos", label: "4 Años", name: "Rivotorto", color: "Turqueza", count: 0 },
+            ],
             history: [
               {
                 date: "2026-10-23",
@@ -93,6 +99,9 @@ it("separates recovered accesses from people and preserves historical unknowns",
     expect(screen.getByText("17 accesos históricos recuperados")).toBeTruthy(),
   );
   expect(screen.getByText("Visitantes acumulados")).toBeTruthy();
+  expect(screen.getByRole("heading", { name: "Equipos elegidos" })).toBeTruthy();
+  expect(screen.getByText("Fonte Colombo")).toBeTruthy();
+  expect(screen.getByText("Navegadores únicos con un equipo principal guardado. No representa una clasificación deportiva.")).toBeTruthy();
   expect(screen.getAllByText("—")).toHaveLength(2);
   expect(vi.mocked(fetch).mock.calls[0][0]).toBe(
     "/api/admin/analytics?all_history=true",

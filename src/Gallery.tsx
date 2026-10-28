@@ -36,12 +36,12 @@ export default function Gallery({ data, initialTeamId = '' }: { data: Tournament
   const loadPhotos = async () => {
     const params = new URLSearchParams(); if (filter) params.set('team_id', filter);
     const body = await jsonResponse(await fetch(`${import.meta.env.BASE_URL}api/gallery?${params}`, { cache: 'no-store' }));
-    setPhotos(body.photos as Photo[]);
+    setPhotos(Array.isArray(body.photos) ? body.photos as Photo[] : []);
   };
   const loadPending = async () => {
     if (!isAdmin) return;
     const body = await jsonResponse(await fetch(`${import.meta.env.BASE_URL}api/gallery/review`, { cache: 'no-store' }));
-    setPending(body.photos as Photo[]);
+    setPending(Array.isArray(body.photos) ? body.photos as Photo[] : []);
   };
   useEffect(() => { void loadPhotos().catch(() => setError('No se pudo cargar la galería.')); }, [filter]);
   useEffect(() => { if (isAdmin) void loadPending().catch(() => setError('No se pudo cargar la revisión de fotos.')); }, [isAdmin]);

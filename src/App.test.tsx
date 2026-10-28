@@ -209,6 +209,11 @@ describe("Flujo del visitante sin automatizar navegador", () => {
       "cuarto-primaria",
     );
     expect(screen.getAllByText("Fonte Colombo").length).toBeGreaterThan(0);
+    await waitFor(() => {
+      const selection = vi.mocked(fetch).mock.calls.find(([url]) => url === "/api/analytics/team-selection");
+      expect(selection).toBeTruthy();
+      expect(JSON.parse(selection![1]?.body as string).grade_id).toBe("cuarto-primaria");
+    });
   });
   it("flechas y selector accesible cambian el grado antes de confirmar", async () => {
     render(<App />);
@@ -240,6 +245,9 @@ describe("Flujo del visitante sin automatizar navegador", () => {
     expect(JSON.parse(localStorage.getItem(STORAGE_KEY)!).primary).toBe(
       "cuarto-primaria",
     );
+    const selections = vi.mocked(fetch).mock.calls.filter(([url]) => url === "/api/analytics/team-selection");
+    expect(selections).toHaveLength(1);
+    expect(JSON.parse(selections[0][1]?.body as string).grade_id).toBe("cuarto-primaria");
     navigate("inicio");
     expect(screen.queryByText(/Explorando Gubbio/)).toBeNull();
   });

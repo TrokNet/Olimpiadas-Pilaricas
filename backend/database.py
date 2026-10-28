@@ -145,6 +145,13 @@ class AnalyticsVisitorDay(Base):
     visitor_id = Column(String(64), primary_key=True)
     day = Column(String(10), primary_key=True)
 
+class AnalyticsTeamSelection(Base):
+    """Latest saved primary grade for one anonymous browser identifier."""
+    __tablename__ = 'analytics_team_selections'
+    visitor_id = Column(String(64), primary_key=True)
+    grade_id = Column(String(80), ForeignKey('grades.id'), nullable=False, index=True)
+    selected_at = Column(Integer, nullable=False)
+
 class HistoricalAccess(Base):
     """Recovered HTML responses, not identifiable people or modern visit sessions."""
     __tablename__ = 'analytics_historical_accesses'

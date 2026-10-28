@@ -10,7 +10,7 @@ export default function FanHighlights({ grades }: { grades: Grade[] }) {
     const controller = new AbortController();
     fetch(`${import.meta.env.BASE_URL}api/fans?limit=3`, { cache: 'no-store', signal: controller.signal })
       .then((response) => response.ok ? response.json() : Promise.reject())
-      .then((feed: { messages: Message[] }) => setMessages(feed.messages))
+      .then((feed: { messages?: unknown }) => setMessages(Array.isArray(feed.messages) ? feed.messages as Message[] : []))
       .catch(() => undefined);
     return () => controller.abort();
   }, []);

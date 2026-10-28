@@ -9,6 +9,8 @@ import {
   RefreshCw,
 } from "lucide-react";
 import type { Tournament } from "./types";
+import { COLOR } from "./types";
+import type { CSSProperties } from "react";
 import ResultLogin from "./ResultLogin";
 import "./audience.css";
 
@@ -23,6 +25,15 @@ interface AudienceStats {
   tracking_started_at: number | null;
   historical_coverage_from: string | null;
   recovered_accesses: number;
+  team_selection_started_at: number | null;
+  selected_team_visitors: number;
+  team_selections: {
+    grade_id: string;
+    label: string;
+    name: string;
+    color: string;
+    count: number;
+  }[];
   history: {
     date: string;
     visitors: number;
@@ -205,6 +216,33 @@ export default function Audience({
               </article>
             ))}
           </div>
+          <section className="team-popularity" aria-labelledby="team-popularity-title">
+            <header className="team-popularity-heading">
+              <div>
+                <span className="audience-private"><Users size={15} /> Preferencias de la hinchada</span>
+                <h2 id="team-popularity-title">Equipos elegidos</h2>
+                <p>Navegadores únicos con un equipo principal guardado. No representa una clasificación deportiva.</p>
+              </div>
+              <div className="team-popularity-total"><strong>{number(stats.selected_team_visitors ?? 0)}</strong><span>navegadores<br />con equipo</span></div>
+            </header>
+            <ol className="team-popularity-list">
+              {(stats.team_selections ?? []).map((team, index) => {
+                const maximum = Math.max(1, ...(stats.team_selections ?? []).map((item) => item.count));
+                const width = team.count ? Math.max(2, (team.count / maximum) * 100) : 0;
+                return <li key={team.grade_id} style={{ "--team-color": COLOR[team.color] || "var(--coral)" } as CSSProperties}>
+                  <span className="team-popularity-rank">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="team-popularity-name"><strong>{team.name}</strong><small>{team.label}</small></span>
+                  <span className="team-popularity-track" role="progressbar" aria-label={`${team.name}: ${team.count} navegadores`} aria-valuemin={0} aria-valuemax={maximum} aria-valuenow={team.count}><i style={{ width: `${width}%` }} /></span>
+                  <strong className="team-popularity-count">{number(team.count)}</strong>
+                </li>;
+              })}
+            </ol>
+            <p className="team-popularity-note">
+              {stats.team_selection_started_at
+                ? `Conteo activo desde ${dayLabel(localDate(stats.team_selection_started_at * 1000))}.`
+                : "Aún no hay elecciones registradas."} Cambiar el equipo principal mueve el navegador al nuevo equipo; explorar otro equipo no cambia este conteo. Las elecciones guardadas anteriormente se atribuyen cuando el visitante vuelve a la página.
+            </p>
+          </section>
           <aside className="audience-recovered">
             <Archive size={24} />
             <div>

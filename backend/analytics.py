@@ -8,7 +8,7 @@ from fastapi import APIRouter, HTTPException, Request, Response, Query
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 from sqlalchemy import select, func
 from sqlalchemy.orm import Session
-from backend.database import AnalyticsVisitor, AnalyticsVisit, AnalyticsVisitorDay, HistoricalAccess, Metadata
+from backend.database import AnalyticsVisitor, AnalyticsVisit, AnalyticsVisitorDay, AnalyticsTeamSelection, HistoricalAccess, Grade, Metadata
 from backend.fans import fans_engine, throttle
 from backend.auth import current_user, same_origin
 
@@ -28,6 +28,16 @@ class Heartbeat(BaseModel):
     def valid_uuid(cls, value):
         return str(UUID(value))
 
+class TeamSelection(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    visitor_id: str = Field(min_length=36, max_length=36)
+    grade_id: str = Field(min_length=1, max_length=80)
+
+    @field_validator('visitor_id')
+    @classmethod
+    def valid_visitor_id(cls, value):
+        return str(UUID(value))
+
 def record_activity(engine, visitor_id, now=None):
     now = int(time.time()) if now is None else now
     identifier = hashlib.sha256(visitor_id.encode()).hexdigest()
@@ -45,11 +55,36 @@ def record_activity(engine, visitor_id, now=None):
         if not s.get(AnalyticsVisitorDay, (identifier, lima_day(now))):
             s.add(AnalyticsVisitorDay(visitor_id=identifier, day=lima_day(now)))
 
+def record_team_selection(engine, visitor_id, grade_id, now=None):
+    now = int(time.time()) if now is None else now
+    identifier = hashlib.sha256(visitor_id.encode()).hexdigest()
+    with _write_lock, Session(engine) as s, s.begin():
+        if not s.get(Grade, grade_id):
+            raise ValueError('El equipo seleccionado no existe.')
+        selection = s.get(AnalyticsTeamSelection, identifier)
+        if selection is None:
+            s.add(AnalyticsTeamSelection(visitor_id=identifier, grade_id=grade_id, selected_at=now))
+            if not s.get(Metadata, 'analytics_team_selection_started_at'):
+                s.add(Metadata(key='analytics_team_selection_started_at', value=str(now)))
+        elif selection.grade_id != grade_id:
+            selection.grade_id = grade_id
+            selection.selected_at = now
+
 @router.post('/analytics/heartbeat', status_code=204)
 def heartbeat(payload: Heartbeat, request: Request):
     same_origin(request)
     throttle(request, 'analytics', 2400)
     record_activity(fans_engine(), payload.visitor_id)
+    return Response(status_code=204, headers={'Cache-Control': 'no-store'})
+
+@router.post('/analytics/team-selection', status_code=204)
+def save_team_selection(payload: TeamSelection, request: Request):
+    same_origin(request)
+    throttle(request, 'team_selection', 60)
+    try:
+        record_team_selection(fans_engine(), payload.visitor_id, payload.grade_id)
+    except ValueError as error:
+        raise HTTPException(422, str(error)) from error
     return Response(status_code=204, headers={'Cache-Control': 'no-store'})
 
 def statistics(engine, start, end, now=None):
@@ -68,6 +103,15 @@ def statistics(engine, start, end, now=None):
             current += timedelta(days=1)
         started = s.get(Metadata, 'analytics_started_at')
         coverage = s.get(Metadata, 'analytics_journal_coverage')
+        team_started = s.get(Metadata, 'analytics_team_selection_started_at')
+        selection_counts = dict(s.execute(select(AnalyticsTeamSelection.grade_id, func.count()).group_by(AnalyticsTeamSelection.grade_id)).all())
+        team_selections = [
+            {'grade_id': grade.id, 'label': grade.label, 'name': grade.name, 'color': grade.color, 'count': selection_counts.get(grade.id, 0), 'display_order': grade.display_order}
+            for grade in s.scalars(select(Grade).order_by(Grade.display_order))
+        ]
+        team_selections.sort(key=lambda item: (-item['count'], item['display_order']))
+        for item in team_selections:
+            item.pop('display_order')
         return {
             'timezone': 'America/Lima', 'updated_at': now,
             'tracking_started_at': int(started.value) if started else None,
@@ -75,6 +119,9 @@ def statistics(engine, start, end, now=None):
             'online': count(AnalyticsVisitor, AnalyticsVisitor.last_seen > now-120),
             'total_visitors': count(AnalyticsVisitor), 'total_visits': count(AnalyticsVisit),
             'recovered_accesses': count(HistoricalAccess),
+            'team_selection_started_at': int(team_started.value) if team_started else None,
+            'selected_team_visitors': sum(item['count'] for item in team_selections),
+            'team_selections': team_selections,
             'today_visitors': count(AnalyticsVisitorDay, AnalyticsVisitorDay.day == lima_day(now)),
             'today_visits': count(AnalyticsVisit, AnalyticsVisit.day == lima_day(now)),
             'period_visitors': s.scalar(select(func.count(func.distinct(AnalyticsVisitorDay.visitor_id))).where(AnalyticsVisitorDay.day >= start, AnalyticsVisitorDay.day <= end)) or 0,

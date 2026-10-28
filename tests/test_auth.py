@@ -121,6 +121,10 @@ class AccountPermissionsTests(unittest.TestCase):
         self.assertEqual(self.client.post('/api/analytics/heartbeat',json={'visitor_id':visitor}).status_code,204)
         self.assertEqual(self.client.post('/api/analytics/heartbeat',json={'visitor_id':'bad'}).status_code,422)
         self.assertEqual(self.client.post('/api/analytics/heartbeat',json={'visitor_id':visitor},headers={'Origin':'https://evil.example'}).status_code,403)
+        selection={'visitor_id':visitor,'grade_id':'cuarto-primaria'}
+        self.assertEqual(self.client.post('/api/analytics/team-selection',json=selection).status_code,204)
+        self.assertEqual(self.client.post('/api/analytics/team-selection',json=selection).status_code,204)
+        self.assertEqual(self.client.post('/api/analytics/team-selection',json={'visitor_id':visitor,'grade_id':'not-a-grade'}).status_code,422)
         self.login('cuarto-primaria')
         self.assertEqual(self.client.get('/api/admin/analytics').status_code,403)
         self.client.post('/api/auth/logout');self.login('administrador')
@@ -129,6 +133,15 @@ class AccountPermissionsTests(unittest.TestCase):
         self.assertEqual(response.json()['online'],1)
         self.assertEqual(response.json()['total_visitors'],1)
         self.assertEqual(response.json()['total_visits'],1)
+        team_counts={team['grade_id']:team['count'] for team in response.json()['team_selections']}
+        self.assertEqual(response.json()['selected_team_visitors'],1)
+        self.assertEqual(team_counts['cuarto-primaria'],1)
+        self.assertEqual(self.client.post('/api/analytics/team-selection',json={'visitor_id':visitor,'grade_id':'3-anos'}).status_code,204)
+        moved=self.client.get('/api/admin/analytics').json()
+        moved_counts={team['grade_id']:team['count'] for team in moved['team_selections']}
+        self.assertEqual(moved['selected_team_visitors'],1)
+        self.assertEqual(moved_counts['cuarto-primaria'],0)
+        self.assertEqual(moved_counts['3-anos'],1)
         self.assertEqual(response.headers['Cache-Control'],'no-store')
         self.assertEqual(self.client.get('/api/admin/analytics?start=2026-10-29&end=2026-10-01').status_code,422)
         self.assertFalse(any(k.startswith('analytics_') for k in self.client.get('/api/tournament').json()['metadata']))

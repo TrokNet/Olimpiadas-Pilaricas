@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 let temporaryId: string | undefined;
-function visitorId() {
+export function audienceVisitorId() {
   try {
     let id = localStorage.getItem("pilaricas-audience-id");
     if (!id || !/^[\da-f]{8}(-[\da-f]{4}){3}-[\da-f]{12}$/i.test(id)) {
@@ -17,7 +17,7 @@ function visitorId() {
 
 export default function useAudience() {
   useEffect(() => {
-    const id = visitorId();
+    const id = audienceVisitorId();
     const controller = new AbortController();
     const ping = () => {
       if (document.visibilityState === "hidden") return;
