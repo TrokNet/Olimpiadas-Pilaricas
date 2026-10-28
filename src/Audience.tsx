@@ -259,15 +259,28 @@ export default function Audience({
               aria-label="Barras diarias de visitas medidas y accesos históricos. Cifras exactas en la tabla inferior."
             >
               {stats.history.map((row) => (
-                <div className="audience-chart-day" key={row.date}>
+                <div
+                  className="audience-chart-day"
+                  key={row.date}
+                  title={
+                    stats.tracking_started_at !== null &&
+                    row.date >= localDate(stats.tracking_started_at * 1000)
+                      ? `${dayLabel(row.date)}: ${number(row.visitors)} visitantes únicos conectados`
+                      : `${dayLabel(row.date)}: no se midieron visitantes únicos; ${number(row.recovered_accesses)} accesos históricos`
+                  }
+                  aria-label={
+                    stats.tracking_started_at !== null &&
+                    row.date >= localDate(stats.tracking_started_at * 1000)
+                      ? `${dayLabel(row.date)}: ${number(row.visitors)} visitantes únicos conectados`
+                      : `${dayLabel(row.date)}: visitantes únicos sin medición; ${number(row.recovered_accesses)} accesos históricos`
+                  }
+                >
                   <div className="audience-chart-bars">
                     <span
-                      title={`${row.visits} visitas`}
                       style={{ height: `${(row.visits / max) * 100}%` }}
                     />
                     <span
                       className="historical"
-                      title={`${row.recovered_accesses} accesos recuperados`}
                       style={{
                         height: `${(row.recovered_accesses / max) * 100}%`,
                       }}
