@@ -3,8 +3,10 @@ import type { Tournament } from "./types";
 import { LockKeyhole, LogIn } from "lucide-react";
 export default function ResultLogin({
   onUpdate,
+  purpose = "results",
 }: {
   onUpdate: (data: Tournament) => void;
+  purpose?: "results" | "analytics";
 }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -13,15 +15,14 @@ export default function ResultLogin({
   return (
     <section
       className="result-login"
-      aria-label="Acceso para registrar resultados"
+      aria-label={purpose === "analytics" ? "Acceso a estadísticas privadas" : "Acceso para registrar resultados"}
     >
       <div className="result-login-icon">
         <LockKeyhole size={26} />
       </div>
-      <h2>El resultado de tu equipo</h2>
+      <h2>{purpose === "analytics" ? "Tu tribuna, en números" : "El resultado de tu equipo"}</h2>
       <p>
-        Ingresa con la cuenta de tu salón para registrar ambos marcadores de sus
-        partidos.
+        {purpose === "analytics" ? "Ingresa con tu cuenta de administrador para consultar las visitas y los conectados." : "Ingresa con la cuenta de tu salón para registrar ambos marcadores de sus partidos."}
       </p>
       <form
         onSubmit={async (event) => {
@@ -81,7 +82,7 @@ export default function ResultLogin({
         </button>
       </form>
       <small>
-        El administrador puede registrar partidos de todos los equipos.
+        {purpose === "analytics" ? "Estas estadísticas son privadas. Solo el administrador tiene acceso." : "El administrador puede registrar partidos de todos los equipos."}
       </small>
     </section>
   );

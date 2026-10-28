@@ -89,6 +89,31 @@ class ResultAudit(Base):
     payload = Column(Text, nullable=False)
     created_at = Column(String(40), nullable=False)
 
+class AnalyticsVisitor(Base):
+    __tablename__ = 'analytics_visitors'
+    id = Column(String(64), primary_key=True)
+    first_seen = Column(Integer, nullable=False)
+    last_seen = Column(Integer, nullable=False, index=True)
+
+class AnalyticsVisit(Base):
+    __tablename__ = 'analytics_visits'
+    id = Column(String(40), primary_key=True)
+    visitor_id = Column(String(64), nullable=False, index=True)
+    day = Column(String(10), nullable=False, index=True)
+    started_at = Column(Integer, nullable=False)
+
+class AnalyticsVisitorDay(Base):
+    __tablename__ = 'analytics_visitor_days'
+    visitor_id = Column(String(64), primary_key=True)
+    day = Column(String(10), primary_key=True)
+
+class HistoricalAccess(Base):
+    """Recovered HTML responses, not identifiable people or modern visit sessions."""
+    __tablename__ = 'analytics_historical_accesses'
+    id = Column(String(64), primary_key=True)
+    day = Column(String(10), nullable=False, index=True)
+    timestamp = Column(Integer, nullable=False)
+
 def engine_for(url=None):
     engine = create_engine(url or os.environ.get('DATABASE_URL', DEFAULT_URL))
     if engine.dialect.name == 'sqlite':

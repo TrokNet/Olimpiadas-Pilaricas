@@ -10,11 +10,16 @@ from backend.results import ResultInput, RuleInput, normalize_result
 app=FastAPI(title='Olimpiadas Pilaricas 2026',version='1.1.0')
 from backend.fans import router as fans_router
 app.include_router(fans_router)
+from backend.auth import session_router, current_user
+from backend.analytics import router as analytics_router
+app.include_router(session_router, prefix='/api')
+app.include_router(analytics_router)
 engine=engine_for();initialize(engine)
 def current():
     data=dataset(engine);data['capabilities']={'result_write':True};return data
 @app.get('/api/tournament')
-def tournament():return current()
+def tournament(request: Request):
+    data=current();data['auth_user']=current_user(request,False);return data
 @app.get('/api/matches/{match_id}')
 def match(match_id:str):
     item=next((m for m in dataset(engine)['matches'] if m['id']==match_id),None)

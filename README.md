@@ -205,3 +205,18 @@ El acceso anónimo conserva calendarios, resultados y Fans; las rutas públicas 
 
 El proceso es transaccional e idempotente: verifica las identidades de ambos equipos y solo modifica fecha, inicio, fin y cancha. Conserva cuentas, sesiones, resultados, auditoría y Fans. La reimportación explícita del Excel también aplica estas correcciones para no recuperar horarios antiguos. Ex-Alumnas conserva Rosado / Nuestra Señora del Pilar según la instrucción del usuario. Las reservas ocupadas por partidos oficiales se conservan en SQLite y en el JSON con `superseded_by`, pero dejan de aparecer como horarios disponibles en el calendario.
 En Debian, la BD activa se mantiene fuera de Git en `.local/olimpiadas-live.db`; el servicio usa `DATABASE_URL` para apuntar a ella. `data/olimpiadas.db` es únicamente la base inicial distribuida con el código. Ejecutar las herramientas de administración con el mismo `DATABASE_URL` del servicio y conservar respaldos privados antes de actualizar.
+
+## Estadísticas privadas de audiencia
+
+El enlace «Administración» del pie lleva a `#administracion`. Solo el usuario administrador puede consultar `GET /api/admin/analytics`; los demás reciben 401/403. El panel se actualiza cada 30 segundos y permite ver todo el historial disponible, 7 o 30 días, con tabla diaria. Las respuestas privadas no se almacenan en caché.
+
+`POST /api/analytics/heartbeat` recibe un UUID anónimo por navegador, compartido entre pestañas mediante localStorage. El servidor solo conserva su hash, primera/última actividad, sesiones y presencia diaria en tablas SQLite portables. No guarda IP, URL, nombres ni user-agent. Se cuenta «conectado» durante 120 segundos desde la última señal de una pestaña visible; una visita nueva comienza tras 30 minutos sin actividad. Los acumulados identifican navegadores, no personas verificadas. Borrar el almacenamiento, cambiar de dispositivo o bloquear JavaScript afecta al conteo. Este servicio usa un único proceso Uvicorn; si se amplía a múltiples procesos, la creación de sesiones debe serializarse en la base de datos.
+
+Para recuperar registros antiguos de Debian, conservar una copia privada del journal y ejecutar con la BD activa:
+
+```sh
+export DATABASE_URL=sqlite:////home/trok/apps/olimpiadas/.local/olimpiadas-live.db
+.venv/bin/python -m scripts.import_access_history .local/access-history/journal-before-analytics.jsonl
+```
+
+La importación es idempotente y conserva únicamente huellas y fechas de respuestas HTML `GET /` con estado 200 anteriores al inicio del nuevo conteo. Esos accesos aparecen separados: incluyen recargas, posibles bots y consultas técnicas; no equivalen a visitantes únicos ni garantizan cobertura completa desde la creación del sistema. Los registros disponibles comienzan el 23/10/2026. No se reconstruyen cifras inexistentes. El archivo original del journal, las credenciales y la BD activa permanecen fuera de Git y de `dist`.

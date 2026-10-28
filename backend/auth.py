@@ -14,6 +14,7 @@ from backend.results import ResultInput, RuleInput
 from scripts.export_data import dataset
 
 router=APIRouter(prefix='/api')
+session_router=APIRouter()
 COOKIE='olimpiadas_session'
 
 def password_hash(password,salt):
@@ -48,7 +49,7 @@ class LoginInput(BaseModel):
     username:str=Field(min_length=1,max_length=80)
     password:str=Field(min_length=1,max_length=128,repr=False)
 
-@router.post('/auth/login')
+@session_router.post('/auth/login')
 def login(payload:LoginInput,request:Request,response:Response):
     same_origin(request);throttle(request,'login',10)
     with Session(fans_engine()) as s,s.begin():
@@ -67,7 +68,7 @@ def login(payload:LoginInput,request:Request,response:Response):
     data=dataset(fans_engine());data['auth_user']=user;data['capabilities']={'result_write':True,'auth_required':True}
     return data
 
-@router.post('/auth/logout')
+@session_router.post('/auth/logout')
 def logout(request:Request,response:Response):
     same_origin(request)
     with Session(fans_engine()) as s,s.begin():
@@ -100,3 +101,5 @@ def save_rules(sport:str,payload:RuleInput,request:Request):
     from backend.api import write_rules
     write_rules(sport,payload)
     return tournament_for(request)
+
+router.include_router(session_router)

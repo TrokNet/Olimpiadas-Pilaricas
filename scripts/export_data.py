@@ -22,7 +22,7 @@ def dataset(engine):
             result=results.get(match['id'])
             if result and result.sport==match['sport']:
                 payload=json.loads(result.payload);match.update(home_score=payload['home_score'],away_score=payload['away_score'],result={**payload,'updated_at':result.updated_at})
-        return {'schemaVersion':1,'timezone':'America/Lima','metadata':{k:v for k,v in metadata.items() if k not in ['scoring_rules','team_art']},'rules':json.loads(metadata.get('scoring_rules','{}')),'art':json.loads(metadata.get('team_art','{}')),'grades':[convert(r) for r in s.scalars(select(Grade).order_by(Grade.display_order))],'entries':[convert(r) for r in s.scalars(select(Entry).order_by(Entry.sport,Entry.team_number))],'matches':matches}
+        return {'schemaVersion':1,'timezone':'America/Lima','metadata':{k:v for k,v in metadata.items() if k not in ['scoring_rules','team_art'] and not k.startswith('analytics_')},'rules':json.loads(metadata.get('scoring_rules','{}')),'art':json.loads(metadata.get('team_art','{}')),'grades':[convert(r) for r in s.scalars(select(Grade).order_by(Grade.display_order))],'entries':[convert(r) for r in s.scalars(select(Entry).order_by(Entry.sport,Entry.team_number))],'matches':matches}
 
 if __name__=='__main__':
     data=dataset(engine_for()); output=ROOT/'src/data/tournament.json'; output.parent.mkdir(parents=True,exist_ok=True); output.write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf8'); print(f'Exportados {len(data["matches"])} registros desde la BD a {output}')

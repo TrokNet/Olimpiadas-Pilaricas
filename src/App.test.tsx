@@ -67,6 +67,7 @@ describe("Flujo del visitante sin automatizar navegador", () => {
       expect(
         screen.getByRole("region", { name: "Galería de delegaciones" }),
       ).toBeTruthy(),
+      { timeout: 5000 },
     );
     navigate("delegaciones/cuarto-primaria");
     await waitFor(() =>

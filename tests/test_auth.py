@@ -113,4 +113,26 @@ class AccountPermissionsTests(unittest.TestCase):
         self.assertEqual((saved['home_score'],saved['away_score']),(0,20))
         with Session(self.engine) as s:self.assertEqual(s.get(MatchResult,m['id']).sport,'basquet-femenino')
 
+    def test_private_analytics_permissions_and_anonymous_activity(self):
+        from uuid import uuid4
+        visitor=str(uuid4())
+        self.assertEqual(self.client.get('/api/admin/analytics').status_code,401)
+        self.assertEqual(self.client.post('/api/analytics/heartbeat',json={'visitor_id':visitor}).status_code,204)
+        self.assertEqual(self.client.post('/api/analytics/heartbeat',json={'visitor_id':visitor}).status_code,204)
+        self.assertEqual(self.client.post('/api/analytics/heartbeat',json={'visitor_id':'bad'}).status_code,422)
+        self.assertEqual(self.client.post('/api/analytics/heartbeat',json={'visitor_id':visitor},headers={'Origin':'https://evil.example'}).status_code,403)
+        self.login('cuarto-primaria')
+        self.assertEqual(self.client.get('/api/admin/analytics').status_code,403)
+        self.client.post('/api/auth/logout');self.login('administrador')
+        response=self.client.get('/api/admin/analytics?all_history=true')
+        self.assertEqual(response.status_code,200,response.text)
+        self.assertEqual(response.json()['online'],1)
+        self.assertEqual(response.json()['total_visitors'],1)
+        self.assertEqual(response.json()['total_visits'],1)
+        self.assertEqual(response.headers['Cache-Control'],'no-store')
+        self.assertEqual(self.client.get('/api/admin/analytics?start=2026-10-29&end=2026-10-01').status_code,422)
+        self.assertFalse(any(k.startswith('analytics_') for k in self.client.get('/api/tournament').json()['metadata']))
+        self.client.post('/api/auth/logout')
+        self.assertEqual(self.client.get('/api/admin/analytics').status_code,401)
+
 if __name__=='__main__':unittest.main()

@@ -9,6 +9,8 @@ app.include_router(router)
 from backend.auth import router as auth_router, tournament_for
 from fastapi import Request, Response
 app.include_router(auth_router)
+from backend.analytics import router as analytics_router
+app.include_router(analytics_router)
 @app.middleware('http')
 async def no_cache_sessions(request,call_next):
     response=await call_next(request)

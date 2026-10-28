@@ -39,6 +39,7 @@ import {
 } from "lucide-react";
 import rawData from "./data/tournament.json";
 import OpeningCountdown from "./OpeningCountdown";
+import useAudience from "./useAudience";
 import type {
   Entry,
   Filters,
@@ -444,7 +445,10 @@ function TeamPicker({
   );
 }
 
+const Audience = lazy(() => import("./Audience"));
+
 export default function App() {
+  useAudience();
   const [data, setData] = useState<Tournament>(rawData as Tournament);
   useEffect(() => {
     const controller = new AbortController();
@@ -477,7 +481,7 @@ export default function App() {
   const [prefs, setPrefs] = useState<Preferences>(loadPreferences);
   const [filters, setFilters] = useState<Filters>(initialFilters);
   const [picker, setPicker] = useState(() =>
-    !loadPreferences().primary && !location.hash.startsWith("#partido/")
+    !loadPreferences().primary && !location.hash.startsWith("#partido/") && !location.hash.startsWith("#administracion")
       ? "welcome"
       : "",
   );
@@ -1479,6 +1483,11 @@ export default function App() {
             />
           </Suspense>
         )}
+        {activeRoute === "administracion" && (
+          <Suspense fallback={<section className="page-content" role="status">Cargando estadísticas…</section>}>
+            <Audience data={data} onUpdate={setData} />
+          </Suspense>
+        )}
         {activeRoute === "fans" && (
           <Suspense
             fallback={
@@ -1768,6 +1777,7 @@ export default function App() {
           "fans",
           "partido",
           "imagenes",
+          "administracion",
         ].includes(activeRoute) && (
           <section className="page-content empty-state">
             <h2>Página no encontrada</h2>
@@ -1807,6 +1817,9 @@ export default function App() {
               dateStyle: "short",
             }).format(new Date(data.metadata.imported_at))}
           </p>
+          <a href="#administracion" className="text-button">
+            <ChartNoAxesColumnIncreasing size={15} aria-hidden="true" /> Administración
+          </a>
           <a href="#imagenes" className="text-button">
             Imágenes y créditos ↗
           </a>
