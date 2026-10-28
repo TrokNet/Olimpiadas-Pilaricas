@@ -125,7 +125,8 @@ it("muestra el contenido como texto y permite reintentar una carga fallida", asy
   const mock = vi.mocked(fetch);
   const normalFetch = mock.getMockImplementation();
   let rejectFansRequest = true;
-  mock.mockImplementation((url: string, options?: RequestInit) => {
+  mock.mockImplementation((input: RequestInfo | URL, options?: RequestInit) => {
+    const url = typeof input === "string" ? input : input instanceof URL ? input.href : input.url;
     if (
       rejectFansRequest &&
       new URL(url, "http://localhost").pathname.endsWith("/api/fans")

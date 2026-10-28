@@ -16,7 +16,6 @@ import {
   ChevronRight,
   Clock3,
   Download,
-  Flag,
   Heart,
   LayoutGrid,
   List,
@@ -974,6 +973,7 @@ export default function App() {
             </section>
             <section className="stat-strip" aria-label="El torneo en números">
               <div>
+                <span className="stat-icon" aria-hidden="true"><Trophy size={21} /></span>
                 <b>03</b>
                 <span>
                   Deportes que
@@ -982,6 +982,7 @@ export default function App() {
                 </span>
               </div>
               <div>
+                <span className="stat-icon" aria-hidden="true"><Users size={21} /></span>
                 <b>{String(data.grades.length).padStart(2, "0")}</b>
                 <span>
                   Equipos.
@@ -990,6 +991,7 @@ export default function App() {
                 </span>
               </div>
               <div>
+                <span className="stat-icon" aria-hidden="true"><CalendarDays size={21} /></span>
                 <b>
                   {displayed
                     ? teamMatches.length
@@ -1002,7 +1004,7 @@ export default function App() {
                 </span>
               </div>
               <div className="stat-message">
-                <Flag size={22} />
+                <span className="stat-icon" aria-hidden="true"><Heart size={21} /></span>
                 <span>
                   Tu voz también
                   <br />
