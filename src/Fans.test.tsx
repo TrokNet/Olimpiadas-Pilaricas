@@ -122,7 +122,19 @@ it("muestra el contenido como texto y permite reintentar una carga fallida", asy
   await screen.findByText(rows[0].message);
   expect(view.container.querySelectorAll("img")).toHaveLength(0);
   view.unmount();
-  vi.mocked(fetch).mockRejectedValueOnce(new Error("Sin conexión"));
+  const mock = vi.mocked(fetch);
+  const normalFetch = mock.getMockImplementation();
+  let rejectFansRequest = true;
+  mock.mockImplementation((url: string, options?: RequestInit) => {
+    if (
+      rejectFansRequest &&
+      new URL(url, "http://localhost").pathname.endsWith("/api/fans")
+    ) {
+      rejectFansRequest = false;
+      return Promise.reject(new Error("Sin conexión"));
+    }
+    return normalFetch!(url, options);
+  });
   render(<Fans data={raw as Tournament} />);
   await screen.findByRole("alert");
   fireEvent.click(screen.getByRole("button", { name: "Volver a intentar" }));
