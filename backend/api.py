@@ -10,6 +10,8 @@ from backend.results import ResultInput, RuleInput, normalize_result
 app=FastAPI(title='Olimpiadas Pilaricas 2026',version='1.1.0')
 from backend.fans import router as fans_router
 app.include_router(fans_router)
+from backend.attendance import router as attendance_router
+app.include_router(attendance_router)
 from backend.auth import session_router, current_user
 from backend.analytics import router as analytics_router
 app.include_router(session_router, prefix='/api')

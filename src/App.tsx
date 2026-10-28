@@ -50,6 +50,9 @@ import type {
 } from "./types";
 import { teamPalette } from "./teamPalette";
 import { COLOR, SPORTS } from "./types";
+import AttendanceButton from "./AttendanceButton";
+import TeamShare from "./TeamShare";
+import FanHighlights from "./FanHighlights";
 import {
   calendarFile,
   csvFile,
@@ -1035,6 +1038,22 @@ export default function App() {
                     Ver partido
                     <ArrowRight size={18} />
                   </button>
+                  <AttendanceButton matchId={next.id} />
+                </div>
+              </section>
+            )}
+            {displayed && !temporary && (
+              <section className="team-share-section">
+                <div>
+                  <span className="eyebrow coral-text">LLENA LA TRIBUNA</span>
+                  <h2>Que nadie se pierda un partido.</h2>
+                  <p>Comparte el fixture de {displayed.name} y lleva sus fechas en tu calendario.</p>
+                </div>
+                <div className="team-share-actions">
+                  <TeamShare grade={displayed} matches={teamMatches} data={data} onNotice={setToast} />
+                  <button className="button outline" onClick={() => download(calendarFile(data, teamMatches), `calendario-${displayed.id}.ics`, "text/calendar")}>
+                    <CalendarDays size={17} /> Añadir a mi calendario
+                  </button>
                 </div>
               </section>
             )}
@@ -1120,6 +1139,7 @@ export default function App() {
                 </div>
               )}
             </section>
+            <FanHighlights grades={data.grades} />
           </>
         )}
 
@@ -1684,6 +1704,7 @@ export default function App() {
               </div>
             </div>
             <div className="detail-actions">
+              <AttendanceButton matchId={selectedMatch.id} />
               <a
                 className="button outline"
                 href={`#gestion/${selectedMatch.id}`}

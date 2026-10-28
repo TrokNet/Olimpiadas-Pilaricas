@@ -67,6 +67,15 @@ class FanMessage(Base):
     message = Column(String(500), nullable=False)
     created_at = Column(String(40), nullable=False, index=True)
 
+class MatchAttendance(Base):
+    """Anonymous opt-in support, deduplicated per browser and match."""
+    __tablename__ = 'match_attendance'
+    id = Column(String(64), primary_key=True)
+    match_id = Column(String(80), ForeignKey('matches.id'), nullable=False, index=True)
+    visitor_hash = Column(String(64), nullable=False)
+    created_at = Column(String(40), nullable=False)
+    __table_args__ = (UniqueConstraint('match_id', 'visitor_hash'),)
+
 class Account(Base):
     __tablename__ = 'accounts'
     username = Column(String(80), primary_key=True)

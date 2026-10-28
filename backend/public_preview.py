@@ -6,6 +6,8 @@ from backend.fans import router
 
 app=FastAPI(title='Olimpiadas NSP · Vista pública',docs_url=None,redoc_url=None,openapi_url=None)
 app.include_router(router)
+from backend.attendance import router as attendance_router
+app.include_router(attendance_router)
 from backend.auth import router as auth_router, tournament_for
 from fastapi import Request, Response
 app.include_router(auth_router)
