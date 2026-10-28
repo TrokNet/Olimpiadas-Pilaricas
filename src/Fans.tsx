@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   Heart,
+  HandHeart,
   LockKeyhole,
   Megaphone,
   MessageCircle,
@@ -10,6 +11,9 @@ import {
 import type { CSSProperties, FormEvent } from "react";
 import type { Tournament } from "./types";
 import { COLOR } from "./types";
+import { visitorId } from "./visitorIdentity";
+import Predictions from "./Predictions";
+import Gallery from "./Gallery";
 import { Modal } from "./ui";
 import "./fans.css";
 
@@ -19,6 +23,8 @@ type FanMessage = {
   author: string;
   message: string;
   created_at: string;
+  reactions?: { heart: number; clap: number };
+  my_reactions?: string[];
 };
 type Feed = {
   messages: FanMessage[];
@@ -64,6 +70,7 @@ export default function Fans({
   const [password, setPassword] = useState("");
   const [deleteError, setDeleteError] = useState("");
   const [deleting, setDeleting] = useState(false);
+  const [reactionBusy, setReactionBusy] = useState("");
   const controller = useRef<AbortController | null>(null);
   const load = useCallback(
     async (cursor: string | null = null) => {
@@ -75,6 +82,7 @@ export default function Fans({
       try {
         const params = new URLSearchParams();
         if (filter) params.set("team_id", filter);
+        params.set("visitor_id", visitorId());
         if (cursor) params.set("cursor", cursor);
         const feed: Feed = await readResponse(
           await fetch(`${import.meta.env.BASE_URL}api/fans?${params}`, {
@@ -166,6 +174,26 @@ export default function Fans({
       setDeleting(false);
     }
   };
+  const react = async (message: FanMessage, reaction: "heart" | "clap") => {
+    const key = `${message.id}:${reaction}`;
+    if (reactionBusy) return;
+    setReactionBusy(key);
+    try {
+      const result = await readResponse(await fetch(
+        `${import.meta.env.BASE_URL}api/fans/${encodeURIComponent(message.id)}/reactions`,
+        { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ visitor_id: visitorId(), reaction }) },
+      ));
+      setMessages((current) => current.map((item) => {
+        if (item.id !== message.id) return item;
+        const active = Boolean(result.active);
+        const mine = new Set(item.my_reactions || []);
+        if (active) mine.add(reaction); else mine.delete(reaction);
+        return { ...item, reactions: result.reactions as FanMessage["reactions"], my_reactions: [...mine] };
+      }));
+    } catch (cause) {
+      setNotice(cause instanceof Error ? cause.message : "No se pudo guardar la reacción.");
+    } finally { setReactionBusy(""); }
+  };
   const dateFormat = new Intl.DateTimeFormat("es-PE", {
     timeZone: "America/Lima",
     day: "numeric",
@@ -195,6 +223,7 @@ export default function Fans({
           </span>
         </div>
       </header>
+      <Predictions data={data} teamId={initialTeamId || undefined} />
       <div className="fans-layout">
         <aside className="fans-composer">
           <span className="fans-composer-icon">
@@ -347,6 +376,14 @@ export default function Fans({
                       {dateFormat.format(new Date(message.created_at))}
                     </time>
                   </footer>
+                  <div className="fan-reactions" aria-label="Reacciones al mensaje">
+                    <button type="button" className={message.my_reactions?.includes("heart") ? "active" : ""} disabled={reactionBusy.length > 0} onClick={() => void react(message, "heart")} aria-label={`Dar corazón, ${message.reactions?.heart || 0} reacciones`} aria-pressed={message.my_reactions?.includes("heart") || false}>
+                      <Heart size={15} fill={message.my_reactions?.includes("heart") ? "currentColor" : "none"} /> <span>{message.reactions?.heart || 0}</span>
+                    </button>
+                    <button type="button" className={message.my_reactions?.includes("clap") ? "active" : ""} disabled={reactionBusy.length > 0} onClick={() => void react(message, "clap")} aria-label={`Aplaudir, ${message.reactions?.clap || 0} reacciones`} aria-pressed={message.my_reactions?.includes("clap") || false}>
+                      <HandHeart size={15} /> <span>{message.reactions?.clap || 0}</span>
+                    </button>
+                  </div>
                 </article>
               );
             })}
@@ -362,6 +399,7 @@ export default function Fans({
           )}
         </section>
       </div>
+      <Gallery data={data} initialTeamId={initialTeamId} />
       {target && (
         <Modal
           open

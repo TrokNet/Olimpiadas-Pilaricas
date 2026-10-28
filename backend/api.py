@@ -12,6 +12,8 @@ from backend.fans import router as fans_router
 app.include_router(fans_router)
 from backend.attendance import router as attendance_router
 app.include_router(attendance_router)
+from backend.community import router as community_router
+app.include_router(community_router)
 from backend.auth import session_router, current_user
 from backend.analytics import router as analytics_router
 app.include_router(session_router, prefix='/api')

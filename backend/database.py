@@ -76,6 +76,35 @@ class MatchAttendance(Base):
     created_at = Column(String(40), nullable=False)
     __table_args__ = (UniqueConstraint('match_id', 'visitor_hash'),)
 
+class MatchPrediction(Base):
+    __tablename__ = 'match_predictions'
+    id = Column(String(64), primary_key=True)
+    match_id = Column(String(80), ForeignKey('matches.id'), nullable=False, index=True)
+    visitor_hash = Column(String(64), nullable=False)
+    choice = Column(String(8), nullable=False)
+    created_at = Column(String(40), nullable=False)
+    __table_args__ = (UniqueConstraint('match_id', 'visitor_hash'),)
+
+class FanReaction(Base):
+    __tablename__ = 'fan_reactions'
+    id = Column(String(64), primary_key=True)
+    message_id = Column(String(40), ForeignKey('fan_messages.id'), nullable=False, index=True)
+    visitor_hash = Column(String(64), nullable=False)
+    reaction = Column(String(12), nullable=False)
+    created_at = Column(String(40), nullable=False)
+    __table_args__ = (UniqueConstraint('message_id', 'visitor_hash', 'reaction'),)
+
+class GalleryPhoto(Base):
+    __tablename__ = 'gallery_photos'
+    id = Column(String(40), primary_key=True)
+    team_id = Column(String(80), ForeignKey('grades.id'), nullable=False, index=True)
+    caption = Column(String(120), nullable=False)
+    content_type = Column(String(32), nullable=False)
+    status = Column(String(16), nullable=False, index=True)
+    created_at = Column(String(40), nullable=False, index=True)
+    reviewed_at = Column(String(40), nullable=True)
+    reviewed_by = Column(String(80), nullable=True)
+
 class Account(Base):
     __tablename__ = 'accounts'
     username = Column(String(80), primary_key=True)

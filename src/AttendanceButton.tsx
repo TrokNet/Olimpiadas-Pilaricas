@@ -1,24 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Check, Users } from 'lucide-react';
+import { visitorId } from './visitorIdentity';
 import './engagement.css';
 
 type AttendanceState = { count: number; attending: boolean };
-const STORAGE_KEY = 'olimpiadas-supporter-id-v1';
-
-function supporterId() {
-  let id = localStorage.getItem(STORAGE_KEY);
-  if (!id) {
-    id = crypto.randomUUID();
-    localStorage.setItem(STORAGE_KEY, id);
-  }
-  return id;
-}
-
 export default function AttendanceButton({ matchId }: { matchId: string }) {
   const [state, setState] = useState<AttendanceState | null>(null);
   const [busy, setBusy] = useState(false);
   useEffect(() => {
-    const id = supporterId();
+    const id = visitorId();
     const query = new URLSearchParams({ visitor_id: id });
     fetch(`${import.meta.env.BASE_URL}api/attendance/${encodeURIComponent(matchId)}?${query}`, { cache: 'no-store' })
       .then((r) => r.ok ? r.json() : Promise.reject())
@@ -33,7 +23,7 @@ export default function AttendanceButton({ matchId }: { matchId: string }) {
       const response = await fetch(`${import.meta.env.BASE_URL}api/attendance/${encodeURIComponent(matchId)}`, {
         method: state.attending ? 'DELETE' : 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ visitor_id: supporterId() }),
+        body: JSON.stringify({ visitor_id: visitorId() }),
       });
       if (!response.ok) throw new Error();
       setState(await response.json() as AttendanceState);
