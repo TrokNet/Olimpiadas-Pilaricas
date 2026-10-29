@@ -1,12 +1,12 @@
 {
-  "revision": "2026-10-29-basquet-masculino-definitivo-25-octubre",
+  "revision": "2026-10-29-basquet-femenino-definitivo-25-octubre",
   "notes": [
     "PDFs prevalecen sobre la captura en fútbol.",
     "Ex-Alumnas conserva Rosado / Nuestra Señora del Pilar por instrucción del usuario.",
-    "Básquet femenino de Fonte Colombo del 31/10 conserva el intervalo 17:35–17:55 de la captura recibida.",
     "No se alteran resultados, cuentas, mensajes, grupos ni fases finales.",
     "Voley femenino: 21 cruces cotejados con version definitiva proporcionada el 29/10; prevalece sobre horarios previos.",
-    "Basquet masculino: 15 cruces cotejados con version definitiva proporcionada el 29/10."
+    "Basquet masculino: 15 cruces cotejados con version definitiva proporcionada el 29/10.",
+    "Basquet femenino: version definitiva del 25/10 prevalece sobre captura anterior; Fonte Colombo del 31/10 termina a las 18:00."
   ],
   "sources": [
     {
@@ -34,6 +34,9 @@
     },
     {
       "file": "Transcripcion del usuario: Basquet Masculino definitivo al 25 de octubre de 2026"
+    },
+    {
+      "file": "Transcripcion del usuario: Basquet Femenino definitivo al 25 de octubre de 2026"
     }
   ],
   "matches": [
@@ -758,30 +761,6 @@
       "source": "Fixture_2026_Esquema_Voley_Masculino_Actualizado.pdf"
     },
     {
-      "id": "f8a4090b-689c-5295-86f3-e42e94a7a7e5",
-      "sport": "basquet-femenino",
-      "phase": "GRUPO A",
-      "home_grade_id": "cuarto-primaria",
-      "away_grade_id": "tercero-primaria",
-      "date": "2026-10-31",
-      "start": "17:35",
-      "end": "17:55",
-      "court": "BÁSQUET – Cancha 1",
-      "source": "Fonte_Colombo_actualizacion_recibida.png"
-    },
-    {
-      "id": "05b4f367-a472-5a4a-9279-799474c7c302",
-      "sport": "basquet-femenino",
-      "phase": "GRUPO A",
-      "home_grade_id": "cuarto-primaria",
-      "away_grade_id": "5-anos",
-      "date": "2026-11-07",
-      "start": "10:00",
-      "end": "10:25",
-      "court": "BÁSQUET – Cancha 1",
-      "source": "Fonte_Colombo_actualizacion_recibida.png"
-    },
-    {
       "id": "c8362101-6d46-5317-afb2-71c1c6ac50b6",
       "sport": "voley-femenino",
       "phase": "GRUPO A",
@@ -1175,6 +1154,204 @@
       "date": "2026-11-07",
       "start": "11:30",
       "end": "11:55",
+      "court": "BÁSQUET – Cancha 1"
+    },
+    {
+      "id": "2720b053-bc0d-5168-9dee-157d0b2cb588",
+      "sport": "basquet-femenino",
+      "phase": "GRUPO A",
+      "home_grade_id": "quinto-secundaria",
+      "away_grade_id": "5-anos",
+      "date": "2026-10-31",
+      "start": "16:45",
+      "end": "17:10",
+      "court": "BÁSQUET – Cancha 1"
+    },
+    {
+      "id": "f8a4090b-689c-5295-86f3-e42e94a7a7e5",
+      "sport": "basquet-femenino",
+      "phase": "GRUPO A",
+      "home_grade_id": "cuarto-primaria",
+      "away_grade_id": "tercero-primaria",
+      "date": "2026-10-31",
+      "start": "17:35",
+      "end": "18:00",
+      "court": "BÁSQUET – Cancha 1"
+    },
+    {
+      "id": "1131a1dd-1ed7-5860-8acb-92fac42aad54",
+      "sport": "basquet-femenino",
+      "phase": "GRUPO A",
+      "home_grade_id": "cuarto-primaria",
+      "away_grade_id": "quinto-secundaria",
+      "date": "2026-11-01",
+      "start": "11:30",
+      "end": "11:55",
+      "court": "BÁSQUET – Cancha 1"
+    },
+    {
+      "id": "67fe87bf-a93a-5ffb-86c2-defb2eabf0bd",
+      "sport": "basquet-femenino",
+      "phase": "GRUPO A",
+      "home_grade_id": "tercero-primaria",
+      "away_grade_id": "5-anos",
+      "date": "2026-11-01",
+      "start": "17:30",
+      "end": "17:55",
+      "court": "BÁSQUET – Cancha 1"
+    },
+    {
+      "id": "05b4f367-a472-5a4a-9279-799474c7c302",
+      "sport": "basquet-femenino",
+      "phase": "GRUPO A",
+      "home_grade_id": "cuarto-primaria",
+      "away_grade_id": "5-anos",
+      "date": "2026-11-07",
+      "start": "10:00",
+      "end": "10:25",
+      "court": "BÁSQUET – Cancha 1"
+    },
+    {
+      "id": "3d551bd8-3085-5c62-9151-1f99a52630ff",
+      "sport": "basquet-femenino",
+      "phase": "GRUPO A",
+      "home_grade_id": "tercero-primaria",
+      "away_grade_id": "quinto-secundaria",
+      "date": "2026-11-07",
+      "start": "15:00",
+      "end": "15:25",
+      "court": "BÁSQUET – Cancha 1"
+    },
+    {
+      "id": "8bf6fee2-44b4-5822-a770-0868cd536246",
+      "sport": "basquet-femenino",
+      "phase": "GRUPO B",
+      "home_grade_id": "tercero-secundaria",
+      "away_grade_id": "quinto-primaria",
+      "date": "2026-10-31",
+      "start": "14:35",
+      "end": "15:00",
+      "court": "BÁSQUET – Cancha 1"
+    },
+    {
+      "id": "658d6438-f058-5f08-be3c-02621be03f10",
+      "sport": "basquet-femenino",
+      "phase": "GRUPO B",
+      "home_grade_id": "3-anos",
+      "away_grade_id": "primero-secundaria",
+      "date": "2026-10-31",
+      "start": "18:05",
+      "end": "18:30",
+      "court": "BÁSQUET – Cancha 1"
+    },
+    {
+      "id": "555b2af0-87cb-515a-a0d9-9b15ff1e0db8",
+      "sport": "basquet-femenino",
+      "phase": "GRUPO B",
+      "home_grade_id": "3-anos",
+      "away_grade_id": "tercero-secundaria",
+      "date": "2026-11-01",
+      "start": "15:30",
+      "end": "15:55",
+      "court": "BÁSQUET – Cancha 1"
+    },
+    {
+      "id": "e994751d-de22-5e1a-a095-57396a834fb7",
+      "sport": "basquet-femenino",
+      "phase": "GRUPO B",
+      "home_grade_id": "primero-secundaria",
+      "away_grade_id": "quinto-primaria",
+      "date": "2026-11-01",
+      "start": "16:00",
+      "end": "16:25",
+      "court": "BÁSQUET – Cancha 1"
+    },
+    {
+      "id": "f49b7a82-928d-5a4d-a49b-daadec4e00b0",
+      "sport": "basquet-femenino",
+      "phase": "GRUPO B",
+      "home_grade_id": "3-anos",
+      "away_grade_id": "quinto-primaria",
+      "date": "2026-11-07",
+      "start": "15:30",
+      "end": "15:55",
+      "court": "BÁSQUET – Cancha 1"
+    },
+    {
+      "id": "caad8c80-5263-5b2d-9c3b-6d003ca6c8e9",
+      "sport": "basquet-femenino",
+      "phase": "GRUPO B",
+      "home_grade_id": "primero-secundaria",
+      "away_grade_id": "tercero-secundaria",
+      "date": "2026-11-07",
+      "start": "17:30",
+      "end": "17:55",
+      "court": "BÁSQUET – Cancha 1"
+    },
+    {
+      "id": "cafcf6ad-a6e2-57ea-832e-00b5291fc68d",
+      "sport": "basquet-femenino",
+      "phase": "GRUPO C",
+      "home_grade_id": "ex-alumnas",
+      "away_grade_id": "primero-primaria",
+      "date": "2026-10-31",
+      "start": "15:05",
+      "end": "15:30",
+      "court": "BÁSQUET – Cancha 1"
+    },
+    {
+      "id": "e7b84763-7c66-5ee6-8adb-b49d59386ae0",
+      "sport": "basquet-femenino",
+      "phase": "GRUPO C",
+      "home_grade_id": "segundo-primaria",
+      "away_grade_id": "4-anos",
+      "date": "2026-10-31",
+      "start": "15:35",
+      "end": "16:00",
+      "court": "BÁSQUET – Cancha 1"
+    },
+    {
+      "id": "6446ef53-f07b-52d5-8c78-4aaf56f95db2",
+      "sport": "basquet-femenino",
+      "phase": "GRUPO C",
+      "home_grade_id": "ex-alumnas",
+      "away_grade_id": "segundo-primaria",
+      "date": "2026-11-01",
+      "start": "14:30",
+      "end": "14:55",
+      "court": "BÁSQUET – Cancha 1"
+    },
+    {
+      "id": "5d78eaa9-edcd-575c-b871-7817d04eed42",
+      "sport": "basquet-femenino",
+      "phase": "GRUPO C",
+      "home_grade_id": "primero-primaria",
+      "away_grade_id": "4-anos",
+      "date": "2026-11-01",
+      "start": "16:30",
+      "end": "16:55",
+      "court": "BÁSQUET – Cancha 1"
+    },
+    {
+      "id": "6505ac3d-1f93-54f4-9d9b-f9a9fcbb7558",
+      "sport": "basquet-femenino",
+      "phase": "GRUPO C",
+      "home_grade_id": "ex-alumnas",
+      "away_grade_id": "4-anos",
+      "date": "2026-11-07",
+      "start": "16:00",
+      "end": "16:25",
+      "court": "BÁSQUET – Cancha 1"
+    },
+    {
+      "id": "ec96eb19-1bf2-597c-bfbf-9aa324faa342",
+      "sport": "basquet-femenino",
+      "phase": "GRUPO C",
+      "home_grade_id": "primero-primaria",
+      "away_grade_id": "segundo-primaria",
+      "date": "2026-11-07",
+      "start": "17:00",
+      "end": "17:25",
       "court": "BÁSQUET – Cancha 1"
     }
   ]
