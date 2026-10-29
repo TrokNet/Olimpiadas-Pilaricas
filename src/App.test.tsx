@@ -142,7 +142,7 @@ describe("Flujo del visitante sin automatizar navegador", () => {
     const image = screen.getByRole("img", {
       name: /Trofeo dorado con balones/,
     });
-    expect(image.getAttribute("src")).toContain("olimpiadas-hero.webp");
+    expect(image.getAttribute("src")).toContain("stadium-hero-v2.webp");
     expect(screen.queryByTestId("webgl-host")).toBeNull();
     expect(screen.queryByText(/Mueve el cursor/)).toBeNull();
     fireEvent.click(screen.getByRole("button", { name: "Vóley" }));

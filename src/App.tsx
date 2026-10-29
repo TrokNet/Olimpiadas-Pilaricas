@@ -183,6 +183,7 @@ function MatchCard({
       }}
     >
       <button
+        data-sport={match.sport}
         className={`match-card ${compact ? "compact" : ""} ${isFinal ? "grand-final" : ""} ${match.kind === "RESERVA" ? "reserve" : ""}`}
         onClick={() => onOpen(match)}
         onPointerMove={(e) => {
@@ -938,8 +939,8 @@ export default function App() {
               <div className="hero-visual">
                 <img
                   className="hero-photo"
-                  src={`${import.meta.env.BASE_URL}images/olimpiadas-hero.webp`}
-                  srcSet={`${import.meta.env.BASE_URL}images/olimpiadas-hero-small.webp 800w, ${import.meta.env.BASE_URL}images/olimpiadas-hero.webp 1448w`}
+                  src={`${import.meta.env.BASE_URL}images/stadium-hero-v2.webp`}
+                  srcSet={`${import.meta.env.BASE_URL}images/stadium-hero-v2-small.webp 800w, ${import.meta.env.BASE_URL}images/stadium-hero-v2.webp 1448w`}
                   sizes="(max-width: 640px) 100vw, 50vw"
                   width={1448}
                   height={1086}

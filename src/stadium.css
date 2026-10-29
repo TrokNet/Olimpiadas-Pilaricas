@@ -1,0 +1,75 @@
+/* Stadium edition: the artwork stays static while the interface remains readable. */
+.hero-visual { left: 0; }
+.hero-photo { object-position: center; filter: none; }
+.hero:before { background: linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 83%,transparent) 29%,transparent 67%); }
+.hero-visual:after { background: linear-gradient(0deg,var(--bg),transparent 18%); }
+.hero-copy { width: min(52%,680px); }
+.hero-visual .scene-sports { z-index: 3; }
+.stat-strip { position: relative; z-index: 3; margin-top: -8px; backdrop-filter: blur(16px); }
+.match-card[data-sport] {
+  --sport-tint: #277b58;
+  position: relative;
+  display: grid;
+  grid-template-columns: 110px 185px minmax(0,1fr) 28px;
+  grid-template-rows: auto auto;
+  gap: 0 18px;
+  min-height: 98px;
+  padding: 12px 18px 10px 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb,var(--sport-tint) 42%,var(--border));
+  border-radius: 15px;
+  background: linear-gradient(100deg,color-mix(in srgb,var(--panel) 95%,var(--sport-tint)),color-mix(in srgb,var(--bg) 95%,transparent) 55%,color-mix(in srgb,var(--sport-tint) 25%,var(--bg)));
+  transform: none;
+  box-shadow: 0 7px 20px #0002;
+}
+.match-card[data-sport*="basquet"] { --sport-tint: #c57729; }
+.match-card[data-sport*="voley"] { --sport-tint: #227db8; }
+.match-card[data-sport="voley-femenino"] { --sport-tint: #bb387a; }
+.match-card[data-sport]:hover { border-color:var(--coral); background:linear-gradient(100deg,var(--panel),color-mix(in srgb,var(--sport-tint) 19%,var(--bg))); }
+.match-card[data-sport] .match-top { display: contents; }
+.match-card[data-sport] .sport-label { grid-column:2;grid-row:1;align-self:center;font-size:13px;color:var(--text); }
+.match-card[data-sport] .sport-label svg { color:var(--sport-tint);width:23px;height:23px;flex-shrink:0; }
+.match-card[data-sport] .phase-label { grid-column:3;grid-row:2;justify-self:end;align-self:center;font-size:10px;border:1px solid var(--border);border-radius:20px;padding:4px 10px; }
+.match-card[data-sport] .match-main { display:contents; }
+.match-card[data-sport] .match-time { grid-column:1;grid-row:1/3;align-self:stretch;justify-content:center;align-items:center;min-width:0;padding:10px;border:0;border-radius:0 12px 12px 0;background:linear-gradient(130deg,var(--coral),color-mix(in srgb,var(--coral) 65%,#331519));color:var(--team-button-ink,#111); }
+.match-card[data-sport] .match-time strong { font-size:27px; }
+.match-card[data-sport] .match-time small { color:inherit;opacity:.8;font-size:11px; }
+.match-card[data-sport] .versus { grid-column:3;grid-row:1;min-width:0;grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr);gap:16px; }
+.match-card[data-sport] .contender { min-width:0;gap:12px; }
+.match-card[data-sport] .contender>span:last-child { min-width:0; }
+.match-card[data-sport] .contender strong { font-size:16px;overflow-wrap:anywhere; }
+.match-card[data-sport] .contender small { font-size:12px; }
+.match-card[data-sport] .match-arrow { grid-column:4;grid-row:1/3;align-self:center; }
+.match-card[data-sport] .match-bottom { display:contents; }
+.match-card[data-sport] .match-bottom>span:first-child { grid-column:2;grid-row:2;font-size:11px;padding-top:4px; }
+.match-card[data-sport] .match-bottom>span:last-child { grid-column:3;grid-row:2;font-size:10px;padding-top:4px; }
+.match-day>h3 { padding:14px 0 12px;border-bottom-color:color-mix(in srgb,var(--coral) 35%,var(--border));font-size:18px; }
+.date-tabs { gap:10px; }
+.date-tabs button { border-radius:12px;min-width:125px; }
+.date-tabs button.active { box-shadow:0 6px 25px color-mix(in srgb,var(--coral) 24%,transparent); }
+@media(max-width:1050px) {
+  .match-card[data-sport] { grid-template-columns:90px 140px minmax(0,1fr) 20px;gap:0 12px; }
+  .match-card[data-sport] .contender strong { font-size:14px; }
+}
+@media(max-width:700px) {
+  .hero-copy { width:100%; }
+  .hero-visual { left:auto; }
+  .hero-photo { object-position:75% center; }
+  .hero:before { background:radial-gradient(ellipse at 80% 10%,color-mix(in srgb,var(--coral) 10%,transparent),transparent 65%); }
+  .match-card[data-sport] { grid-template-columns:76px minmax(0,1fr) 22px;grid-template-rows:auto auto auto;gap:10px 12px;padding:0 12px 12px 0;border-radius:13px;min-height:150px; }
+  .match-card[data-sport] .match-time { grid-column:1;grid-row:1;min-height:65px;border-radius:0 0 12px 0; }
+  .match-card[data-sport] .match-time strong { font-size:24px; }
+  .match-card[data-sport] .sport-label { grid-column:2;grid-row:1;font-size:13px; }
+  .match-card[data-sport] .match-arrow { grid-column:3;grid-row:1; }
+  .match-card[data-sport] .versus { grid-column:1/4;grid-row:2;padding-left:13px;gap:8px;grid-template-columns:minmax(0,1fr) 24px minmax(0,1fr); }
+  .match-card[data-sport] .contender { gap:7px;align-items:center; }
+  .match-card[data-sport] .contender strong { font-size:13px;line-height:1.25; }
+  .match-card[data-sport] .contender small { font-size:10px; }
+  .match-card[data-sport] .team-badge { width:30px;height:36px;flex-shrink:0; }
+  .match-card[data-sport] .phase-label { grid-column:2/4;grid-row:3;font-size:9px; }
+  .match-card[data-sport] .match-bottom>span:first-child { grid-column:1/3;grid-row:3;padding-left:13px;font-size:10px; }
+  .match-card[data-sport] .match-bottom>span:last-child { display:none; }
+  .date-tabs { overflow-x:auto;flex-wrap:nowrap;padding-bottom:8px; }
+  .date-tabs button { flex:0 0 110px;min-width:110px; }
+}
+@media(prefers-reduced-motion:reduce) { .match-card[data-sport] { transition:none; } }
