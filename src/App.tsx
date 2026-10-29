@@ -863,7 +863,7 @@ export default function App() {
                 </a>
               </div>
             )}
-            <section className="hero">
+            <section className={`hero ${displayed?.id === "tercero-secundaria" ? "hero-mailhac" : ""}`}>
               <div className="hero-copy">
                 <div className="eyebrow">
                   <span className="tiny-dot" /> 31 OCT — 08 NOV · LIMA, PERÚ
@@ -939,8 +939,8 @@ export default function App() {
               <div className="hero-visual">
                 <img
                   className="hero-photo"
-                  src={`${import.meta.env.BASE_URL}images/stadium-hero-v2.webp`}
-                  srcSet={`${import.meta.env.BASE_URL}images/stadium-hero-v2-small.webp 800w, ${import.meta.env.BASE_URL}images/stadium-hero-v2.webp 1448w`}
+                  src={`${import.meta.env.BASE_URL}images/${displayed?.id === "tercero-secundaria" ? "mailhac-hero.webp" : "stadium-hero-v2.webp"}`}
+                  srcSet={displayed?.id === "tercero-secundaria" ? undefined : `${import.meta.env.BASE_URL}images/stadium-hero-v2-small.webp 800w, ${import.meta.env.BASE_URL}images/stadium-hero-v2.webp 1448w`}
                   sizes="(max-width: 640px) 100vw, 50vw"
                   width={1448}
                   height={1086}

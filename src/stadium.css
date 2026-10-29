@@ -4,6 +4,8 @@
 .hero:before { background: linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 83%,transparent) 29%,transparent 67%); }
 .hero-visual:after { background: linear-gradient(0deg,var(--bg),transparent 18%); }
 .hero-copy { width: min(52%,680px); }
+.hero-mailhac:before { background:linear-gradient(90deg,var(--bg) 0%,var(--bg) 37%,color-mix(in srgb,var(--bg) 97%,transparent) 43%,transparent 68%); }
+.hero-mailhac .hero-photo { object-position:right center; }
 .hero-visual .scene-sports { z-index: 3; }
 .stat-strip { position: relative; z-index: 3; margin-top: -8px; backdrop-filter: blur(16px); }
 .match-card[data-sport] {
@@ -58,6 +60,7 @@
 @media(max-width:700px) {
   .hero-copy { width:100%; }
   .hero-visual { left:auto; }
+  .hero-mailhac .hero-photo { object-position:right center; }
   .hero-photo { object-position:75% center; }
   .hero:before { background:radial-gradient(ellipse at 80% 10%,color-mix(in srgb,var(--coral) 10%,transparent),transparent 65%); }
   .match-card[data-sport] { grid-template-columns:76px minmax(0,1fr) 22px;grid-template-rows:auto auto auto;gap:10px 12px;padding:0 12px 12px 0;border-radius:13px;min-height:150px; }
