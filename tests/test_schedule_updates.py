@@ -15,7 +15,7 @@ class ScheduleUpdatesTests(unittest.TestCase):
         gc.collect();self.tmp.cleanup()
     def test_all_reviewed_schedules_and_stable_participants(self):
         patch=json.loads(PATCH.read_text(encoding='utf-8'));data=dataset(self.engine);matches={m['id']:m for m in data['matches']};entries={e['id']:e['grade_id'] for e in data['entries']}
-        self.assertEqual(len(matches),162);self.assertEqual(len(patch['matches']),85)
+        self.assertEqual(len(matches),162);self.assertEqual(len(patch['matches']),98)
         for row in patch['matches']:
             match=matches[row['id']]
             self.assertEqual([match[k] for k in ['date','start','end','court']],[row[k] for k in ['date','start','end','court']])
