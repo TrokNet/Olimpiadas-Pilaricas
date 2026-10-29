@@ -1,10 +1,11 @@
 {
-  "revision": "2026-10-26",
+  "revision": "2026-10-29-voley-femenino-definitivo-25-octubre",
   "notes": [
     "PDFs prevalecen sobre la captura en fútbol.",
     "Ex-Alumnas conserva Rosado / Nuestra Señora del Pilar por instrucción del usuario.",
     "Básquet femenino de Fonte Colombo del 31/10 conserva el intervalo 17:35–17:55 de la captura recibida.",
-    "No se alteran resultados, cuentas, mensajes, grupos ni fases finales."
+    "No se alteran resultados, cuentas, mensajes, grupos ni fases finales.",
+    "Voley femenino: 21 cruces cotejados con version definitiva proporcionada el 29/10; prevalece sobre horarios previos."
   ],
   "sources": [
     {
@@ -26,6 +27,9 @@
     {
       "file": "Fonte_Colombo_actualizacion_recibida.png",
       "sha256": "9e59afd73db9de9164440c7636d84780375a59b892c6444c4d6fdb894cc8c453"
+    },
+    {
+      "file": "Transcripcion del usuario: Fixture Voley Femenino definitivo al 25 de octubre de 2026"
     }
   ],
   "matches": [
@@ -774,18 +778,6 @@
       "source": "Fonte_Colombo_actualizacion_recibida.png"
     },
     {
-      "id": "c4035a4c-d84e-56c7-a6dd-5d7ddeab73f3",
-      "sport": "voley-femenino",
-      "phase": "GRUPO C",
-      "home_grade_id": "cuarto-primaria",
-      "away_grade_id": "segundo-secundaria",
-      "date": "2026-11-01",
-      "start": "16:20",
-      "end": "17:10",
-      "court": "VÓLEY – Cancha 1",
-      "source": "Fonte_Colombo_actualizacion_recibida.png"
-    },
-    {
       "id": "340de8bb-2ab6-52fe-9683-a1d7a26f0605",
       "sport": "basquet-masculino",
       "phase": "GRUPO D",
@@ -810,6 +802,193 @@
       "source": "Fonte_Colombo_actualizacion_recibida.png"
     },
     {
+      "id": "c8362101-6d46-5317-afb2-71c1c6ac50b6",
+      "sport": "voley-femenino",
+      "phase": "GRUPO A",
+      "home_grade_id": "ex-alumnas",
+      "away_grade_id": "5-anos",
+      "date": "2026-10-31",
+      "start": "10:40",
+      "end": "11:30",
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
+      "id": "61aadff1-1983-5eee-b4c4-39aa4cf59574",
+      "sport": "voley-femenino",
+      "phase": "GRUPO A",
+      "home_grade_id": "3-anos",
+      "away_grade_id": "segundo-primaria",
+      "date": "2026-10-31",
+      "start": "14:30",
+      "end": "15:20",
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
+      "id": "1a477add-bac1-500b-9a3a-5882a9492ec8",
+      "sport": "voley-femenino",
+      "phase": "GRUPO A",
+      "home_grade_id": "ex-alumnas",
+      "away_grade_id": "3-anos",
+      "date": "2026-11-01",
+      "start": "09:00",
+      "end": "09:50",
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
+      "id": "7c90e817-3f79-5f33-8357-0a4f3f42ecd7",
+      "sport": "voley-femenino",
+      "phase": "GRUPO A",
+      "home_grade_id": "5-anos",
+      "away_grade_id": "segundo-primaria",
+      "date": "2026-11-01",
+      "start": "15:25",
+      "end": "16:15",
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
+      "id": "3ce26ec0-8af7-515f-85c4-f603d9359c63",
+      "sport": "voley-femenino",
+      "phase": "GRUPO A",
+      "home_grade_id": "ex-alumnas",
+      "away_grade_id": "segundo-primaria",
+      "date": "2026-11-07",
+      "start": "09:00",
+      "end": "09:50",
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
+      "id": "b8f1d0db-8e1b-545b-b1e6-a4c1e2245471",
+      "sport": "voley-femenino",
+      "phase": "GRUPO A",
+      "home_grade_id": "5-anos",
+      "away_grade_id": "3-anos",
+      "date": "2026-11-07",
+      "start": "14:30",
+      "end": "15:20",
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
+      "id": "36ec84ab-f45d-53d1-b1cd-220992a8f374",
+      "sport": "voley-femenino",
+      "phase": "GRUPO B",
+      "home_grade_id": "sexto-primaria",
+      "away_grade_id": "primero-secundaria",
+      "date": "2026-10-31",
+      "start": "11:35",
+      "end": "12:25",
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
+      "id": "4c2e4bb3-4296-5a5c-86a4-1e6f94e01796",
+      "sport": "voley-femenino",
+      "phase": "GRUPO B",
+      "home_grade_id": "tercero-primaria",
+      "away_grade_id": "tercero-secundaria",
+      "date": "2026-10-31",
+      "start": "15:25",
+      "end": "16:15",
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
+      "id": "17651119-5754-5de5-8120-4d17598295d2",
+      "sport": "voley-femenino",
+      "phase": "GRUPO B",
+      "home_grade_id": "sexto-primaria",
+      "away_grade_id": "tercero-primaria",
+      "date": "2026-11-01",
+      "start": "10:50",
+      "end": "11:40",
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
+      "id": "61e4f39e-fe4d-55de-93a5-e58678bdd14a",
+      "sport": "voley-femenino",
+      "phase": "GRUPO B",
+      "home_grade_id": "primero-secundaria",
+      "away_grade_id": "tercero-secundaria",
+      "date": "2026-11-01",
+      "start": "17:15",
+      "end": "18:05",
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
+      "id": "ce53df4a-96dd-53ce-b3fa-31cb09ee13ea",
+      "sport": "voley-femenino",
+      "phase": "GRUPO B",
+      "home_grade_id": "sexto-primaria",
+      "away_grade_id": "tercero-secundaria",
+      "date": "2026-11-07",
+      "start": "09:55",
+      "end": "10:45",
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
+      "id": "30d9c662-7783-504d-8d6e-95712ac9540d",
+      "sport": "voley-femenino",
+      "phase": "GRUPO B",
+      "home_grade_id": "primero-secundaria",
+      "away_grade_id": "tercero-primaria",
+      "date": "2026-11-07",
+      "start": "16:20",
+      "end": "17:10",
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
+      "id": "6f6be684-8b14-5a13-86a8-14bd382db3ac",
+      "sport": "voley-femenino",
+      "phase": "GRUPO C",
+      "home_grade_id": "cuarto-secundaria",
+      "away_grade_id": "cuarto-primaria",
+      "date": "2026-10-31",
+      "start": "12:30",
+      "end": "13:20",
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
+      "id": "d550f3fb-023b-5be2-91ab-0f31c5d797aa",
+      "sport": "voley-femenino",
+      "phase": "GRUPO C",
+      "home_grade_id": "primero-primaria",
+      "away_grade_id": "segundo-secundaria",
+      "date": "2026-10-31",
+      "start": "16:20",
+      "end": "17:10",
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
+      "id": "a4139c11-64cd-5e56-985c-d3ea17e2149f",
+      "sport": "voley-femenino",
+      "phase": "GRUPO C",
+      "home_grade_id": "cuarto-secundaria",
+      "away_grade_id": "primero-primaria",
+      "date": "2026-11-01",
+      "start": "09:55",
+      "end": "10:45",
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
+      "id": "c4035a4c-d84e-56c7-a6dd-5d7ddeab73f3",
+      "sport": "voley-femenino",
+      "phase": "GRUPO C",
+      "home_grade_id": "cuarto-primaria",
+      "away_grade_id": "segundo-secundaria",
+      "date": "2026-11-01",
+      "start": "16:20",
+      "end": "17:10",
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
+      "id": "ed550f07-743d-5fdd-ba8d-3f364624b5ab",
+      "sport": "voley-femenino",
+      "phase": "GRUPO C",
+      "home_grade_id": "cuarto-secundaria",
+      "away_grade_id": "segundo-secundaria",
+      "date": "2026-11-07",
+      "start": "10:50",
+      "end": "11:40",
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
       "id": "834f88bb-f465-5c2f-87b2-94bc6d903122",
       "sport": "voley-femenino",
       "phase": "GRUPO C",
@@ -818,8 +997,40 @@
       "date": "2026-11-07",
       "start": "15:25",
       "end": "16:15",
-      "court": "VÓLEY – Cancha 1",
-      "source": "Fonte_Colombo_actualizacion_recibida.png"
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
+      "id": "88f36243-eb75-5883-81d3-0ffe55953a56",
+      "sport": "voley-femenino",
+      "phase": "GRUPO D",
+      "home_grade_id": "quinto-secundaria",
+      "away_grade_id": "4-anos",
+      "date": "2026-10-31",
+      "start": "18:00",
+      "end": "18:50",
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
+      "id": "da9f87ce-159d-538f-9e1a-dd3887ac38ed",
+      "sport": "voley-femenino",
+      "phase": "GRUPO D",
+      "home_grade_id": "quinto-secundaria",
+      "away_grade_id": "quinto-primaria",
+      "date": "2026-11-01",
+      "start": "14:30",
+      "end": "15:20",
+      "court": "VÓLEY – Cancha 1"
+    },
+    {
+      "id": "56d24436-ed52-5a83-b8ac-3684949f5fba",
+      "sport": "voley-femenino",
+      "phase": "GRUPO D",
+      "home_grade_id": "4-anos",
+      "away_grade_id": "quinto-primaria",
+      "date": "2026-11-07",
+      "start": "17:15",
+      "end": "18:05",
+      "court": "VÓLEY – Cancha 1"
     }
   ]
 }
