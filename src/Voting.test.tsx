@@ -32,11 +32,11 @@ it('searches by team or grade, removes selected chips and shows no medals for ze
   const data = raw as Tournament;
   vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ ranking: data.grades.map((g) => ({ team_id: g.id, votes: 0 })), my_votes: [], voters: 0 }))));
   render(<Voting data={data} />);
-  fireEvent.click(screen.getByRole('button', { name: /Votar y ver ranking/ }));
+  fireEvent.click(await screen.findByRole('button', { name: 'Ver votos de Mailhac' }));
   await screen.findByText('Sin votos todavía');
   expect(document.querySelectorAll('.voting-ranking .place-1')).toHaveLength(0);
   const search = screen.getByRole('searchbox', { name: 'Buscar equipo o grado para votar' });
-  fireEvent.change(search, { target: { value: 'Mailhac' } });
+  expect((search as HTMLInputElement).value).toBe('Mailhac');
   expect(screen.getAllByRole('checkbox')).toHaveLength(1);
   fireEvent.click(screen.getByRole('checkbox', { name: 'Votar por Mailhac' }));
   expect(screen.getByText('1 de 3 equipos')).toBeTruthy();

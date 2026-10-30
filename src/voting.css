@@ -3,7 +3,7 @@
 .voting-title{display:flex;align-items:center;gap:8px;font-size:13px;white-space:nowrap;padding:7px 0;color:var(--text)}
 .voting-title>svg{color:#d1a65c}.voting-pulse{width:5px;height:5px;background:var(--coral);border-radius:100%;box-shadow:0 0 0 0 color-mix(in srgb,var(--coral) 45%,transparent);animation:voting-pulse 3s ease-out infinite}
 .voting-ticker{flex:1;min-width:0;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 2%,#000 98%,transparent)}
-.voting-ticker-track{display:flex;width:max-content;animation:voting-marquee 90s linear infinite}
+.voting-ticker-track{display:flex;width:max-content;animation:voting-marquee 42s linear infinite;will-change:transform;transform:translateZ(0)}
 .voting-ticker-set{display:flex;gap:12px;padding-right:12px}
 .voting-leader{display:flex;align-items:center;gap:8px;min-height:40px;padding:5px 12px 5px 5px;border:1px solid var(--border);border-radius:30px;background:color-mix(in srgb,var(--bg) 45%,transparent);font-size:12px;white-space:nowrap}
 .voting-leader>b{display:grid;place-items:center;width:25px;height:25px;background:var(--panel-alt);border-radius:50%;font-size:11px;color:var(--muted)}
@@ -15,7 +15,7 @@
 .voting-action{display:flex;align-items:center;gap:10px;white-space:nowrap;font-size:12px;font-weight:650;color:var(--coral);padding:10px 0 10px 15px;border-left:1px solid var(--border)}
 .voting-action>svg{transition:transform .2s}.voting-action:hover>svg{transform:translateX(4px)}
 .voting-pause{display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--border);border-radius:50%;color:var(--muted);flex-shrink:0}
-.voting-ribbon:hover .voting-ticker-track,.voting-ribbon:focus-within .voting-ticker-track,.voting-paused .voting-ticker-track{animation-play-state:paused}
+.voting-ticker:has(:focus-visible) .voting-ticker-track,.voting-paused .voting-ticker-track{animation-play-state:paused}
 .voting-paused .voting-pulse{animation:none}
 .voting-placeholder{color:var(--muted);font-size:12px;white-space:nowrap;padding-left:12px}
 .voting-modal{width:min(490px,calc(100vw - 30px));max-height:85dvh;display:flex;flex-direction:column;padding:26px!important;overflow:hidden!important;border:1px solid var(--border);border-radius:22px;background:var(--panel);box-shadow:0 30px 100px #0009}
@@ -38,7 +38,7 @@
 .voting-ribbon button:focus-visible{outline:2px solid var(--coral);outline-offset:3px;border-radius:5px}
 @keyframes voting-marquee{to{transform:translateX(-50%)}}@keyframes voting-pulse{70%{box-shadow:0 0 0 5px transparent}100%{box-shadow:0 0 0 0 transparent}}
 @media(max-width:640px){.voting-ribbon{min-height:56px;gap:9px;padding:7px 12px;flex-wrap:wrap}.voting-title{font-size:12px;gap:6px}.voting-title>svg{width:16px}.voting-pulse{display:none}.voting-ticker{flex-basis:calc(100% - 155px)}.voting-leader{font-size:11px;min-height:34px;padding-right:9px;gap:6px}.voting-leader img{width:22px;height:22px}.voting-action{border:0;padding:0;position:absolute;inset:0;width:100%;height:100%;opacity:0;z-index:1}.voting-pause{position:relative;z-index:2;width:26px;height:26px}.voting-title{position:relative;z-index:2}.voting-modal{position:fixed!important;top:auto!important;left:0!important;right:0!important;bottom:0!important;transform:none!important;width:100%!important;max-width:100%!important;max-height:84dvh;padding:21px 15px max(18px,env(safe-area-inset-bottom))!important;border-radius:22px 22px 0 0}.voting-modal:before{content:'';display:block;width:36px;height:4px;border-radius:5px;background:var(--border);margin:-9px auto 14px;flex-shrink:0}.voting-ranking label{min-height:74px;padding:10px 5px;gap:8px}.voting-modal .modal-title{font-size:31px}.voting-panel-heading{font-size:10px}}
-@media(prefers-reduced-motion:reduce){.voting-ticker-track,.voting-pulse{animation:none!important}.voting-ticker{overflow-x:auto;mask-image:none}.voting-action>svg{transition:none}}
+@media(prefers-reduced-motion:reduce){.voting-pulse{animation:none!important}.voting-ticker-track{animation-duration:75s}.voting-ticker{overflow:hidden}.voting-action>svg{transition:none}}
 @media(max-width:640px){.voting-ribbon{flex-wrap:nowrap}.voting-ticker{flex-basis:auto}.voting-action{position:static;inset:auto;opacity:1;width:26px;height:30px;flex:0 0 26px;justify-content:center;padding:4px;gap:0;font-size:0;z-index:auto}.voting-action>svg{width:18px;height:18px}}
 
 /* Specificity protects the compact dialog from the shared modal's sizing rules. */
@@ -76,3 +76,14 @@
 .voting-panel-footer>small{font-size:10px;margin-top:9px;line-height:1.45}.voting-panel-footer .voting-message{font-size:11px;margin:6px 0 10px}
 @media(max-width:640px){.modal.voting-modal{width:100%!important;max-width:100%;padding:22px 16px max(16px,env(safe-area-inset-bottom))!important;border-radius:22px 22px 0 0;max-height:88dvh}.modal.voting-modal .modal-title{font-size:23px;padding-left:46px}.modal.voting-modal .modal-description{font-size:10px;padding-left:46px;margin-bottom:15px}.voting-crest{top:35px;left:16px;width:35px;height:35px;border-radius:11px}.voting-crest svg{width:23px}.voting-panel-heading{padding:9px 10px;gap:7px;margin-bottom:10px}.voting-panel-heading>strong{font-size:10px}.voting-panel-heading .voting-open{font-size:9px}.voting-slots i{width:10px;height:10px}.voting-ranking label{min-height:66px;padding:8px 7px;gap:8px}.voting-position{display:none}.voting-badge{width:36px;height:36px;flex-basis:36px}.voting-team>strong{font-size:13px}.voting-team>small{font-size:10px}.voting-search{min-height:40px}.voting-selected button{font-size:10px}.voting-panel-footer{padding-top:10px}}
 @media(prefers-reduced-motion:reduce){.voting-slots i,.voting-ranking li{transition:none}}
+
+/* Keep the live ribbon moving under the pointer; pause remains explicit. */
+.voting-ticker{overflow:hidden;scrollbar-width:none;touch-action:pan-y}.voting-ticker::-webkit-scrollbar{display:none}
+.voting-leader{cursor:pointer;color:var(--text);transition:border-color .2s,background .2s,box-shadow .2s}
+.voting-leader:hover{border-color:var(--coral);background:color-mix(in srgb,var(--coral) 10%,var(--panel));box-shadow:0 0 18px color-mix(in srgb,var(--coral) 10%,transparent)}
+.voting-leader.place-1{background:linear-gradient(110deg,#b0893215,var(--panel),#b0893215);box-shadow:inset 0 0 16px #c7a0520d}
+.voting-ribbon:after{background-size:200% 100%;animation:voting-lightline 8s ease-in-out infinite}
+@keyframes voting-lightline{0%,100%{background-position:0 50%;opacity:.25}50%{background-position:100% 50%;opacity:.7}}
+@media(prefers-reduced-motion:reduce){.voting-ribbon:after{animation:none}.voting-leader{transition:none}}
+
+.voting-live-count{animation:voting-count-in .4s ease-out both}@keyframes voting-count-in{from{opacity:.4;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}@media(prefers-reduced-motion:reduce){.voting-live-count{animation:none}}
