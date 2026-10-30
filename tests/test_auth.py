@@ -85,6 +85,30 @@ class AccountPermissionsTests(unittest.TestCase):
         self.client.post('/api/auth/logout')
         self.assertEqual(self.client.get(asset).status_code,401)
 
+    def test_identity_size_and_independent_team_quotas(self):
+        import base64
+        from uuid import uuid4
+        from backend.database import TeamIdentitySubmission
+        png='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jV2kAAAAASUVORK5CYII='
+        image='data:image/png;base64,'+png
+        oversized='data:image/png;base64,'+base64.b64encode(b'x'*(2*1024*1024+1)).decode()
+        self.assertEqual(self.client.post('/api/team-identity',json={'team_id':'cuarto-primaria','logo':oversized}).status_code,413)
+        with Session(self.engine) as s,s.begin():
+            for index in range(20):
+                assets={'logo':{'mime':'image/png','content':png}}
+                if index<19:assets['mascot']={'mime':'image/png','content':png}
+                s.add(TeamIdentitySubmission(id=str(uuid4()),team_id='cuarto-primaria',assets=json.dumps(assets),status='rejected',created_at='2026-10-29T00:00:00Z'))
+        self.assertEqual(self.client.post('/api/team-identity',json={'team_id':'cuarto-primaria','logo':image}).status_code,409)
+        self.assertEqual(self.client.post('/api/team-identity',json={'team_id':'cuarto-primaria','mascot':image}).status_code,201)
+        self.assertEqual(self.client.post('/api/team-identity',json={'team_id':'cuarto-primaria','mascot':image}).status_code,409)
+        self.assertEqual(self.client.post('/api/team-identity',json={'team_id':'cuarto-primaria','logo':image,'mascot':image}).status_code,409)
+        with Session(self.engine) as s:self.assertEqual(s.scalar(select(func.count()).select_from(TeamIdentitySubmission)),21)
+        self.assertEqual(self.client.post('/api/team-identity',json={'team_id':'tercero-primaria','logo':image,'mascot':image}).status_code,201)
+        self.login('administrador')
+        inbox=self.client.get('/api/team-identity/review').json()['submissions']
+        self.assertEqual(len(inbox),22)
+        self.assertTrue(all('content' not in row['assets'] for row in inbox))
+
     def setRules(self,sport):
         self.assertEqual(self.login('administrador').status_code,200)
         self.assertEqual(self.client.put('/api/rules/'+sport,json=self.rule(sport)).status_code,200)

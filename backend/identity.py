@@ -4,15 +4,19 @@ import json
 import re
 from datetime import datetime, timezone
 from uuid import uuid4
+from threading import Lock
 from fastapi import APIRouter, Depends, HTTPException, Request, Response
 from pydantic import BaseModel, ConfigDict, Field
-from sqlalchemy import select
+from sqlalchemy import select, func
 from sqlalchemy.orm import Session
 from backend.database import TeamIdentitySubmission, Grade
 from backend.fans import fans_engine, throttle
 from backend.auth import current_user, same_origin
 
 router = APIRouter(prefix='/api/team-identity')
+MAX_IMAGE_BYTES = 2 * 1024 * 1024
+MAX_PER_KIND = 20
+submission_lock = Lock()
 
 class Submission(BaseModel):
     model_config = ConfigDict(extra='forbid')
@@ -39,8 +43,8 @@ def validate_image(value):
         content = base64.b64decode(encoded, validate=True)
     except ValueError:
         raise HTTPException(422, 'Imagen inválida.')
-    if not content or len(content) > 3 * 1024 * 1024:
-        raise HTTPException(413, 'Cada imagen debe pesar hasta 3 MB.')
+    if not content or len(content) > MAX_IMAGE_BYTES:
+        raise HTTPException(413, 'Cada imagen debe pesar hasta 2 MB.')
     size = image_dimensions(content, mime)
     if not size or min(size) < 1 or max(size) > 8000 or size[0] * size[1] > 32_000_000:
         raise HTTPException(422, 'Imagen inválida o demasiado grande.')
@@ -54,9 +58,17 @@ def submit(payload: Submission, request: Request, engine=Depends(fans_engine)):
     if not assets:
         raise HTTPException(422, 'Adjunta al menos un logo o una mascota.')
     identifier = str(uuid4())
-    with Session(engine) as session, session.begin():
-        if not session.get(Grade, payload.team_id):
+    with submission_lock, Session(engine) as session, session.begin():
+        if not session.scalar(select(Grade).where(Grade.id == payload.team_id).with_for_update()):
             raise HTTPException(422, 'Equipo inválido.')
+        for kind in assets:
+            count = session.scalar(select(func.count()).select_from(TeamIdentitySubmission).where(
+                TeamIdentitySubmission.team_id == payload.team_id,
+                TeamIdentitySubmission.assets.contains(f'"{kind}":'),
+            )) or 0
+            if count >= MAX_PER_KIND:
+                label = 'logos' if kind == 'logo' else 'mascotas'
+                raise HTTPException(409, f'Este equipo ya alcanzó el máximo de 20 {label} enviados.')
         session.add(TeamIdentitySubmission(id=identifier, team_id=payload.team_id, assets=json.dumps(assets), status='pending', created_at=datetime.now(timezone.utc).isoformat()))
     return {'id': identifier, 'message': 'Recibido. Tu envío está pendiente de aprobación del administrador.'}
 
@@ -64,8 +76,12 @@ def submit(payload: Submission, request: Request, engine=Depends(fans_engine)):
 def inbox(request: Request, engine=Depends(fans_engine)):
     admin(request)
     with Session(engine) as session:
-        rows = session.scalars(select(TeamIdentitySubmission).order_by(TeamIdentitySubmission.created_at.desc()).limit(100))
-        return {'submissions': [{'id': r.id, 'team_id': r.team_id, 'status': r.status, 'created_at': r.created_at, 'reviewed_by': r.reviewed_by, 'assets': {kind: f'/api/team-identity/{r.id}/image/{kind}' for kind in json.loads(r.assets)}} for r in rows]}
+        model = TeamIdentitySubmission
+        rows = session.execute(select(model.id, model.team_id, model.status, model.created_at, model.reviewed_by,
+            model.assets.contains('"logo":').label('has_logo'), model.assets.contains('"mascot":').label('has_mascot')
+        ).order_by(model.created_at.desc()))
+        return {'submissions': [{'id': r.id, 'team_id': r.team_id, 'status': r.status, 'created_at': r.created_at, 'reviewed_by': r.reviewed_by,
+            'assets': {kind: f'/api/team-identity/{r.id}/image/{kind}' for kind, present in [('logo', r.has_logo), ('mascot', r.has_mascot)] if present}} for r in rows]}
 
 @router.get('/{identifier}/image/{kind}')
 def image(identifier: str, kind: str, request: Request, engine=Depends(fans_engine)):

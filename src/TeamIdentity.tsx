@@ -43,7 +43,7 @@ export default function TeamIdentity({ data, teamId, review = false }: { data: T
       const payload: Record<string, string> = { team_id: teamId };
       for (const [kind, file] of Object.entries(files)) {
         if (!['image/png', 'image/jpeg'].includes(file.type)) throw new Error('Elige archivos PNG o JPG.');
-        if (file.size > 3 * 1024 * 1024) throw new Error('Cada archivo debe pesar hasta 3 MB.');
+        if (file.size > 2 * 1024 * 1024) throw new Error('Cada archivo debe pesar hasta 2 MB.');
         payload[kind] = await fileData(file);
       }
       const body = await read(await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }));
@@ -83,7 +83,7 @@ export default function TeamIdentity({ data, teamId, review = false }: { data: T
       <h3>Comparte la identidad de tu equipo</h3><p>{grade?.name} · {grade?.label}</p>
       <form ref={formRef} onSubmit={submit}>
         {(['logo', 'mascot'] as const).map((kind) => <label key={kind}><span>{kind === 'logo' ? <ImagePlus size={16} /> : <PawPrint size={16} />}{kind === 'logo' ? 'Logo del equipo' : 'Mascota del equipo'}</span><input type="file" accept="image/png,image/jpeg" disabled={busy} onChange={(e) => { const file = e.target.files?.[0]; setFiles((current) => { const next = { ...current }; if (file) next[kind] = file; else delete next[kind]; return next; }); }} /></label>)}
-        <small>PNG o JPG · Hasta 3 MB por archivo</small>
+        <small>PNG o JPG · Hasta 2 MB por archivo.<br />Máximo por equipo: 20 logos y 20 mascotas.</small>
         {error && <p className="identity-error" role="alert">{error}</p>}{notice && <p className="identity-notice" role="status">{notice}</p>}
         <button className="button coral" disabled={busy || !Object.keys(files).length}>{busy ? 'Enviando…' : 'Enviar para revisión'}</button>
       </form>
