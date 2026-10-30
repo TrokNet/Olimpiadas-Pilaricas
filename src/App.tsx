@@ -39,6 +39,7 @@ import {
 import rawData from "./data/tournament.json";
 import OpeningCountdown from "./OpeningCountdown";
 import TeamIdentity from "./TeamIdentity";
+import Voting from "./Voting";
 import useAudience, { audienceVisitorId } from "./useAudience";
 import type {
   Entry,
@@ -849,6 +850,7 @@ export default function App() {
           </button>
         </div>
       </header>
+      <Voting data={data} />
       <main id="contenido" tabIndex={-1}>
         {activeRoute === "inicio" && (
           <>

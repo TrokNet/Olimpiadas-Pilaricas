@@ -21,6 +21,8 @@ from backend.fans import fans_engine, throttle
 router = APIRouter(tags=['Comunidad'])
 from backend.identity import router as identity_router
 router.include_router(identity_router)
+from backend.voting import router as voting_router
+router.include_router(voting_router)
 LIMA = ZoneInfo('America/Lima')
 GALLERY_DIR = Path(__file__).resolve().parents[1] / '.local' / 'gallery'
 MAX_IMAGE_BYTES = 3 * 1024 * 1024

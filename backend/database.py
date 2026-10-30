@@ -162,6 +162,11 @@ class AnalyticsTeamSelection(Base):
     grade_id = Column(String(80), ForeignKey('grades.id'), nullable=False, index=True)
     selected_at = Column(Integer, nullable=False)
 
+class TeamVote(Base):
+    __tablename__ = 'team_votes'
+    visitor_id = Column(String(64), primary_key=True)
+    grade_id = Column(String(80), ForeignKey('grades.id'), primary_key=True)
+
 class HistoricalAccess(Base):
     """Recovered HTML responses, not identifiable people or modern visit sessions."""
     __tablename__ = 'analytics_historical_accesses'

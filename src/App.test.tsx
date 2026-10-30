@@ -255,7 +255,7 @@ describe("Flujo del visitante sin automatizar navegador", () => {
     withPrimary();
     render(<App />);
     navigate("favoritos");
-    const teamButtons = screen.getAllByRole("button", { pressed: false });
+    const teamButtons = screen.getAllByRole("button", { pressed: false }).filter((button) => button.classList.contains("favorite-team"));
     expect(teamButtons.length).toBe(14);
     fireEvent.click(teamButtons[0]);
     fireEvent.click(teamButtons[1]);

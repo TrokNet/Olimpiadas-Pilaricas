@@ -109,6 +109,31 @@ class AccountPermissionsTests(unittest.TestCase):
         self.assertEqual(len(inbox),22)
         self.assertTrue(all('content' not in row['assets'] for row in inbox))
 
+    def test_supporter_votes_are_unique_replaceable_and_limited_to_three(self):
+        visitor='00000000-0000-4000-8000-000000000031'
+        other='00000000-0000-4000-8000-000000000032'
+        path='/api/voting';teams=['cuarto-primaria','tercero-primaria','4-anos']
+        def vote(ids,identifier=visitor,headers=None):
+            return self.client.put(path,json={'visitor_id':identifier,'team_ids':ids},headers=headers)
+        self.assertEqual(vote([]).status_code,422)
+        self.assertEqual(vote(teams+['5-anos']).status_code,422)
+        self.assertEqual(vote([teams[0],teams[0]]).status_code,422)
+        self.assertEqual(vote(['unknown']).status_code,422)
+        self.assertEqual(vote(teams).status_code,200)
+        self.assertEqual(vote(teams).status_code,200)
+        summary=self.client.get(path+'?visitor_id='+visitor).json()
+        self.assertEqual(summary['voters'],1);self.assertEqual(set(summary['my_votes']),set(teams))
+        self.assertEqual(sum(r['votes'] for r in summary['ranking']),3)
+        self.assertEqual(vote([teams[0]],headers={'Origin':'https://evil.example'}).status_code,403)
+        self.assertEqual(vote([teams[0]]).status_code,200)
+        self.assertEqual(vote([teams[0],teams[1]],other).status_code,200)
+        summary=self.client.get(path+'?visitor_id='+visitor).json();counts={r['team_id']:r['votes'] for r in summary['ranking']}
+        self.assertEqual(summary['voters'],2);self.assertEqual(summary['my_votes'],[teams[0]])
+        self.assertEqual(counts[teams[0]],2);self.assertEqual(counts[teams[1]],1);self.assertEqual(counts[teams[2]],0)
+        self.assertEqual(vote(['unknown']).status_code,422)
+        self.assertEqual(self.client.get(path+'?visitor_id='+visitor).json(),summary)
+        self.assertNotIn('visitor_id',str(summary))
+
     def setRules(self,sport):
         self.assertEqual(self.login('administrador').status_code,200)
         self.assertEqual(self.client.put('/api/rules/'+sport,json=self.rule(sport)).status_code,200)
