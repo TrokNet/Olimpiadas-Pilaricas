@@ -30,6 +30,9 @@
 .identity-upload button:disabled,.identity-inbox button:disabled{opacity:.5;cursor:not-allowed}
 @media(max-width:640px){.hero:has(.identity-upload[open]){overflow:visible}.identity-popover{width:min(350px,calc(100vw - 32px));padding:17px}.identity-inbox-body{padding:0 12px 14px}.identity-inbox>summary{padding:14px 12px}.identity-submissions{grid-template-columns:1fr}}
 .hero:has(.identity-upload[open]){overflow:visible;z-index:9}
-.identity-dashboard-access{position:relative;z-index:12;padding:9px var(--screen-gutter);border-bottom:1px solid var(--border);background:var(--bg)}
+.identity-dashboard-access{position:absolute;top:12px;left:var(--screen-gutter);z-index:12;padding:0;border:0;background:transparent}
 .identity-dashboard-access .identity-upload{margin-top:0}
 .identity-dashboard-access .identity-upload>summary{padding:6px 11px;font-size:12px}
+.hero:has(.identity-dashboard-access){padding-top:70px}
+.identity-dashboard-access .identity-upload>summary{background:color-mix(in srgb,var(--bg) 32%,transparent);backdrop-filter:blur(8px)}
+@media(max-width:640px){.hero:has(.identity-dashboard-access){padding-top:62px}.identity-dashboard-access{top:12px}}

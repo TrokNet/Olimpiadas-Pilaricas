@@ -851,7 +851,6 @@ export default function App() {
         </div>
       </header>
       <Voting data={data} />
-      {displayed && <div className="identity-dashboard-access"><TeamIdentity data={data} teamId={displayed.id} /></div>}
       <main id="contenido" tabIndex={-1}>
         {activeRoute === "inicio" && (
           <>
@@ -868,6 +867,7 @@ export default function App() {
               </div>
             )}
             <section className={`hero ${displayed?.id === "tercero-secundaria" ? "hero-mailhac" : ""}`}>
+              {displayed && <div className="identity-dashboard-access"><TeamIdentity data={data} teamId={displayed.id} /></div>}
               <div className="hero-copy">
                 <div className="eyebrow">
                   <span className="tiny-dot" /> 31 OCT — 08 NOV · LIMA, PERÚ
