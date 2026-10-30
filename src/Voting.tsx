@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { ArrowRight, Check, ChartNoAxesColumnIncreasing, Pause, Play, Trophy } from 'lucide-react';
+import { ArrowRight, Check, Pause, Play, Trophy, Search, X } from 'lucide-react';
 import { Modal } from './ui';
 import { audienceVisitorId } from './useAudience';
 import type { Tournament } from './types';
@@ -22,6 +22,7 @@ export default function Voting({ data }: { data: Tournament }) {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
+  const [search, setSearch] = useState('');
   const busy = useRef(false);
   const revision = useRef(0);
   const initialized = useRef(false);
@@ -46,7 +47,7 @@ export default function Voting({ data }: { data: Tournament }) {
     document.addEventListener('visibilitychange', update);
     return () => { controller.abort(); window.clearInterval(timer); document.removeEventListener('visibilitychange', update); };
   }, [refresh]);
-  const show = () => { setDraft(summary?.my_votes || []); setNotice(''); setOpen(true); void refresh().catch(() => setError('No se pudieron cargar las votaciones.')); };
+  const show = () => { setDraft(summary?.my_votes || []); setNotice(''); setSearch(''); setOpen(true); void refresh().catch(() => setError('No se pudieron cargar las votaciones.')); };
   const toggle = (team: string) => {
     setNotice('');
     if (draft.includes(team)) { setDraft(draft.filter((value) => value !== team)); return; }
@@ -64,6 +65,11 @@ export default function Voting({ data }: { data: Tournament }) {
   };
   const ranking = summary?.ranking || [];
   const maximum = Math.max(1, ...ranking.map((row) => row.votes));
+  const normalize = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const visibleRanking = ranking.map((row, index) => ({ ...row, position: index + 1 })).filter((row) => {
+    const grade = data.grades.find((g) => g.id === row.team_id);
+    return normalize(`${grade?.name} ${grade?.label}`).includes(normalize(search.trim()));
+  });
   const badge = (team: string) => data.art?.[team]?.image
     ? <img src={`${import.meta.env.BASE_URL}${data.art[team].image}`} alt="" loading="lazy" />
     : <Trophy size={16} />;
@@ -71,31 +77,35 @@ export default function Voting({ data }: { data: Tournament }) {
     <section className={`voting-ribbon ${paused ? 'voting-paused' : ''}`} aria-label="Votaciones de la hinchada">
       <button className="voting-title" onClick={show}><Trophy size={19} /><span className="voting-pulse" /><strong>Votaciones</strong></button>
       <div className="voting-ticker" aria-live="off">
-        {summary ? <div className="voting-ticker-track">{[0, 1].map((copy) => <div className="voting-ticker-set" key={copy} aria-hidden={copy === 1}>{ranking.map((row, index) => <span className={`voting-leader place-${index + 1}`} key={row.team_id}><b>{row.votes ? index + 1 : '—'}</b>{badge(row.team_id)}<span>{data.grades.find((g) => g.id === row.team_id)?.name}</span><strong>{row.votes.toLocaleString('es-PE')} <small>votos</small></strong></span>)}</div>)}</div> : <span className="voting-placeholder">{error ? 'Abre el panel para reintentar' : 'La hinchada elige. Apoya hasta 3 equipos.'}</span>}
+        {summary ? <div className="voting-ticker-track">{[0, 1].map((copy) => <div className="voting-ticker-set" key={copy} aria-hidden={copy === 1}>{ranking.map((row, index) => <span className={`voting-leader ${row.votes > 0 ? `place-${index + 1}` : ''}`} key={row.team_id}><b>{row.votes ? index + 1 : '—'}</b>{badge(row.team_id)}<span>{data.grades.find((g) => g.id === row.team_id)?.name}</span><strong>{row.votes.toLocaleString('es-PE')} <small>votos</small></strong></span>)}</div>)}</div> : <span className="voting-placeholder">{error ? 'Abre el panel para reintentar' : 'La hinchada elige. Apoya hasta 3 equipos.'}</span>}
       </div>
       <button className="voting-action" onClick={show}>Votar y ver ranking <ArrowRight size={16} /></button>
       <button className="voting-pause" onClick={() => setPaused(!paused)} aria-label={paused ? 'Reanudar movimiento de votaciones' : 'Pausar movimiento de votaciones'} aria-pressed={paused}>{paused ? <Play size={14} /> : <Pause size={14} />}</button>
     </section>
-    <Modal open={open} onClose={() => setOpen(false)} title="La hinchada elige" description="Vota por 1, 2 o hasta 3 equipos" className="voting-modal">
-      <div className="voting-panel-heading"><span><ChartNoAxesColumnIncreasing size={16} />{summary?.voters.toLocaleString('es-PE') || 0} navegadores votaron</span><strong>{draft.length} de 3 seleccionados</strong></div>
+    <Modal open={open} onClose={() => setOpen(false)} title="La hinchada elige" description="Elige hasta 3 equipos y haz sentir tu apoyo" className="voting-modal">
+      <span className="voting-crest" aria-hidden="true"><Trophy size={27} /></span>
+      <div className="voting-panel-heading"><span className="voting-slots" aria-hidden="true">{[0, 1, 2].map((slot) => <i key={slot} className={slot < draft.length ? 'filled' : ''} />)}</span><strong>{draft.length} de 3 equipos</strong><span className="voting-open"><i />Votación abierta</span></div>
+      <label className="voting-search"><Search size={17} /><input type="search" placeholder="Buscar equipo o grado" aria-label="Buscar equipo o grado para votar" value={search} onChange={(e) => setSearch(e.target.value)} />{search && <button aria-label="Limpiar búsqueda de equipos" onClick={() => setSearch('')}><X size={15} /></button>}</label>
       {!summary && !error && <p className="voting-message">Cargando votaciones…</p>}
-      {summary && summary.voters === 0 && <p className="voting-message">¡Inaugura la votación! Todavía no hay votos registrados.</p>}
-      <ol className="voting-ranking">{ranking.map((row, index) => {
+      {summary && summary.voters === 0 && <p className="voting-empty-intro"><strong>Sin votos todavía</strong><span>Sé el primero en apoyar a tu equipo.</span></p>}
+      <ol className="voting-ranking">{visibleRanking.map((row) => {
         const grade = data.grades.find((g) => g.id === row.team_id);
         const checked = draft.includes(row.team_id);
-        return <motion.li key={row.team_id} layout={reduced ? false : 'position'} transition={{ type: 'spring', stiffness: 250, damping: 30 }} className={`place-${index + 1} ${checked ? 'is-selected' : ''}`}>
-          <label><span className="voting-position">{row.votes ? index + 1 : '—'}</span><span className="voting-badge">{badge(row.team_id)}</span>
+        return <motion.li key={row.team_id} layout={reduced ? false : 'position'} transition={{ type: 'spring', stiffness: 250, damping: 30 }} className={`${row.votes > 0 ? `place-${row.position}` : ''} ${checked ? 'is-selected' : ''}`}>
+          <label><span className="voting-position">{row.votes ? row.position : '—'}</span><span className="voting-badge">{badge(row.team_id)}</span>
             <span className="voting-team"><strong>{grade?.name}</strong><small>{grade?.label}</small><span className="voting-meter"><motion.i initial={false} animate={{ width: `${row.votes / maximum * 100}%` }} transition={{ duration: reduced ? 0 : .65 }} /></span></span>
             <span className="voting-count"><strong>{row.votes.toLocaleString('es-PE')}</strong><small>{row.votes === 1 ? 'voto' : 'votos'}</small></span>
             <span className="voting-check"><input type="checkbox" checked={checked} disabled={saving} onChange={() => toggle(row.team_id)} aria-label={`Votar por ${grade?.name}`} /><span aria-hidden="true">{checked && <Check size={15} />}</span></span>
           </label>
         </motion.li>;
       })}</ol>
+      {summary && !visibleRanking.length && <p className="voting-message">No encontramos ese equipo. Prueba con su grado.</p>}
       <div className="voting-panel-footer">
+        <div className="voting-selected"><small>Tus selecciones ({draft.length}/3)</small><div>{draft.length ? draft.map((team) => <button key={team} disabled={saving} onClick={() => toggle(team)} aria-label={`Quitar voto a ${data.grades.find((g) => g.id === team)?.name}`}>{badge(team)}<span>{data.grades.find((g) => g.id === team)?.name}</span><X size={12} /></button>) : <span>Elige de 1 a 3 equipos de la lista.</span>}</div></div>
         {error && <p role="alert" className="voting-error">{error} <button onClick={() => void refresh().catch(() => setError('No se pudo conectar. Vuelve a intentarlo.'))}>Reintentar</button></p>}
         {notice && <p role="status" className="voting-message">{notice}</p>}
-        <button className="button coral" disabled={!summary || !draft.length || saving} onClick={() => void save()}>{saving ? 'Guardando…' : 'Guardar mis votos'}<Check size={17} /></button>
-        <small>Una selección por navegador, hasta 3 equipos. Cambiarla reemplaza tus votos anteriores. Esta votación no afecta los resultados deportivos.</small>
+        <button className="button coral" disabled={!summary || !draft.length || saving} onClick={() => void save()}>{saving ? 'Guardando…' : 'Confirmar mis votos'}<Check size={17} /></button>
+        <small>Puedes cambiar tu selección. Un voto por equipo y navegador. No afecta los resultados deportivos.{summary && summary.voters > 0 ? ` ${summary.voters.toLocaleString('es-PE')} navegadores votaron.` : ''}</small>
       </div>
     </Modal>
   </>;
