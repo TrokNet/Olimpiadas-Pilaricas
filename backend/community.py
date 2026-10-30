@@ -19,6 +19,8 @@ from backend.database import GalleryPhoto, Grade, Match, MatchPrediction
 from backend.fans import fans_engine, throttle
 
 router = APIRouter(tags=['Comunidad'])
+from backend.identity import router as identity_router
+router.include_router(identity_router)
 LIMA = ZoneInfo('America/Lima')
 GALLERY_DIR = Path(__file__).resolve().parents[1] / '.local' / 'gallery'
 MAX_IMAGE_BYTES = 3 * 1024 * 1024

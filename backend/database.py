@@ -105,6 +105,16 @@ class GalleryPhoto(Base):
     reviewed_at = Column(String(40), nullable=True)
     reviewed_by = Column(String(80), nullable=True)
 
+class TeamIdentitySubmission(Base):
+    __tablename__ = 'team_identity_submissions'
+    id = Column(String(40), primary_key=True)
+    team_id = Column(String(80), ForeignKey('grades.id'), nullable=False, index=True)
+    assets = Column(Text, nullable=False)
+    status = Column(String(20), nullable=False, default='pending')
+    created_at = Column(String(40), nullable=False)
+    reviewed_by = Column(String(80), nullable=True)
+    reviewed_at = Column(String(40), nullable=True)
+
 class Account(Base):
     __tablename__ = 'accounts'
     username = Column(String(80), primary_key=True)

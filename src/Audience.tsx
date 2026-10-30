@@ -12,6 +12,7 @@ import type { Tournament } from "./types";
 import { COLOR } from "./types";
 import type { CSSProperties } from "react";
 import ResultLogin from "./ResultLogin";
+import TeamIdentity from "./TeamIdentity";
 import "./audience.css";
 
 interface AudienceStats {
@@ -175,6 +176,7 @@ export default function Audience({
         <p role="status">Consultando visitas…</p>
       ) : (
         <>
+          <TeamIdentity data={data} review />
           <div className="audience-metrics">
             {[
               {

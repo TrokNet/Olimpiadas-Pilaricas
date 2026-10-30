@@ -38,6 +38,7 @@ import {
 } from "lucide-react";
 import rawData from "./data/tournament.json";
 import OpeningCountdown from "./OpeningCountdown";
+import TeamIdentity from "./TeamIdentity";
 import useAudience, { audienceVisitorId } from "./useAudience";
 import type {
   Entry,
@@ -934,6 +935,7 @@ export default function App() {
                     <ArrowRight size={17} />
                   </button>
                 </div>
+                {displayed && <TeamIdentity data={data} teamId={displayed.id} />}
                 <OpeningCountdown />
               </div>
               <div className="hero-visual">

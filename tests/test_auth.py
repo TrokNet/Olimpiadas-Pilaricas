@@ -61,6 +61,30 @@ class AccountPermissionsTests(unittest.TestCase):
         return next(m for m in self.data['matches'] if m['sport']==sport and m['kind']=='OFICIAL' and m['home_id'] and m['away_id'] and (bool(entries.intersection([m['home_id'],m['away_id']]))==own))
     def rule(self,sport):
         return {'win':3,'draw':1,'loss':0,'allow_draw':sport.startswith('futbol'),'wo_win':3,'wo_loss':0,'wo_score_for':3 if sport.startswith('futbol') else 2 if sport.startswith('voley') else 20,'wo_score_against':0,'wo_set_points':25,'tiebreakers':['points','difference','for']}
+    def test_team_identity_requires_admin_review_and_never_changes_artwork(self):
+        image='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jV2kAAAAASUVORK5CYII='
+        original=self.client.get('/api/tournament').json()['art']
+        self.assertEqual(self.client.get('/api/team-identity/review').status_code,401)
+        self.assertEqual(self.client.post('/api/team-identity',json={'team_id':'cuarto-primaria'}).status_code,422)
+        self.assertEqual(self.client.post('/api/team-identity',json={'team_id':'cuarto-primaria','logo':'invalid'}).status_code,415)
+        response=self.client.post('/api/team-identity',json={'team_id':'cuarto-primaria','logo':image,'mascot':image})
+        self.assertEqual(response.status_code,201);identifier=response.json()['id']
+        asset=f'/api/team-identity/{identifier}/image/logo'
+        self.assertEqual(self.client.get(asset).status_code,401)
+        self.login('cuarto-primaria')
+        self.assertEqual(self.client.get('/api/team-identity/review').status_code,403)
+        self.assertEqual(self.client.call('PATCH',f'/api/team-identity/{identifier}/review',json={'status':'approved'}).status_code,403)
+        self.client.post('/api/auth/logout');self.login('administrador')
+        inbox=self.client.get('/api/team-identity/review').json()['submissions']
+        self.assertEqual(len(inbox),1);self.assertEqual(inbox[0]['status'],'pending')
+        with self.client.opener.open(self.client.base+asset) as reply:
+            self.assertEqual(reply.status,200);self.assertTrue(reply.read().startswith(b'\x89PNG'))
+        self.assertEqual(self.client.call('PATCH',f'/api/team-identity/{identifier}/review',json={'status':'approved'},headers={'Origin':'https://evil.example'}).status_code,403)
+        self.assertEqual(self.client.call('PATCH',f'/api/team-identity/{identifier}/review',json={'status':'approved'}).status_code,200)
+        self.assertEqual(self.client.get('/api/tournament').json()['art'],original)
+        self.client.post('/api/auth/logout')
+        self.assertEqual(self.client.get(asset).status_code,401)
+
     def setRules(self,sport):
         self.assertEqual(self.login('administrador').status_code,200)
         self.assertEqual(self.client.put('/api/rules/'+sport,json=self.rule(sport)).status_code,200)
