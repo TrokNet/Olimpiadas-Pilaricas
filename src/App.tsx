@@ -851,6 +851,7 @@ export default function App() {
         </div>
       </header>
       <Voting data={data} />
+      {displayed && <div className="identity-dashboard-access"><TeamIdentity data={data} teamId={displayed.id} /></div>}
       <main id="contenido" tabIndex={-1}>
         {activeRoute === "inicio" && (
           <>
@@ -937,7 +938,6 @@ export default function App() {
                     <ArrowRight size={17} />
                   </button>
                 </div>
-                {displayed && <TeamIdentity data={data} teamId={displayed.id} />}
                 <OpeningCountdown />
               </div>
               <div className="hero-visual">
