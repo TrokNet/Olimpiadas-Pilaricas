@@ -40,6 +40,7 @@ import rawData from "./data/tournament.json";
 import OpeningCountdown from "./OpeningCountdown";
 import TeamIdentity from "./TeamIdentity";
 import Voting from "./Voting";
+import Audience from "./Audience";
 import useAudience, { audienceVisitorId } from "./useAudience";
 import type {
   Entry,
@@ -450,7 +451,6 @@ function TeamPicker({
   );
 }
 
-const Audience = lazy(() => import("./Audience"));
 
 export default function App() {
   useAudience();

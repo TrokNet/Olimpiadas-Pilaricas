@@ -134,6 +134,12 @@ class AccountPermissionsTests(unittest.TestCase):
         self.assertEqual(self.client.get(path+'?visitor_id='+visitor).json(),summary)
         self.assertNotIn('visitor_id',str(summary))
 
+    def test_html_revalidates_after_deployment(self):
+        for path in ['/', '/index.html']:
+            response=self.client.get(path)
+            self.assertEqual(response.status_code,200)
+            self.assertEqual(response.headers['Cache-Control'],'no-store')
+
     def setRules(self,sport):
         self.assertEqual(self.login('administrador').status_code,200)
         self.assertEqual(self.client.put('/api/rules/'+sport,json=self.rule(sport)).status_code,200)

@@ -18,7 +18,7 @@ app.include_router(analytics_router)
 @app.middleware('http')
 async def no_cache_sessions(request,call_next):
     response=await call_next(request)
-    if request.url.path.startswith('/api/'):
+    if request.url.path.startswith('/api/') or request.url.path in ('/', '/index.html'):
         response.headers['Cache-Control']='no-store'
     return response
 
