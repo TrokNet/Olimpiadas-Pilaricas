@@ -1,12 +1,16 @@
 // @vitest-environment happy-dom
 import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
-import Audience from "./Audience";
+import Audience, { localDate } from "./Audience";
 import raw from "./data/tournament.json";
 import type { Tournament } from "./types";
 afterEach(() => {
   cleanup();
   vi.unstubAllGlobals();
+});
+it("uses an ISO calendar date in Lima regardless of locale date separators", () => {
+  expect(localDate(Date.parse('2026-10-30T02:00:00Z'))).toBe('2026-10-29');
+  expect(localDate(Date.parse('2026-10-30T12:00:00Z'))).toBe('2026-10-30');
 });
 it("keeps counters behind admin login", () => {
   const fetch = vi.fn();

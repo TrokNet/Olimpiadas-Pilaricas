@@ -49,13 +49,16 @@ const dayLabel = (value: string) =>
     month: "short",
     timeZone: "America/Lima",
   }).format(new Date(`${value}T12:00:00-05:00`));
-const localDate = (stamp: number) =>
-  new Intl.DateTimeFormat("en-CA", {
+export const localDate = (stamp: number) => {
+  const parts = new Intl.DateTimeFormat("en-CA", {
     timeZone: "America/Lima",
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
-  }).format(new Date(stamp));
+  }).formatToParts(new Date(stamp));
+  const value = (type: string) => parts.find((part) => part.type === type)?.value;
+  return `${value('year')}-${value('month')}-${value('day')}`;
+};
 
 export default function Audience({
   data,
