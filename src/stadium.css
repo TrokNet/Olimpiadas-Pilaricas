@@ -27,9 +27,9 @@
 .match-card[data-sport*="basquet"] { --sport-tint: #c57729; }
 .match-card[data-sport*="voley"] { --sport-tint: #227db8; }
 .match-card[data-sport="voley-femenino"] { --sport-tint: #bb387a; }
-.match-card[data-sport]::before { content:"";position:absolute;inset:0 0 0 55%;pointer-events:none;opacity:.22;background-image:url('/images/sports-textures.webp');background-size:100% 300%;background-position:center top;mask-image:linear-gradient(90deg,transparent,#000 65%); }
-.match-card[data-sport*="basquet"]::before { background-position:center center; }
-.match-card[data-sport*="voley"]::before { background-position:center bottom; }
+.match-card[data-sport]::before { content:"";position:absolute;inset:0 0 0 55%;pointer-events:none;opacity:.22;background-image:url('/images/sports-textures.webp');background-size:auto 300%;background-repeat:no-repeat;background-position:right top;mask-image:linear-gradient(90deg,transparent,#000 65%); }
+.match-card[data-sport*="basquet"]::before { background-position:right center; }
+.match-card[data-sport*="voley"]::before { background-position:right bottom; }
 .match-card[data-sport] :is(.sport-label,.phase-label,.match-time,.versus,.match-arrow,.match-bottom>span) { position:relative;z-index:1; }
 .match-card[data-sport]:hover { border-color:var(--coral); background:linear-gradient(100deg,var(--panel),color-mix(in srgb,var(--sport-tint) 19%,var(--bg))); }
 .match-card[data-sport] .match-top { display: contents; }
